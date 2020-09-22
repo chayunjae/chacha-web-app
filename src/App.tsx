@@ -1,15 +1,19 @@
-import React from "react";
-import logo from "./logo.svg";
-import coming_soon from "./assets/soon.png";
-import "./App.css";
+import React, { useContext } from "react";
+import Fullpage from "./pages/Fullpage";
+import Parallaxpage from "./pages/Parallaxpage";
+import GlobalContext from "./utills/GlobalContext";
+import GlobalNavigationBar from "./components/GlobalNavigationBar";
 
+// 페이지 테마 교체 형식의 프로젝트
+// theme 1 full page
+// theme 2 parallax page
 function App() {
+  const { theme } = useContext(GlobalContext);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h2>Coming Soon..</h2>
-      </header>
+      <GlobalNavigationBar theme={theme} />
+      {theme === "full" ? <Fullpage /> : <Parallaxpage />}
     </div>
   );
 }
