@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c349a56f413d1c00bc9732600ab4032b",
+    "revision": "b4c3906cb6759a320e702bdf9a7a5cae",
     "url": "/chacha-web-app/index.html"
   },
   {
-    "revision": "28543a1e3d70492fb7ae",
+    "revision": "821772d71d3b93f5ea88",
     "url": "/chacha-web-app/static/css/main.5f361e03.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/chacha-web-app/static/js/2.7e6172c6.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "28543a1e3d70492fb7ae",
-    "url": "/chacha-web-app/static/js/main.5ad2886d.chunk.js"
+    "revision": "821772d71d3b93f5ea88",
+    "url": "/chacha-web-app/static/js/main.7b47fccf.chunk.js"
   },
   {
     "revision": "d57dbac7524a4948a320",
