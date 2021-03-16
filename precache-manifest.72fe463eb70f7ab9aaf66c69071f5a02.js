@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c1ee4a0922e9619393ded2cc3b52178c",
+    "revision": "561008b1535f3e6f7029fbe2144c9b8d",
     "url": "/chacha-web-app/index.html"
   },
   {
-    "revision": "8f380e188832245e08e4",
-    "url": "/chacha-web-app/static/css/main.5f361e03.chunk.css"
+    "revision": "5c313090f0d7b225ea3c",
+    "url": "/chacha-web-app/static/css/main.523f09c5.chunk.css"
   },
   {
     "revision": "fe892a15675f3365b116",
@@ -16,15 +16,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/chacha-web-app/static/js/2.7e6172c6.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "8f380e188832245e08e4",
-    "url": "/chacha-web-app/static/js/main.677c88c0.chunk.js"
+    "revision": "5c313090f0d7b225ea3c",
+    "url": "/chacha-web-app/static/js/main.0014742c.chunk.js"
   },
   {
     "revision": "d57dbac7524a4948a320",
     "url": "/chacha-web-app/static/js/runtime-main.169bc69b.js"
   },
   {
-    "revision": "5d5d9eefa31e5e13a6610d9fa7a283bb",
-    "url": "/chacha-web-app/static/media/logo.5d5d9eef.svg"
+    "revision": "ee7cd8ed2dcec943251eb2763684fc6f",
+    "url": "/chacha-web-app/static/media/logo.ee7cd8ed.svg"
   }
 ]);
