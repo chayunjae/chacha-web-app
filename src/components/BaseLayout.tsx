@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import BaseLayoutWrap from "./BaseLayoutStyle";
 import Header from "./Header";
+import WhiteLogo from "../images/logo-white.png";
+import BlackLogo from "../images/logo-black.png";
 
 type Props = {
     children: JSX.Element;
@@ -21,8 +23,7 @@ function BaseLayout(props: Props) {
                 justifyContent: "center",
                 paddingTop: 90
             }}>
-                <img alt="" src={`chacha-web-app/logo-${globalTheme ?
-                    "black" : "white"}.png`} />
+                <img alt="" src={globalTheme ? BlackLogo : WhiteLogo} />
             </div>
             {/* 임시 */}
             {/* <div className="main-wrap"> */}

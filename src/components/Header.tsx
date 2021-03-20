@@ -10,7 +10,7 @@ type Props = {
 function Header(props: Props) {
     return (
         <div className="header-wrap pdrl-20">
-            {/* <div className="header-logo" /> */}
+            <div className="header-logo" />
             <div className="header-nav-wrap">
                 <div className={'header-icon'}>
                     <FontAwesomeIcon icon={faGithub} />

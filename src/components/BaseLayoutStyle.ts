@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import WhiteLogo from "../images/logo-white.png";
+import BlackLogo from "../images/logo-black.png";
 
 export default styled.section<{ theme: boolean }>`
   transition: all 0.3s ease;
@@ -25,9 +27,7 @@ export default styled.section<{ theme: boolean }>`
     height: 30px;
     transition: all 0.3s ease;
     background-image: ${({ theme }) =>
-      theme === true
-        ? `url(chacha-web-app/logo-black.png)`
-        : `url(chacha-web-app/logo-white.png)`};
+      theme === true ? `url(${BlackLogo})` : `url(${WhiteLogo})`};
     background-size: 30px;
     background-repeat: no-repeat;
   }
