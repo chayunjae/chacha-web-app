@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/chacha-web-app/precache-manifest.46d7b7759acde2471064d5bd5656076d.js"
+  "/chacha-web-app/precache-manifest.d3f44c47900230955f492e8cf37d2bc5.js"
 );
 
 self.addEventListener('message', (event) => {

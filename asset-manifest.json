@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/chacha-web-app/static/css/main.82c5a6c6.chunk.css",
-    "main.js": "/chacha-web-app/static/js/main.d7469991.chunk.js",
-    "main.js.map": "/chacha-web-app/static/js/main.d7469991.chunk.js.map",
+    "main.css": "/chacha-web-app/static/css/main.8ae0be8a.chunk.css",
+    "main.js": "/chacha-web-app/static/js/main.94813388.chunk.js",
+    "main.js.map": "/chacha-web-app/static/js/main.94813388.chunk.js.map",
     "runtime-main.js": "/chacha-web-app/static/js/runtime-main.169bc69b.js",
     "runtime-main.js.map": "/chacha-web-app/static/js/runtime-main.169bc69b.js.map",
     "static/js/2.ef73ede0.chunk.js": "/chacha-web-app/static/js/2.ef73ede0.chunk.js",
     "static/js/2.ef73ede0.chunk.js.map": "/chacha-web-app/static/js/2.ef73ede0.chunk.js.map",
     "index.html": "/chacha-web-app/index.html",
-    "precache-manifest.46d7b7759acde2471064d5bd5656076d.js": "/chacha-web-app/precache-manifest.46d7b7759acde2471064d5bd5656076d.js",
+    "precache-manifest.d3f44c47900230955f492e8cf37d2bc5.js": "/chacha-web-app/precache-manifest.d3f44c47900230955f492e8cf37d2bc5.js",
     "service-worker.js": "/chacha-web-app/service-worker.js",
-    "static/css/main.82c5a6c6.chunk.css.map": "/chacha-web-app/static/css/main.82c5a6c6.chunk.css.map",
+    "static/css/main.8ae0be8a.chunk.css.map": "/chacha-web-app/static/css/main.8ae0be8a.chunk.css.map",
     "static/js/2.ef73ede0.chunk.js.LICENSE.txt": "/chacha-web-app/static/js/2.ef73ede0.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.169bc69b.js",
     "static/js/2.ef73ede0.chunk.js",
-    "static/css/main.82c5a6c6.chunk.css",
-    "static/js/main.d7469991.chunk.js"
+    "static/css/main.8ae0be8a.chunk.css",
+    "static/js/main.94813388.chunk.js"
   ]
 }
