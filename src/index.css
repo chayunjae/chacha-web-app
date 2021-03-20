@@ -21,6 +21,26 @@ button {
   outline: 0;
 }
 
+.cur,
 button.cur {
   cursor: pointer;
+}
+
+/* ---------------------- */
+.pd-15 {
+  padding: 15px;
+}
+.pdrl-15 {
+  padding: 0 15px;
+}
+/* ---------------------- */
+
+/* ---------------------- */
+:root {
+  --dark-bg-color: black;
+  --dark-font-color: white;
+  --dark-toggle-bg-color: purple;
+  --white-bg-color: white;
+  --white-font-color: black;
+  --white-toggle-bg-color: rgb(224, 221, 224);
 }

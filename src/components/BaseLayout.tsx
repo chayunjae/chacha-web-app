@@ -1,26 +1,22 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import BaseLayoutWrap from "./BaseLayoutStyle";
+import Header from "./Header";
 
-type Props ={
-    children:JSX.Element;
+type Props = {
+    children: JSX.Element;
 }
 
-function BaseLayout(props:Props) {
-    const [globalTheme,setTheme] = useState("black")
-
+function BaseLayout(props: Props) {
+    const [globalTheme, setTheme] = useState(false)
+    console.log(globalTheme)
     return (
         <BaseLayoutWrap theme={globalTheme}>
-            <div style={{padding:10}}>
+            <Header
+                globalTheme={globalTheme}
+                setTheme={setTheme}
+            />
+            <div className="main-wrap">
                 {props.children}
-            </div>
-            <div style={{margin:10}}>
-                <button className="cur" onClick={()=>{
-                    if(globalTheme==="black") {
-                            setTheme("white")
-                    }else{
-                        setTheme("black")
-                    }
-                }}>theme change</button>
             </div>
         </BaseLayoutWrap>
     );
