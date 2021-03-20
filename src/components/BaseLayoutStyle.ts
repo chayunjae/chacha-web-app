@@ -12,7 +12,7 @@ export default styled.section<{ theme: boolean }>`
     position: fixed;
     box-sizing: border-box;
     width: 100%;
-    height: 40px;
+    height: 50px;
   }
   .header-wrap,
   .header-nav-wrap,
@@ -22,6 +22,14 @@ export default styled.section<{ theme: boolean }>`
   }
   .header-logo {
     flex: 1;
+    height: 30px;
+    transition: all 0.3s ease;
+    background-image: ${({ theme }) =>
+      theme === true
+        ? `url(chacha-web-app/logo-black.png)`
+        : `url(chacha-web-app/logo-white.png)`};
+    background-size: 30px;
+    background-repeat: no-repeat;
   }
   .header-nav-wrap {
     flex: 2;
@@ -75,6 +83,6 @@ export default styled.section<{ theme: boolean }>`
 
   // 메인 CSS
   .main-wrap {
-    padding-top: 40px;
+    padding-top: 50px;
   }
 `;

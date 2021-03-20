@@ -15,7 +15,18 @@ function BaseLayout(props: Props) {
                 globalTheme={globalTheme}
                 setTheme={setTheme}
             />
-            <div className="main-wrap">
+            {/* 임시 */}
+            <div style={{
+                display: "flex",
+                justifyContent: "center",
+                paddingTop: 90
+            }}>
+                <img alt="" src={`chacha-web-app/logo-${globalTheme ?
+                    "black" : "white"}.png`} />
+            </div>
+            {/* 임시 */}
+            {/* <div className="main-wrap"> */}
+            <div>
                 {props.children}
             </div>
         </BaseLayoutWrap>
