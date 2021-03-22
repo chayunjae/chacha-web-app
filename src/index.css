@@ -30,11 +30,14 @@ button.cur {
 .pd-15 {
   padding: 15px;
 }
+.pd-20 {
+  padding: 20px;
+}
 .pdrl-15 {
   padding: 0 15px;
 }
-.pdrl-20 {
-  padding: 0 15px;
+.pdr-55-l-15 {
+  padding: 0 55px 0 15px;
 }
 /* ---------------------- */
 
@@ -43,7 +46,93 @@ button.cur {
   --dark-bg-color: black;
   --dark-font-color: white;
   --dark-toggle-bg-color: purple;
+  --dark-menu-bg-color: rgb(255, 255, 255, 0.6);
   --white-bg-color: white;
   --white-font-color: black;
   --white-toggle-bg-color: rgb(224, 221, 224);
+  --white-menu-bg-color: rgb(255, 255, 255, 0.6);
 }
+/* ---------------------- */
+
+/* ---------------------- */
+.show-box {
+  animation-name: showbox;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+.hide-box {
+  animation-name: hidebox;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.ham-ani-1 {
+  animation-name: hamani1;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+.ham-ani-2 {
+  animation-name: hamani2;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.ham-ani-none {
+  transform: translate(0px, 0%) rotate(0turn);
+  /* animation-name: hamaninone;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards; */
+}
+
+@keyframes showbox {
+  0% {
+    opacity: 0;
+    z-index: -1;
+  }
+
+  100% {
+    opacity: 1;
+    z-index: 19;
+  }
+}
+@keyframes hidebox {
+  0% {
+    opacity: 1;
+    z-index: 19;
+  }
+  100% {
+    opacity: 0;
+    z-index: -1;
+  }
+}
+
+@keyframes hamani1 {
+  0% {
+    transform: none;
+  }
+  100% {
+    transform: translate(0px, 245%) rotate(0.38turn);
+  }
+}
+@keyframes hamani2 {
+  0% {
+    transform: none;
+  }
+  100% {
+    transform: translate(0px, -200%) rotate(0.62turn);
+  }
+}
+@keyframes hamaninone {
+  0% {
+    transform: translate(0px, 245%) rotate(0.38turn);
+  }
+  100% {
+    transform: translate(0px, 0%) rotate(0turn);
+  }
+}
+/* ---------------------- */

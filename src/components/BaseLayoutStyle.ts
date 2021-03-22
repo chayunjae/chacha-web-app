@@ -61,11 +61,20 @@ export default styled.section<{ theme: boolean }>`
     background-color: #fff;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.7);
   }
+  .hamberger-wrap {
+    position: fixed;
+    z-index: 20;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 50px;
+    right: 0;
+  }
   .menu-wrap {
     display: flex;
     width: 25px;
     height: 30px;
-    margin-left: 15px;
+    margin-right: 15px;
     flex-direction: column;
     justify-content: center;
   }
@@ -79,6 +88,21 @@ export default styled.section<{ theme: boolean }>`
   }
   .menu-btn-bar:last-child {
     margin-bottom: 0px;
+  }
+
+  .menu-modal-wrap {
+    position: fixed;
+    opacity: 0;
+    z-index: 0;
+    transition: all 0.3s ease;
+    background-color: ${({ theme }) =>
+      theme === true
+        ? `var(--dark-menu-bg-color)`
+        : `var(--white-menu-bg-color)`};
+    backdrop-filter: blur(7px);
+    color: var(--white-font-color);
+    width: 100%;
+    height: 100%;
   }
 
   // 메인 CSS
