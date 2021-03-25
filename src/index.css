@@ -70,23 +70,29 @@ button.cur {
 
 .ham-ani-1 {
   animation-name: hamani1;
-  animation-duration: 0.4s;
-  animation-timing-function: ease-in-out;
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
   animation-fill-mode: forwards;
 }
 .ham-ani-2 {
   animation-name: hamani2;
-  animation-duration: 0.4s;
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.ham-ani-none.none1 {
+  animation-name: hamaninone1;
+  animation-duration: 0.3s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
 }
 
-.ham-ani-none {
-  transform: translate(0px, 0%) rotate(0turn);
-  /* animation-name: hamaninone;
-  animation-duration: 0.4s;
+.ham-ani-none.none2 {
+  animation-name: hamaninone2;
+  animation-duration: 0.3s;
   animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards; */
+  animation-fill-mode: forwards;
 }
 
 @keyframes showbox {
@@ -127,13 +133,23 @@ button.cur {
     transform: translate(0px, -200%) rotate(0.62turn);
   }
 }
-@keyframes hamaninone {
+@keyframes hamaninone1 {
   0% {
     transform: translate(0px, 245%) rotate(0.38turn);
   }
 
   100% {
-    transform: translate(0px, 0%) rotate(0turn);
+    transform: none;
+  }
+}
+
+@keyframes hamaninone2 {
+  0% {
+    transform: translate(0px, -200%) rotate(0.62turn);
+  }
+
+  100% {
+    transform: none;
   }
 }
 

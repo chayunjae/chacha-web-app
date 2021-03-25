@@ -17,9 +17,9 @@ function BaseLayout(props: Props) {
         <BaseLayoutWrap theme={globalTheme}>
             <div className="hamberger-wrap">
                 <div className={`menu-wrap cur ${menuToggle ? "origin-menu" : "trans-menu"}`} onClick={() => setMenuToggle(!menuToggle)}>
-                    <div className={`menu-btn-bar ${menuToggle ? "ham-ani-1" : "ham-ani-none"}`} />
+                    <div className={`menu-btn-bar ${menuToggle ? "ham-ani-1" : "ham-ani-none none1"}`} />
                     <div className={`menu-btn-bar ${menuToggle ? "hide-box" : "show-box"}`} />
-                    <div className={`menu-btn-bar ${menuToggle ? "ham-ani-2" : "ham-ani-none"}`} />
+                    <div className={`menu-btn-bar ${menuToggle ? "ham-ani-2" : "ham-ani-none none2"}`} />
                 </div>
             </div>
             <MenuComponent show={menuToggle} />
