@@ -131,6 +131,55 @@ button.cur {
   0% {
     transform: translate(0px, 245%) rotate(0.38turn);
   }
+
+  100% {
+    transform: translate(0px, 0%) rotate(0turn);
+  }
+}
+
+@-webkit-keyframes showbox {
+  0% {
+    opacity: 0;
+    z-index: -1;
+  }
+
+  100% {
+    opacity: 1;
+    z-index: 19;
+  }
+}
+@-webkit-keyframes hidebox {
+  0% {
+    opacity: 1;
+    z-index: 19;
+  }
+  100% {
+    opacity: 0;
+    z-index: -1;
+  }
+}
+
+@-webkit-keyframes hamani1 {
+  0% {
+    transform: none;
+  }
+  100% {
+    transform: translate(0px, 245%) rotate(0.38turn);
+  }
+}
+@-webkit-keyframes hamani2 {
+  0% {
+    transform: none;
+  }
+  100% {
+    transform: translate(0px, -200%) rotate(0.62turn);
+  }
+}
+@-webkit-keyframes hamaninone {
+  0% {
+    transform: translate(0px, 245%) rotate(0.38turn);
+  }
+
   100% {
     transform: translate(0px, 0%) rotate(0turn);
   }

@@ -35,7 +35,9 @@ function BaseLayout(props: Props) {
                 justifyContent: "center",
                 paddingTop: 90
             }}>
-                <img alt="" style={{ width: "30%" }} src={globalTheme ? BlackLogo : WhiteLogo} />
+                <div style={{ width: 300 }}>
+                    <img alt="" style={{ width: "100%" }} src={globalTheme ? BlackLogo : WhiteLogo} />
+                </div>
             </div>
             {/* 임시 */}
             {/* <div className="main-wrap"> */}
