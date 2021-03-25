@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/chacha-web-app/static/css/main.443a4f60.chunk.css",
-    "main.js": "/chacha-web-app/static/js/main.fe6d6c70.chunk.js",
-    "main.js.map": "/chacha-web-app/static/js/main.fe6d6c70.chunk.js.map",
+    "main.js": "/chacha-web-app/static/js/main.9966af77.chunk.js",
+    "main.js.map": "/chacha-web-app/static/js/main.9966af77.chunk.js.map",
     "runtime-main.js": "/chacha-web-app/static/js/runtime-main.169bc69b.js",
     "runtime-main.js.map": "/chacha-web-app/static/js/runtime-main.169bc69b.js.map",
     "static/js/2.d0a2b04e.chunk.js": "/chacha-web-app/static/js/2.d0a2b04e.chunk.js",
     "static/js/2.d0a2b04e.chunk.js.map": "/chacha-web-app/static/js/2.d0a2b04e.chunk.js.map",
     "index.html": "/chacha-web-app/index.html",
-    "precache-manifest.d56b606d52eed08237351a7cfc19eda2.js": "/chacha-web-app/precache-manifest.d56b606d52eed08237351a7cfc19eda2.js",
+    "precache-manifest.8bef11fd6647bbb611478ffa0e6feb46.js": "/chacha-web-app/precache-manifest.8bef11fd6647bbb611478ffa0e6feb46.js",
     "service-worker.js": "/chacha-web-app/service-worker.js",
     "static/css/main.443a4f60.chunk.css.map": "/chacha-web-app/static/css/main.443a4f60.chunk.css.map",
     "static/js/2.d0a2b04e.chunk.js.LICENSE.txt": "/chacha-web-app/static/js/2.d0a2b04e.chunk.js.LICENSE.txt",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.169bc69b.js",
     "static/js/2.d0a2b04e.chunk.js",
     "static/css/main.443a4f60.chunk.css",
-    "static/js/main.fe6d6c70.chunk.js"
+    "static/js/main.9966af77.chunk.js"
   ]
 }
