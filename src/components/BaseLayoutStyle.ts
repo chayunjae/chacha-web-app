@@ -104,6 +104,21 @@ export default styled.section<{ theme: boolean }>`
     width: 100%;
     height: 100%;
   }
+  .delay-view {
+    opacity: 0;
+    transition-delay: all 0.6s ease;
+    position: absolute;
+    opacity: 0;
+    z-index: 0;
+  }
+
+  .menu-nav-wrap {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
 
   // 메인 CSS
   .main-wrap {

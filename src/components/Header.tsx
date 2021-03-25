@@ -7,12 +7,14 @@ type Props = {
     setTheme: (bool: boolean) => void;
     menuToggle: boolean;
     setMenuToggle: (bool: boolean) => void;
+    curPage: "INDEX" | "SKILLS" | "ABOUT" | "PROJECT" | "CONTACT"
 }
 
 function Header(props: Props) {
     return (
         <div className="header-wrap pdr-55-l-15">
-            <div className={`header-logo ${props.menuToggle ? "hide-box" : "show-box"}`} />
+            {props.curPage !== "INDEX" && <div className={`header-logo ${props.menuToggle ? "hide-box" : "show-box"}`} />}
+
             <div className="header-nav-wrap">
                 <div className={`header-icon ${props.menuToggle ? "hide-box" : "show-box"}`}>
                     <FontAwesomeIcon icon={faGithub} />

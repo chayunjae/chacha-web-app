@@ -56,12 +56,14 @@ button.cur {
 
 /* ---------------------- */
 .show-box {
+  transition: all 0.3s ease;
   animation-name: showbox;
   animation-duration: 0.3s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
 }
 .hide-box {
+  transition: all 0.3s ease;
   animation-name: hidebox;
   animation-duration: 0.2s;
   animation-timing-function: ease-in-out;
@@ -95,6 +97,20 @@ button.cur {
   animation-fill-mode: forwards;
 }
 
+.show-box_view {
+  animation-name: showboxview;
+  animation-delay: 0.4s;
+  animation-duration: 0.6s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+.hide-box_view {
+  animation-name: hideboxview;
+  animation-delay: 0.4s;
+  animation-duration: 0.6s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
 @keyframes showbox {
   0% {
     opacity: 0;
@@ -110,6 +126,27 @@ button.cur {
   0% {
     opacity: 1;
     z-index: 19;
+  }
+  100% {
+    opacity: 0;
+    z-index: -1;
+  }
+}
+@keyframes showboxview {
+  0% {
+    opacity: 0;
+    z-index: -1;
+  }
+
+  100% {
+    opacity: 1;
+    z-index: 2;
+  }
+}
+@keyframes hideboxview {
+  0% {
+    opacity: 1;
+    z-index: 2;
   }
   100% {
     opacity: 0;
@@ -191,13 +228,5 @@ button.cur {
     transform: translate(0px, -200%) rotate(0.62turn);
   }
 }
-@-webkit-keyframes hamaninone {
-  0% {
-    transform: translate(0px, 245%) rotate(0.38turn);
-  }
 
-  100% {
-    transform: translate(0px, 0%) rotate(0turn);
-  }
-}
 /* ---------------------- */
