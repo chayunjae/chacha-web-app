@@ -75,19 +75,22 @@ function App() {
         paddingTop: 90
       }}>
         <div className={`delay-view ${curPage === "ABOUT" && "show-box_view"}`}>
-          <div style={{ textAlign: "center", fontWeight: "bolder", fontSize: "6rem" }}>ABOUT.</div>
+          <div style={{ textAlign: "center", fontWeight: "bolder", fontSize: "20vw" }}>ABOUT.</div>
         </div>
         <div className={`delay-view ${curPage === "SKILLS" && "show-box_view"}`}>
-          <div style={{ textAlign: "center", fontWeight: "bolder", fontSize: "6rem" }}>SKILLS.</div>
+          <div style={{ textAlign: "center", fontWeight: "bolder", fontSize: "20vw" }}>SKILLS.</div>
         </div>
         <div className={`delay-view ${curPage === "PROJECT" && "show-box_view"}`}>
-          <div style={{ textAlign: "center", fontWeight: "bolder", fontSize: "6rem" }}>PROJECT.</div>
+          <div style={{ textAlign: "center", fontWeight: "bolder", fontSize: "20vw" }}>PROJECT.</div>
         </div>
         <div className={`delay-view ${curPage === "CONTACT" && "show-box_view"}`}>
-          <div style={{ textAlign: "center", fontWeight: "bolder", fontSize: "6rem" }}>CONTACT.</div>
+          <div style={{ textAlign: "center", fontWeight: "bolder", fontSize: "20vw" }}>CONTACT.</div>
         </div>
         <div className={`delay-view ${curPage === "INDEX" && "show-box_view"}`}>
-          <img alt="" style={{ width: "100%" }} src={globalTheme ? BlackLogo : WhiteLogo} />
+          <div style={{ width: 350 }}>
+            <img alt="" style={{ width: "100%" }} src={globalTheme ? BlackLogo : WhiteLogo} />
+          </div>
+
         </div>
       </div>
     </BaseLayout>
