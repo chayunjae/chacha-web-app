@@ -5,11 +5,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #000;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.time-font {
+  font-family: "Kumar One", cursive;
 }
 
 h1 {
@@ -51,6 +56,7 @@ button.cur {
   --white-font-color: black;
   --white-toggle-bg-color: rgb(224, 221, 224);
   --white-menu-bg-color: rgb(255, 255, 255, 0.6);
+  --gray-bg-color: rgba(111, 111, 111, 0.3);
 }
 /* ---------------------- */
 
@@ -108,6 +114,49 @@ button.cur {
   animation-name: hideboxview;
   animation-delay: 0.4s;
   animation-duration: 0.6s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+.tiktok {
+  margin: 0 3px;
+  opacity: 0;
+  animation-name: tik;
+  animation-duration: 0.9s;
+  animation-iteration-count: infinite;
+}
+
+.show-clock {
+  animation-name: clockwrap;
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+.hide-clock {
+  animation-name: clockwrapreturn;
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+.none-clock {
+  top: 3%;
+  left: 81.5%;
+  width: 0%;
+  height: 0%;
+}
+.clock-content-none {
+  opacity: 0;
+}
+.clock-content-show {
+  opacity: 0;
+  animation-name: showbox;
+  animation-delay: 0.4s;
+  animation-duration: 0.6s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+.clock-content-hide {
+  animation-name: hidebox;
+  animation-duration: 0.1s;
   animation-timing-function: ease;
   animation-fill-mode: forwards;
 }
@@ -229,4 +278,90 @@ button.cur {
   }
 }
 
+@keyframes tik {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes tik {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes clockwrap {
+  0% {
+    top: 3%;
+    left: 84.5%;
+    border-radius: 50px;
+    width: 0%;
+    height: 0%;
+  }
+  100% {
+    top: 0%;
+    border-radius: 0px;
+    left: 0%;
+    z-index: 50;
+    width: 100%;
+    height: 100%;
+  }
+}
+@-webkit-keyframes clockwrap {
+  0% {
+    top: 3%;
+    left: 84.5%;
+    border-radius: 50px;
+    width: 0%;
+    height: 0%;
+  }
+  100% {
+    top: 0%;
+    border-radius: 0px;
+    left: 0%;
+    z-index: 50;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@keyframes clockwrapreturn {
+  0% {
+    top: 0%;
+    border-radius: 0px;
+    left: 0%;
+    z-index: 50;
+    width: 100%;
+    height: 100%;
+  }
+  100% {
+    top: 3%;
+    left: 83.5%;
+    border-radius: 50px;
+    width: 0%;
+    height: 0%;
+  }
+}
+@-webkit-keyframes clockwrapreturn {
+  0% {
+    top: 0%;
+    border-radius: 0px;
+    left: 0%;
+    z-index: 50;
+    width: 100%;
+    height: 100%;
+  }
+  100% {
+    top: 3%;
+    left: 83.5%;
+    border-radius: 50px;
+    width: 0%;
+    height: 0%;
+  }
+}
 /* ---------------------- */

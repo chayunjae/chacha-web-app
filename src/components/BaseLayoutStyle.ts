@@ -103,13 +103,16 @@ export default styled.section<{ theme: boolean }>`
     color: var(--white-font-color);
     width: 100%;
     height: 100%;
+    &.show-default {
+      display: none;
+    }
   }
   .delay-view {
     opacity: 0;
     transition-delay: all 0.6s ease;
     position: absolute;
     opacity: 0;
-    z-index: 0;
+    z-index: -1;
   }
 
   .menu-nav-wrap {
@@ -120,6 +123,33 @@ export default styled.section<{ theme: boolean }>`
     height: 100%;
   }
 
+  .clock {
+    display: flex;
+    height: 30px;
+    line-height: 35px;
+    margin: 0 15px;
+    padding: 0 10px;
+    transition: all 0.4s ease;
+    &:hover {
+      background-color: var(--gray-bg-color);
+      backdrop-filter: blur(7px);
+      border-radius: 6px;
+    }
+    &.hide-data {
+      opacity: 0 !important;
+    }
+  }
+
+  .clock-box {
+    background-color: var(--gray-bg-color);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16vw;
+  }
   // 메인 CSS
   .main-wrap {
     padding-top: 50px;
