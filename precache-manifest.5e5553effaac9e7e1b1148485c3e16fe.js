@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8fcde4d60a8f39a4c69b915e02798c65",
+    "revision": "bc0f90f8dcff310cf607d98fe365302b",
     "url": "/chacha-web-app/index.html"
   },
   {
-    "revision": "f5d92eba6a47503d38bb",
-    "url": "/chacha-web-app/static/css/main.443a4f60.chunk.css"
+    "revision": "a0a140842bc2fd33b285",
+    "url": "/chacha-web-app/static/css/main.049ebf2f.chunk.css"
   },
   {
-    "revision": "08e0563ddc80d6f88974",
-    "url": "/chacha-web-app/static/js/2.d0a2b04e.chunk.js"
+    "revision": "19a42516ac2ccd49dd3e",
+    "url": "/chacha-web-app/static/js/2.8dda3dc7.chunk.js"
   },
   {
     "revision": "308d2d97fd519422d20953c3e51f94e3",
-    "url": "/chacha-web-app/static/js/2.d0a2b04e.chunk.js.LICENSE.txt"
+    "url": "/chacha-web-app/static/js/2.8dda3dc7.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f5d92eba6a47503d38bb",
-    "url": "/chacha-web-app/static/js/main.9966af77.chunk.js"
+    "revision": "a0a140842bc2fd33b285",
+    "url": "/chacha-web-app/static/js/main.35e97986.chunk.js"
   },
   {
     "revision": "d57dbac7524a4948a320",
