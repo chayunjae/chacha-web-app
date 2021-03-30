@@ -131,18 +131,17 @@ export default styled.section<{ theme: boolean }>`
     padding: 0 10px;
     transition: all 0.4s ease;
     &:hover {
-      background-color: var(--gray-bg-color);
+      background-color: ${({ theme }) =>
+        theme === true ? `var(--gray-w-bg-color)` : `var(--gray-b-bg-color)`};
       backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
       border-radius: 6px;
-    }
-    &.hide-data {
-      opacity: 0 !important;
     }
   }
 
   .clock-box {
-    background-color: var(--gray-bg-color);
-    backdrop-filter: blur(10px);
+    background-color: ${({ theme }) =>
+      theme === true ? `var(--gray-w-bg-color)` : `var(--gray-b-bg-color)`};
     position: fixed;
     overflow: hidden;
     display: flex;
