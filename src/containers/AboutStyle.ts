@@ -5,6 +5,7 @@ export default styled.section<{ theme: boolean }>`
   .title-wrap {
     font-weight: bolder;
     font-size: 16vw;
+    user-select: none;
   }
   .title-line {
     height: 3px;

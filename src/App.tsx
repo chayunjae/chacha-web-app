@@ -7,7 +7,7 @@ import PROJECT from './containers/Project'
 import CONTACT from './containers/Contact'
 
 function App() {
-  const [curPage, setCurPage] = useState<"INDEX" | "ABOUT" | "SKILLS" | "PROJECT" | "CONTACT">('INDEX');
+  const [curPage, setCurPage] = useState<"INDEX" | "ABOUT" | "SKILLS" | "PROJECT" | "CONTACT">('PROJECT');
   const [globalTheme, setTheme] = useState(false)
   return (
     <BaseLayout
