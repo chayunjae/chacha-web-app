@@ -19,6 +19,7 @@ export default styled.section<{ theme: boolean }>`
   .contents-wrap {
     height: 0;
     padding: 0;
+    overflow-x: scroll;
     /* border: 1px solid #fff; */
     //PIN 위치 표시 보더
   }
@@ -32,6 +33,15 @@ export default styled.section<{ theme: boolean }>`
     display: none;
     height: 0vw;
   }
+  .round-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    font-size: 2vw;
+    font-weight: bolder;
+    color: #000;
+  }
   .round {
     display: flex;
     justify-content: center;
@@ -40,6 +50,10 @@ export default styled.section<{ theme: boolean }>`
     font-size: 2vw;
     font-weight: bolder;
     color: #000;
+  }
+  .round-box {
+    width: 8.5vw;
+    height: 8.5vw;
   }
   .start-el,
   .end-el {
