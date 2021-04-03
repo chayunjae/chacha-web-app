@@ -15,6 +15,7 @@ export default styled.section<{ theme: boolean }>`
     box-sizing: border-box;
     width: 100%;
     height: 50px;
+    z-index: 10;
   }
   .header-wrap,
   .header-nav-wrap,

@@ -20,8 +20,12 @@ export default styled.section<{ theme: boolean }>`
     height: 0;
     padding: 0;
     overflow-x: scroll;
-    /* border: 1px solid #fff; */
-    //PIN 위치 표시 보더
+    margin: 0 auto;
+    display: flex;
+    width: 85vw;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
   .contents-list {
     display: flex;
@@ -35,95 +39,52 @@ export default styled.section<{ theme: boolean }>`
   }
   .round-box {
     display: flex;
+    transition: all 0.1s ease;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
+    background-color: ${({ theme }) =>
+      theme === true ? `var(--dark-bg-color)` : `var(--white-bg-color)`};
+    color: ${({ theme }) =>
+      theme !== true ? `var(--white-font-color)` : `var(--dark-font-color)`};
     font-size: 2vw;
     font-weight: bolder;
-    color: #000;
+    width: 20vw;
+    height: 30vw;
+    &:hover,
+    &:active {
+      transform: scale(1.2, 1.2);
+    }
   }
-  .round {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-    font-size: 2vw;
-    font-weight: bolder;
-    color: #000;
-  }
-  .round-box {
-    width: 8.5vw;
-    height: 8.5vw;
-  }
-  .start-el,
-  .end-el {
+  .start-el {
     flex: 1;
-    .round {
-      width: 8.5vw;
-      height: 8.5vw;
-    }
   }
-  .prev-el,
-  .next-el {
-    flex: 2;
-    .round {
-      width: 15vw;
-      height: 15vw;
-    }
-  }
-  .center-el {
-    flex: 3;
-    .round {
-      width: 26vw;
-      height: 26vw;
-    }
-  }
-  .start-el,
-  .prev-el,
-  .center-el,
-  .next-el,
-  .end-el {
-    .round {
-      border: 1px solid #fff;
-      border-radius: 100%;
-    }
-  }
+
   .m-auto {
     margin: 0 auto;
   }
 
-  @media (max-width: 1100px) {
+  @media (max-width: 768px) {
     .contents-wrap {
-      overflow-y: hidden;
+      flex-direction: column;
+      overflow-y: scroll;
+      height: unset;
+      width: 65vw;
     }
     .contents-list {
       flex-direction: column;
     }
-    .round {
+    .round-b0x {
       font-size: 6vw;
     }
     .m-auto {
       margin: 3vw auto;
     }
-    .start-el,
-    .end-el {
-      .round {
-        width: 25vw;
-        height: 25vw;
-      }
+    .start-el {
+      margin-bottom: 3vw;
     }
-    .prev-el,
-    .next-el {
-      .round {
-        width: 40vw;
-        height: 40vw;
-      }
-    }
-    .center-el {
-      .round {
-        width: 70vw;
-        height: 70vw;
-      }
+    .round-box {
+      width: 75vw;
+      height: 10vw;
     }
   }
 `;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import ProjectWrap from './ProjectStyle'
 
 type Props = {
@@ -8,121 +8,96 @@ type Props = {
 
 
 export default function Project(props: Props) {
+    const contentRef = useRef<HTMLDivElement | null>(null);
+    const scrollRef = useRef<HTMLDivElement | null>(null);
     const [eleList, setEleList] = useState([
-        "A", "B", "C", "D", "E", "F"
+        "A", "B", "C", "D", "E", "F", "G", "H", "I"
     ])
-    const [startScroll, setStartScroll] = useState(0)
-    const [isAction, setIsAction] = useState(false)
-
-    function dragFunc(val: number, type: "start" | "end") {
-        console.log(val)
-        console.log(type)
-        if (type === "start") {
-            setStartScroll(val)
-        } else {
-            if (startScroll > val) {
-                console.log("<- 이쪽 ")
-            } else if (startScroll < val) {
-                console.log("이쪽 -> ")
+    const [curWid, setCurWid] = useState(0);
+    const [curHei, setCurHei] = useState(0);
+    const backupWid = curWid;
+    const backupHei = curHei;
+    const handleScroll = () => {
+        if (scrollRef.current) {
+            if (window.outerWidth > 768) {
+                const scroll = scrollRef.current.scrollLeft;
+                if (scroll < backupWid || scroll >= backupWid + curWid) {
+                    scrollRef.current.scrollLeft = backupWid + (scroll % curWid);
+                }
             } else {
-                console.log("그대로")
+                const scroll = scrollRef.current.scrollTop;
+                if (scroll < backupHei || scroll >= backupHei + curHei) {
+                    scrollRef.current.scrollTop = backupHei + (scroll % curHei);
+                }
             }
-            setStartScroll(0)
         }
+    };
+    const viewList = () => {
+        return eleList.map((val: string, idx: number) => {
+            return <div className="start-el" key={idx}>
+                <div
+                    onClick={() => {
+                        // if (scrollRef.current) {
+                        //     scrollRef.current.scrollTo({ left: 952, behavior: "smooth" });
+                        // }
+                    }}
+                    className={`round-box ${val}`} style={{ margin: "0 20px" }}>
+                    {val + idx}
+                </div>
+            </div>
+        })
     }
+    useEffect(() => {
+        if (contentRef.current) {
+            if (window.outerWidth > 768) {
+                setCurWid(contentRef.current.offsetWidth);
+                if (scrollRef.current) {
+                    scrollRef.current.scrollLeft = backupWid;
+                }
+
+            } else {
+                setCurHei(contentRef.current.offsetHeight);
+                if (scrollRef.current) {
+                    scrollRef.current.scrollTop = backupHei;
+                }
+            }
+        }
+
+    })
 
     return (
         <ProjectWrap
             theme={props.globalTheme}
         >
             <div className="time-font title-wrap">PROJECT.
-            <div className={`title-line ${props.isAct === "PROJECT" && "under-line-project"}`} />
+                <div className={`title-line ${props.isAct === "PROJECT" && "under-line-project"}`} />
             </div>
-            {/* <div className={`contents-wrap ${props.isAct === "PROJECT" ? "" : "hide-wrap"} `}> */}
-            <div className={`contents-wrap ${props.isAct === "PROJECT" ? "view-project-list-wrap" : "hide-wrap"} `}>
-                {/* <div className={`contents-list ${props.isAct === "PROJECT" && ""} `}> */}
-                {/* <div className={`contents-list ${props.isAct === "PROJECT" && "view-project-list"} `}> */}
+            {/* <div style={{width:500,height:200,border:"1p"}}></div> */}
+            <div ref={scrollRef}
+                onScroll={handleScroll}
+                className={`contents-wrap ${props.isAct === "PROJECT" ? "view-project-list-wrap" : "hide-wrap"} `}>
+                <div className={`contents-list view-project-list`}>
+                    {viewList()}
+                </div>
+                <div className={`contents-list view-project-list`}>
+                    {viewList()}
+                </div>
+                <div className={`contents-list view-project-list`}>
+                    {viewList()}
+                </div>
                 <div
-                    className={`contents-list ${props.isAct === "PROJECT" && "view-project-list"} `}
-
-                    onMouseDown={(e) => {
-                        dragFunc(e.clientX, "start")
-                    }}
-                    onMouseUp={(e) => {
-                        dragFunc(e.clientX, "end")
-                    }}
-                    onTouchStart={(e) => {
-                        dragFunc(e.changedTouches[0].clientX, "start")
-                    }}
-                    onTouchEnd={(e) => {
-                        dragFunc(e.changedTouches[0].clientX, "end")
-                    }}
-                    onWheelCapture={(e) => {
-                        if (e.deltaX < 0) {
-                            if (!isAction) {
-                                if (startScroll === 0) {
-                                    setStartScroll(e.deltaX)
-                                    setIsAction(true)
-                                }
-                            } else {
-                                if (startScroll > e.deltaX) {
-                                    console.log(">>>>>>")
-                                    setStartScroll(0)
-                                    setIsAction(false)
-                                }
-                            }
-                        } else if (e.deltaX > 0) {
-                            if (!isAction) {
-                                if (startScroll === 0) {
-                                    setStartScroll(e.deltaX)
-                                    setIsAction(true)
-                                }
-                            } else {
-                                if (startScroll < e.deltaX) {
-                                    console.log("<<<<<<")
-                                    setStartScroll(0)
-                                    setIsAction(false)
-                                }
-                            }
-                        } else {
-                            return;
-                        }
-                    }}
-                >
-                    {eleList.map((val: string, idx: number) => {
-                        return <div className="start-el" key={idx}>
-                            <div className="round-box" style={{ margin: "0 20px" }}>
-                                {val + idx}
-                            </div>
-                        </div>
-                    })}
-
-
-
-
-
-
-
-                    {/* <div className="prev-el">
-                        <div className="round m-auto">
-                            PREV
-                    </div>
-                    </div>
-                    <div className="center-el">
-                        <div className="round m-auto">
-                            CENTER
-                    </div>
-                    </div>
-                    <div className="next-el">
-                        <div className="round m-auto">
-                            NEXT
-                    </div>
-                    </div>
-                    <div className="end-el">
-                        <div className="round m-auto">
-                            END
-                    </div>
-                    </div> */}
+                    ref={contentRef}
+                    className={`contents-list view-project-list`}>
+                    {viewList()}
+                </div>
+                <div className={`contents-list view-project-list`}>
+                    {viewList()}
+                </div>
+                <div className={`contents-list view-project-list`}>
+                    {viewList()}
+                </div>
+                <div className={`contents-list view-project-list`}>
+                    {viewList()}
                 </div>
             </div>
         </ProjectWrap>

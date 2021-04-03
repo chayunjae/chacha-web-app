@@ -484,19 +484,19 @@ button.cur {
   }
 
   100% {
-    padding: 15vw 0 10vw;
-    height: 25vw;
+    padding: 2vw 0;
+    height: 40vw;
   }
 }
-@media (max-width: 1100px) {
+@media (max-width: 768px) {
   @keyframes viewprojectlistwrap {
     0% {
       height: 0;
     }
 
     100% {
-      padding: 15vw 0 10vw;
-      height: 100%;
+      padding: 2vw 0;
+      height: 90vw;
     }
   }
 }
