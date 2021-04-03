@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/chacha-web-app/static/css/main.9eb56133.chunk.css",
-    "main.js": "/chacha-web-app/static/js/main.d2810059.chunk.js",
-    "main.js.map": "/chacha-web-app/static/js/main.d2810059.chunk.js.map",
+    "main.css": "/chacha-web-app/static/css/main.c899474a.chunk.css",
+    "main.js": "/chacha-web-app/static/js/main.ca2ab9c2.chunk.js",
+    "main.js.map": "/chacha-web-app/static/js/main.ca2ab9c2.chunk.js.map",
     "runtime-main.js": "/chacha-web-app/static/js/runtime-main.169bc69b.js",
     "runtime-main.js.map": "/chacha-web-app/static/js/runtime-main.169bc69b.js.map",
     "static/js/2.72ab3b4b.chunk.js": "/chacha-web-app/static/js/2.72ab3b4b.chunk.js",
     "static/js/2.72ab3b4b.chunk.js.map": "/chacha-web-app/static/js/2.72ab3b4b.chunk.js.map",
     "index.html": "/chacha-web-app/index.html",
-    "precache-manifest.c12e229893d5955dd141c73430ba1bea.js": "/chacha-web-app/precache-manifest.c12e229893d5955dd141c73430ba1bea.js",
+    "precache-manifest.70aa43d87ce27b061e7cd709f42d3f13.js": "/chacha-web-app/precache-manifest.70aa43d87ce27b061e7cd709f42d3f13.js",
     "service-worker.js": "/chacha-web-app/service-worker.js",
-    "static/css/main.9eb56133.chunk.css.map": "/chacha-web-app/static/css/main.9eb56133.chunk.css.map",
+    "static/css/main.c899474a.chunk.css.map": "/chacha-web-app/static/css/main.c899474a.chunk.css.map",
     "static/js/2.72ab3b4b.chunk.js.LICENSE.txt": "/chacha-web-app/static/js/2.72ab3b4b.chunk.js.LICENSE.txt",
     "static/media/logo-black.png": "/chacha-web-app/static/media/logo-black.ce86f21e.png",
     "static/media/logo-white.png": "/chacha-web-app/static/media/logo-white.526c731b.png"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.169bc69b.js",
     "static/js/2.72ab3b4b.chunk.js",
-    "static/css/main.9eb56133.chunk.css",
-    "static/js/main.d2810059.chunk.js"
+    "static/css/main.c899474a.chunk.css",
+    "static/js/main.ca2ab9c2.chunk.js"
   ]
 }
