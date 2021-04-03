@@ -41,7 +41,7 @@ export default function Project(props: Props) {
                         //     scrollRef.current.scrollTo({ left: 952, behavior: "smooth" });
                         // }
                     }}
-                    className={`round-box ${val}`} style={{ margin: "0 20px" }}>
+                    className={`round-box ${val}`}>
                     {val + idx}
                 </div>
             </div>

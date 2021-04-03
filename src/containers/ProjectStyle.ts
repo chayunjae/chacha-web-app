@@ -50,6 +50,7 @@ export default styled.section<{ theme: boolean }>`
     font-weight: bolder;
     width: 20vw;
     height: 30vw;
+    margin: 0 20px;
     &:hover,
     &:active {
       transform: scale(1.2, 1.2);
@@ -68,7 +69,7 @@ export default styled.section<{ theme: boolean }>`
       flex-direction: column;
       overflow-y: scroll;
       height: unset;
-      width: 65vw;
+      width: 90vw;
     }
     .contents-list {
       flex-direction: column;
@@ -84,7 +85,12 @@ export default styled.section<{ theme: boolean }>`
     }
     .round-box {
       width: 75vw;
-      height: 10vw;
+      height: 6vw;
+      margin: 3vw 0;
+      &:hover,
+      &:active {
+        transform: scale(1.2, 1.5);
+      }
     }
   }
 `;
