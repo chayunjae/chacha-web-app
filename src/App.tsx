@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import BaseLayout from "./components/BaseLayout";
 import WhiteLogo from "./images/logo-white.png";
 import BlackLogo from "./images/logo-black.png";
@@ -7,8 +7,22 @@ import PROJECT from './containers/Project'
 import CONTACT from './containers/Contact'
 
 function App() {
-  const [curPage, setCurPage] = useState<"INDEX" | "ABOUT" | "SKILLS" | "PROJECT" | "CONTACT">('INDEX');
+  const [curPage, setCurPage] = useState<"INDEX" | "ABOUT" | "SKILLS" | "PROJECT" | "CONTACT">('PROJECT');
   const [globalTheme, setTheme] = useState(false)
+  useEffect(() => {
+    if (curPage !== "INDEX") {
+      setTimeout(() => {
+        document
+          .getElementsByClassName("delay-view show-box_view")[0]
+          .scrollTo({ top: window.innerHeight, behavior: "smooth" })
+      }, 2500)
+    }
+    return () => {
+      document
+        .getElementsByClassName("delay-view show-box_view")[0]
+        .scrollTo(0, 0)
+    }
+  }, [curPage])
   return (
     <BaseLayout
       curPage={curPage}
@@ -20,7 +34,7 @@ function App() {
       <div style={{
         display: "flex",
         justifyContent: "center",
-        paddingTop: 90
+        // paddingTop: 90
       }}>
         <div className={`delay-view ${curPage === "ABOUT" && "show-box_view"}`}>
           <ABOUT globalTheme={globalTheme} isAct={curPage} />
@@ -32,7 +46,7 @@ function App() {
           <CONTACT globalTheme={globalTheme} isAct={curPage} />
         </div>
         <div className={`delay-view ${curPage === "INDEX" && "show-box_view"}`}>
-          <div style={{ width: 350 }}>
+          <div style={{ width: 350, padding: "90px 0" }}>
             <img alt="" style={{ width: "100%" }} src={globalTheme ? BlackLogo : WhiteLogo} />
           </div>
 

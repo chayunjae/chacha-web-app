@@ -58,6 +58,8 @@ button.cur {
   --white-menu-bg-color: rgb(255, 255, 255, 0.6);
   --gray-w-bg-color: rgba(233, 233, 233, 0.6);
   --gray-b-bg-color: rgba(10, 10, 10, 0.9);
+  --dark--hd-bg-color: rgba(0, 0, 0, 0.6);
+  --white--hd-bg-color: rgba(255, 255, 255, 0.6);
 }
 /* ---------------------- */
 
@@ -203,6 +205,47 @@ button.cur {
   animation-timing-function: ease;
   animation-fill-mode: forwards;
 }
+/* .project-card-action {
+  
+  animation-name: projectcard;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+} */
+@keyframes projectcard {
+  0% {
+    border-radius: 0;
+    /* position: relative; */
+  }
+
+  45% {
+    border-radius: 0;
+    /* position: relative; */
+    /* background-color: gray; */
+    height: 20vw;
+    width: 20vw;
+  }
+  70% {
+    border-radius: 100%;
+    /* position: relative; */
+    /* background-color: gray; */
+    height: 20vw;
+    width: 20vw;
+  }
+  100% {
+    border-radius: 100%;
+    /* position: relative; */
+    /* background-color: gray; */
+    height: 20vw;
+    width: 20vw;
+    /* position: fixed;
+    z-index: 30;
+    top: 25%;
+    left: 35%;
+     */
+  }
+}
+
 @keyframes showbox {
   0% {
     opacity: 0;
@@ -484,8 +527,7 @@ button.cur {
   }
 
   100% {
-    padding: 2vw 0;
-    height: 40vw;
+    height: calc(100vh - 50px);
   }
 }
 @media (max-width: 768px) {
@@ -495,8 +537,7 @@ button.cur {
     }
 
     100% {
-      padding: 2vw 0;
-      height: 90vw;
+      height: calc(100vh - 62px);
     }
   }
 }

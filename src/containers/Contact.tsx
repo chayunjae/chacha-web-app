@@ -10,8 +10,11 @@ export default function Contact(props: Props) {
             className="time-font"
             theme={props.globalTheme}
         >
-            <div className="title-wrap">CONTACT.
+            <div className="title-wrap">
+                <div>
+                    CONTACT.
             <div className={`title-line ${props.isAct === "CONTACT" && "under-line-contact"}`} />
+                </div>
             </div>
         </ContactWrap>
     )

@@ -6,6 +6,11 @@ export default styled.section<{ theme: boolean }>`
     font-weight: bolder;
     font-size: 16vw;
     user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    height: calc(100vh - 50px);
   }
   .title-line {
     height: 3px;

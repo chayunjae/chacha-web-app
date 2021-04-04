@@ -5,6 +5,9 @@ import BlackLogo from "../images/logo-black.png";
 export default styled.section<{ theme: boolean }>`
   transition: all 0.3s ease;
   height: 100vh;
+  *::-webkit-scrollbar {
+    display: none;
+  }
   background-color: ${({ theme }) =>
     theme === true ? `var(--white-bg-color)` : `var(--dark-bg-color)`};
   color: ${({ theme }) =>
@@ -15,7 +18,16 @@ export default styled.section<{ theme: boolean }>`
     box-sizing: border-box;
     width: 100%;
     height: 50px;
+    transition: all 0.1s ease;
     z-index: 10;
+  }
+
+  .backcolor-add {
+    background-color: ${({ theme }) =>
+      theme === true
+        ? `var(--white--hd-bg-color)`
+        : `var(--dark--hd-bg-color)`};
+    backdrop-filter: blur(17px);
   }
   .header-wrap,
   .header-nav-wrap,
@@ -109,11 +121,14 @@ export default styled.section<{ theme: boolean }>`
     }
   }
   .delay-view {
-    opacity: 0;
     transition-delay: all 0.6s ease;
     position: absolute;
     opacity: 0;
     z-index: -1;
+    width: 100vw;
+    /* height: calc(100vh - 90px); */
+    height: 100vh;
+    overflow-y: scroll;
   }
 
   .menu-nav-wrap {

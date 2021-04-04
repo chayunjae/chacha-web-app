@@ -13,8 +13,10 @@ export default function About(props: Props) {
             theme={props.globalTheme}
         >
             <div className="title-wrap">
-                ABOUT.
+                <div>
+                    ABOUT.
                 <div className={`title-line ${props.isAct === "ABOUT" && "under-line-about"}`} />
+                </div>
             </div>
 
         </AboutWrap>

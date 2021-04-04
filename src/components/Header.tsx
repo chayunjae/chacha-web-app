@@ -17,7 +17,7 @@ type Props = {
 function Header(props: Props) {
 
     return (
-        <div className="header-wrap pdr-55-l-15">
+        <div className={`header-wrap pdr-55-l-15 ${props.menuToggle === "NONE" ? "backcolor-add" : props.menuToggle ? "backcolor-del" : "backcolor-add"}`}>
             {props.curPage !== "INDEX" && <div className={`header-logo ${props.menuToggle === "NONE" ? "show-default" : props.menuToggle ? "hide-box" : "show-box"}`} />}
 
             <div className="header-nav-wrap">

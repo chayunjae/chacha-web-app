@@ -2,10 +2,18 @@ import styled from "styled-components";
 
 export default styled.section<{ theme: boolean }>`
   text-align: center;
+  .de-m {
+    display: none;
+  }
   .title-wrap {
     font-weight: bolder;
     font-size: 16vw;
     user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    height: calc(100vh - 50px);
   }
   .title-line {
     height: 3px;
@@ -50,10 +58,22 @@ export default styled.section<{ theme: boolean }>`
     font-weight: bolder;
     width: 20vw;
     height: 30vw;
-    margin: 0 20px;
-    &:hover,
-    &:active {
-      transform: scale(1.2, 1.2);
+    margin: 0 2vw;
+    box-shadow: 0 3px 7px
+      ${({ theme }) =>
+        theme === true ? `rgba(0,0,0,0.6)` : `rgba(255,255,255,0.5)`};
+    cursor: pointer;
+    &:hover {
+      /* transform: scale(1.2, 1.2); */
+    }
+  }
+  .project-card-action {
+    box-shadow: unset;
+    border-radius: 100%;
+    width: 20vw;
+    height: 20vw;
+    &:hover {
+      transform: unset;
     }
   }
   .start-el {
@@ -63,8 +83,29 @@ export default styled.section<{ theme: boolean }>`
   .m-auto {
     margin: 0 auto;
   }
-
+  .blur-wrap {
+    width: 10vw;
+    height: calc(100vh - 8vh);
+    position: absolute;
+    z-index: 30;
+    background-color: ${({ theme }) =>
+      theme !== true ? `var(--dark-bg-color)` : `var(--white-bg-color)`};
+    filter: blur(6px);
+    &.browser {
+      right: 0;
+    }
+  }
   @media (max-width: 768px) {
+    .de-m {
+      display: block;
+    }
+    .de-b {
+      display: none;
+    }
+    .title-wrap {
+      padding-top: 0;
+      height: 100vh;
+    }
     .contents-wrap {
       flex-direction: column;
       overflow-y: scroll;
@@ -73,6 +114,8 @@ export default styled.section<{ theme: boolean }>`
     }
     .contents-list {
       flex-direction: column;
+      flex: 1;
+      height: unset;
     }
     .round-b0x {
       font-size: 6vw;
@@ -83,13 +126,24 @@ export default styled.section<{ theme: boolean }>`
     .start-el {
       margin-bottom: 3vw;
     }
+    .blur-wrap {
+      width: 100%;
+      height: 10vh;
+      background-color: ${({ theme }) =>
+        theme !== true ? `var(--dark-bg-color)` : `var(--white-bg-color)`};
+      filter: blur(6.5px);
+      position: absolute;
+      z-index: 30;
+      margin-top: -6vw;
+    }
     .round-box {
       width: 75vw;
-      height: 6vw;
+      height: 25vh;
       margin: 3vw 0;
+      font-size: 6vw;
       &:hover,
       &:active {
-        transform: scale(1.2, 1.5);
+        transform: scale(1.2, 1.2);
       }
     }
   }
