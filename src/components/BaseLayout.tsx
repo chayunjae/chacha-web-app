@@ -57,6 +57,7 @@ function BaseLayout(props: Props) {
                 menuToggle={menuToggle}
                 setMenuToggle={setMenuToggle}
                 curPage={props.curPage}
+                setCurPage={props.setCurPage}
                 clockWrap={clockWrap}
                 setClockWrap={setClockWrap}
                 hour={hour}

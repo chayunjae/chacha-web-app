@@ -18,7 +18,7 @@ export default styled.section<{ theme: boolean }>`
     box-sizing: border-box;
     width: 100%;
     height: 50px;
-    transition: all 0.1s ease;
+    transition: all 0.3s ease;
     z-index: 10;
   }
 
@@ -37,12 +37,14 @@ export default styled.section<{ theme: boolean }>`
   }
   .header-logo {
     flex: 1;
-    height: 30px;
+    width: 2rem;
+    height: 2rem;
     transition: all 0.3s ease;
     background-image: ${({ theme }) =>
       theme === true ? `url(${BlackLogo})` : `url(${WhiteLogo})`};
     background-size: 30px;
     background-repeat: no-repeat;
+    cursor: pointer;
   }
   .header-nav-wrap {
     flex: 2;

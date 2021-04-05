@@ -12,11 +12,11 @@ export default function Project(props: Props) {
     const contentRef = useRef<HTMLDivElement | null>(null);
     const scrollRef = useRef<HTMLDivElement | null>(null);
     const [eleList, setEleList] = useState([
-        { val: "A", spacing: 1.52 },
-        { val: "B", spacing: 0.325 },
-        { val: "C", spacing: 5.1 },
-        { val: "D", spacing: 3.9 },
-        { val: "E", spacing: 2.71 }
+        { val: "A", math: 1, spacing: 1.52 },
+        { val: "B", math: 2.2, spacing: 0.325 },
+        { val: "C", math: 3.4, spacing: 5.1 },
+        { val: "D", math: 4.6, spacing: 3.9 },
+        { val: "E", math: 5.8, spacing: 2.71 }
     ])
     const [curWid, setCurWid] = useState(0);
     const [curHei, setCurHei] = useState(0);
@@ -30,7 +30,8 @@ export default function Project(props: Props) {
         if (scrollRef.current) {
             if (window.outerWidth > 768) {
                 const scroll = scrollRef.current.scrollLeft;
-                // console.log(scroll)
+                // console.log("cur curWid", curWid)
+                // console.log("cur scroll", scroll)
                 if (scroll < backupWid || scroll >= backupWid + curWid) {
                     scrollRef.current.scrollLeft = backupWid + (scroll % curWid);
                 }
@@ -43,7 +44,7 @@ export default function Project(props: Props) {
         }
     };
     const viewList = () => {
-        return eleList.map((obj: { val: string, spacing: number }, idx: number) => {
+        return eleList.map((obj: { val: string, math: number, spacing: number }, idx: number) => {
             return <div className="start-el" key={idx}>
                 <div
                     onClick={(e) => {
@@ -51,36 +52,77 @@ export default function Project(props: Props) {
                         if (scrollRef.current) {
                             let scroll = scrollRef.current.scrollLeft;
                             let itemOffSetWid = curWid * 2;
-                            let targetOffSetWid = e.currentTarget.offsetWidth * obj.spacing;
-                            // console.log(scrollRef.current.scrollLeft)
-                            // console.log(itemOffSetWid)
-                            // console.log(targetOffSetWid)
+                            let cardWid = e.currentTarget.offsetWidth;
+                            let targetOffSetWid = cardWid * obj.spacing;
+                            let spotMath = curWid + cardWid * obj.math;
+                            console.log(scroll)
+                            console.log(itemOffSetWid - targetOffSetWid)
+                            console.log(spotMath)
                             // PIN
                             // PIN
                             // PIN 위치 이동값 조건문 조정 필요 !!
                             // PIN
                             // PIN
                             // PIN
-                            if (scroll > curWid && scroll < curWid + 300) {
-                                if (obj.val === "A" || obj.val === "B") {
+                            let switch1 = scroll >= curWid;
+                            let switch2 = scroll >= curWid && scroll < curWid;
+                            let switch3 = scroll < curWid;
+
+                            if (obj.val === "C") {
+
+                                if (scroll < spotMath) {
                                     console.log("IF")
-                                    scrollRef.current.scrollLeft = itemOffSetWid - 10
+                                    if (scrollRef.current) {
+                                        scrollRef.current.scrollTo({ left: itemOffSetWid - targetOffSetWid, behavior: "smooth" });
+                                    }
+                                } else if (scroll > spotMath) {
+                                    console.log("ELSE")
+                                    if (scrollRef.current) {
+                                        scrollRef.current.scrollTo({ left: itemOffSetWid, behavior: "smooth" });
+                                    }
                                     setTimeout(() => {
                                         if (scrollRef.current)
                                             scrollRef.current.scrollTo({ left: itemOffSetWid - targetOffSetWid, behavior: "smooth" });
-                                    }, 200)
-                                } else {
-                                    console.log("ELSE1")
-                                    if (scrollRef.current)
-                                        scrollRef.current.scrollTo({ left: itemOffSetWid - targetOffSetWid, behavior: "smooth" });
+                                    }, (Math.floor(scroll / cardWid) * 40))
                                 }
-                            } else {
-
-                                console.log("ELSE2")
-                                if (scrollRef.current)
-                                    scrollRef.current.scrollTo({ left: itemOffSetWid - targetOffSetWid, behavior: "smooth" });
 
                             }
+                            // console.log("scroll", scroll)
+                            // console.log("curWid", curWid)
+                            // console.log("itemOffSetWid", itemOffSetWid)
+                            // console.log("scroll >= curWid", switch1)
+
+                            // console.log("scroll >= curWid && scroll < curWid", switch2)
+                            // console.log("scroll < curWid", switch3)
+                            // console.log("itemOffSetWid - targetOffSetWid", itemOffSetWid - targetOffSetWid)
+
+                            // console.log("scroll3", scroll)
+                            //                             if (obj.val === "C") {
+                            //                                 console.log("IF C")
+                            //                                 // if (scrollRef.current)
+                            //                                 // scrollRef.current.scrollTo({ left: itemOffSetWid - targetOffSetWid, behavior: "smooth" });
+                            //                             } else {
+                            // 
+                            //                                 if (scroll >= curWid && scroll < curWid) {
+                            //                                     // if (obj.val === "A" || obj.val === "B") {
+                            //                                     console.log("IF")
+                            //                                     scrollRef.current.scrollLeft = itemOffSetWid - 4;
+                            //                                     setTimeout(() => {
+                            //                                         // if (scrollRef.current)
+                            //                                         // scrollRef.current.scrollTo({ left: itemOffSetWid - targetOffSetWid, behavior: "smooth" });
+                            //                                     }, 100)
+                            //                                     // } else {
+                            //                                     //     console.log("ELSE1")
+                            //                                     //     if (scrollRef.current)
+                            //                                     //         scrollRef.current.scrollTo({ left: itemOffSetWid - targetOffSetWid, behavior: "smooth" });
+                            //                                     // }
+                            //                                 } else {
+                            //                                     console.log("ELSE2")
+                            //                                     // if (scrollRef.current)
+                            //                                     // scrollRef.current.scrollTo({ left: itemOffSetWid - targetOffSetWid, behavior: "smooth" });
+                            // 
+                            //                                 }
+                            //                             }
                         }
                         setIsView(obj.val + idx)
                     }}

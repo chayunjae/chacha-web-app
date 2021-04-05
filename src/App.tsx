@@ -7,14 +7,18 @@ import PROJECT from './containers/Project'
 import CONTACT from './containers/Contact'
 
 function App() {
-  const [curPage, setCurPage] = useState<"INDEX" | "ABOUT" | "SKILLS" | "PROJECT" | "CONTACT">('PROJECT');
+  const [curPage, setCurPage] = useState<"INDEX" | "ABOUT" | "SKILLS" | "PROJECT" | "CONTACT">('INDEX');
   const [globalTheme, setTheme] = useState(false)
   useEffect(() => {
     if (curPage !== "INDEX") {
       setTimeout(() => {
-        document
-          .getElementsByClassName("delay-view show-box_view")[0]
-          .scrollTo({ top: window.innerHeight, behavior: "smooth" })
+        const dom = document.getElementById("detail-dom cur-page")
+        if (dom) {
+          dom.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+          dom.style.overflow = "hidden"
+        }
+
+
       }, 2500)
     }
     return () => {
@@ -36,16 +40,16 @@ function App() {
         justifyContent: "center",
         // paddingTop: 90
       }}>
-        <div className={`delay-view ${curPage === "ABOUT" && "show-box_view"}`}>
+        <div id={`detail-dom ${curPage === "ABOUT" && "cur-page"}`} className={`delay-view ${curPage === "ABOUT" && "show-box_view"}`}>
           <ABOUT globalTheme={globalTheme} isAct={curPage} />
         </div>
-        <div className={`delay-view ${curPage === "PROJECT" && "show-box_view"}`}>
+        <div id={`detail-dom ${curPage === "PROJECT" && "cur-page"}`} className={`delay-view ${curPage === "PROJECT" && "show-box_view"}`}>
           <PROJECT globalTheme={globalTheme} isAct={curPage} />
         </div>
-        <div className={`delay-view ${curPage === "CONTACT" && "show-box_view"}`}>
+        <div id={`detail-dom ${curPage === "CONTACT" && "cur-page"}`} className={`delay-view ${curPage === "CONTACT" && "show-box_view"}`}>
           <CONTACT globalTheme={globalTheme} isAct={curPage} />
         </div>
-        <div className={`delay-view ${curPage === "INDEX" && "show-box_view"}`}>
+        <div id={`detail-dom ${curPage === "INDEX" && "cur-page"}`} className={`delay-view ${curPage === "INDEX" && "show-box_view"}`}>
           <div style={{ width: 350, padding: "90px 0" }}>
             <img alt="" style={{ width: "100%" }} src={globalTheme ? BlackLogo : WhiteLogo} />
           </div>

@@ -8,6 +8,7 @@ type Props = {
     menuToggle: "NONE" | boolean;
     setMenuToggle: (bool: "NONE" | boolean) => void;
     curPage: "INDEX" | "SKILLS" | "ABOUT" | "PROJECT" | "CONTACT"
+    setCurPage: (data: "INDEX" | "SKILLS" | "ABOUT" | "PROJECT" | "CONTACT") => void;
     setClockWrap: (bool: boolean) => void;
     clockWrap: "NONE" | boolean;
     hour: string;
@@ -18,7 +19,12 @@ function Header(props: Props) {
 
     return (
         <div className={`header-wrap pdr-55-l-15 ${props.menuToggle === "NONE" ? "backcolor-add" : props.menuToggle ? "backcolor-del" : "backcolor-add"}`}>
-            {props.curPage !== "INDEX" && <div className={`header-logo ${props.menuToggle === "NONE" ? "show-default" : props.menuToggle ? "hide-box" : "show-box"}`} />}
+            {props.curPage !== "INDEX" && <div onClick={() => {
+                // window.location.href = "/"
+                props.setCurPage("INDEX")
+            }}
+                className={`header-logo ${props.menuToggle === "NONE" ? "show-default" : props.menuToggle ? "hide-box" : "show-box"}`}
+            />}
 
             <div className="header-nav-wrap">
                 <div className={`clock time-font cur ${props.clockWrap === true && "hide-data"} ${props.menuToggle === "NONE" ? "show-default" : props.menuToggle ? "hide-box" : "show-box"}`}
@@ -29,7 +35,7 @@ function Header(props: Props) {
                 </div>
 
                 <div className={`header-icon ${props.menuToggle === "NONE" ? "show-default" : props.menuToggle ? "hide-box" : "show-box"}`}>
-                    <FontAwesomeIcon icon={faGithub} />
+                    <span className="cur" onClick={() => window.location.href = "https://github.com/chayunjae"}><FontAwesomeIcon icon={faGithub} /></span>
                 </div>
                 <div className={props.menuToggle === "NONE" ? "show-default" : props.menuToggle ? "hide-box" : "show-box"}>
                     <div className="toggle-wrap cur" onClick={() => {
