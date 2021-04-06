@@ -123,6 +123,7 @@ export default styled.section<{ theme: boolean }>`
     .m-auto {
       margin: 3vw auto;
     }
+
     .start-el {
       margin-bottom: 3vw;
     }
@@ -144,6 +145,15 @@ export default styled.section<{ theme: boolean }>`
       &:hover,
       &:active {
         transform: scale(1.2, 1.2);
+      }
+    }
+    .project-card-action {
+      border-radius: 0;
+      width: 20vw;
+      height: 20vw;
+      font-size: 3vw;
+      &:hover {
+        transform: unset;
       }
     }
   }

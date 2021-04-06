@@ -7,16 +7,21 @@ type Props = {
     globalTheme: boolean;
 }
 
+const CONFIG_SETINTER_SEC = 50;
+const CONFIG_SETTIME_SEC = 300;
 
 export default function Project(props: Props) {
     const contentRef = useRef<HTMLDivElement | null>(null);
     const scrollRef = useRef<HTMLDivElement | null>(null);
+    //spacing = (curWid / [스크롤 이동 값])
     const [eleList, setEleList] = useState([
-        { val: "A", math: 1, spacing: 1.52 },
-        { val: "B", math: 2.2, spacing: 0.325 },
-        { val: "C", math: 3.4, spacing: 5.1 },
-        { val: "D", math: 4.6, spacing: 3.9 },
-        { val: "E", math: 5.8, spacing: 2.71 }
+        { text: "비트나루", val: "A", math: 1, spacing: 1.52 },
+        { text: "WEKEEP", val: "B", math: 2.2, spacing: 0.325 },
+        { text: "SELLWAY-HOME", val: "C", math: 3.4, spacing: 7.5 },
+        { text: "SELLWAY-SUPPLIER", val: "D", math: 4.6, spacing: 6.3 },
+        { text: "SELLWAY-AGENT", val: "E", math: 5.8, spacing: 5.1 },
+        { text: "FBW-DEV-V", val: "F", math: 6, spacing: 3.9 },
+        { text: "FBW", val: "G", math: 6.2, spacing: 2.71 }
     ])
     const [curWid, setCurWid] = useState(0);
     const [curHei, setCurHei] = useState(0);
@@ -30,8 +35,6 @@ export default function Project(props: Props) {
         if (scrollRef.current) {
             if (window.outerWidth > 768) {
                 const scroll = scrollRef.current.scrollLeft;
-                // console.log("cur curWid", curWid)
-                // console.log("cur scroll", scroll)
                 if (scroll < backupWid || scroll >= backupWid + curWid) {
                     scrollRef.current.scrollLeft = backupWid + (scroll % curWid);
                 }
@@ -44,91 +47,84 @@ export default function Project(props: Props) {
         }
     };
     const viewList = () => {
-        return eleList.map((obj: { val: string, math: number, spacing: number }, idx: number) => {
+        return eleList.map((obj: { text: string, val: string, math: number, spacing: number }, idx: number) => {
             return <div className="start-el" key={idx}>
                 <div
                     onClick={(e) => {
                         setIsClick(true)
-                        if (scrollRef.current) {
-                            let scroll = scrollRef.current.scrollLeft;
-                            let itemOffSetWid = curWid * 2;
-                            let cardWid = e.currentTarget.offsetWidth;
-                            let targetOffSetWid = cardWid * obj.spacing;
-                            let spotMath = curWid + cardWid * obj.math;
-                            console.log(scroll)
-                            console.log(itemOffSetWid - targetOffSetWid)
-                            console.log(spotMath)
-                            // PIN
-                            // PIN
-                            // PIN 위치 이동값 조건문 조정 필요 !!
-                            // PIN
-                            // PIN
-                            // PIN
-                            let switch1 = scroll >= curWid;
-                            let switch2 = scroll >= curWid && scroll < curWid;
-                            let switch3 = scroll < curWid;
+                        if (window.outerWidth > 768) {
 
-                            if (obj.val === "C") {
 
-                                if (scroll < spotMath) {
-                                    console.log("IF")
+                            if (scrollRef.current && e.currentTarget.parentElement) {
+                                let scroll = scrollRef.current.scrollLeft;
+                                let itemOffSetWid = curWid * 2;
+                                let cardWid = e.currentTarget.offsetWidth;
+                                let cardParentWid = e.currentTarget.parentElement?.offsetWidth;
+                                let targetOffSetWid = cardWid * obj.spacing;
+                                let spotMath = curWid + cardWid * obj.math;
+
+                                let switch1 = Math.ceil(scroll) >= Math.ceil(itemOffSetWid - targetOffSetWid)
+                                let switch2 = Math.ceil(scroll) >= Math.ceil((itemOffSetWid - targetOffSetWid) - cardParentWid * 2)
+                                let switch3 = Math.ceil(scroll) >= Math.ceil((itemOffSetWid - targetOffSetWid) + cardParentWid * 2)
+
+                                if (obj.val === "A" || obj.val === "B") {
+                                    if (switch1 || switch2) {
+                                        console.log("2")
+                                        if (scrollRef.current) {
+                                            scrollRef.current.scrollTo({ left: itemOffSetWid - targetOffSetWid, behavior: "smooth" });
+                                        }
+                                    } else {
+                                        console.log("4")
+
+                                        if (scrollRef.current) {
+                                            scrollRef.current.scrollTo({ left: curWid, behavior: "smooth" });
+                                        }
+
+                                        setTimeout(() => {
+                                            if (scrollRef.current) {
+                                                scrollRef.current.scrollLeft = itemOffSetWid - 2;
+                                            }
+                                        }, CONFIG_SETTIME_SEC + 50)
+                                        setTimeout(() => {
+                                            if (scrollRef.current)
+                                                scrollRef.current.scrollTo({ left: itemOffSetWid - targetOffSetWid, behavior: "smooth" });
+                                        }, Math.floor(spotMath / cardWid) * CONFIG_SETINTER_SEC)
+                                    }
+                                } else if (obj.val === "C" || obj.val === "D") {
+                                    if (!switch3) {
+                                        if (scrollRef.current) {
+                                            scrollRef.current.scrollTo({ left: itemOffSetWid - targetOffSetWid, behavior: "smooth" });
+                                        }
+                                    } else {
+                                        if (scrollRef.current) {
+                                            scrollRef.current.scrollTo({ left: itemOffSetWid, behavior: "smooth" });
+                                        }
+
+                                        setTimeout(() => {
+                                            if (scrollRef.current) {
+                                                scrollRef.current.scrollLeft = curWid;
+                                            }
+                                        }, CONFIG_SETTIME_SEC)
+                                        setTimeout(() => {
+                                            if (scrollRef.current)
+                                                scrollRef.current.scrollTo({ left: itemOffSetWid - targetOffSetWid, behavior: "smooth" });
+                                        }, Math.floor(spotMath / cardWid) * CONFIG_SETINTER_SEC)
+                                    }
+                                } else {
                                     if (scrollRef.current) {
                                         scrollRef.current.scrollTo({ left: itemOffSetWid - targetOffSetWid, behavior: "smooth" });
                                     }
-                                } else if (scroll > spotMath) {
-                                    console.log("ELSE")
-                                    if (scrollRef.current) {
-                                        scrollRef.current.scrollTo({ left: itemOffSetWid, behavior: "smooth" });
-                                    }
-                                    setTimeout(() => {
-                                        if (scrollRef.current)
-                                            scrollRef.current.scrollTo({ left: itemOffSetWid - targetOffSetWid, behavior: "smooth" });
-                                    }, (Math.floor(scroll / cardWid) * 40))
                                 }
 
                             }
-                            // console.log("scroll", scroll)
-                            // console.log("curWid", curWid)
-                            // console.log("itemOffSetWid", itemOffSetWid)
-                            // console.log("scroll >= curWid", switch1)
-
-                            // console.log("scroll >= curWid && scroll < curWid", switch2)
-                            // console.log("scroll < curWid", switch3)
-                            // console.log("itemOffSetWid - targetOffSetWid", itemOffSetWid - targetOffSetWid)
-
-                            // console.log("scroll3", scroll)
-                            //                             if (obj.val === "C") {
-                            //                                 console.log("IF C")
-                            //                                 // if (scrollRef.current)
-                            //                                 // scrollRef.current.scrollTo({ left: itemOffSetWid - targetOffSetWid, behavior: "smooth" });
-                            //                             } else {
-                            // 
-                            //                                 if (scroll >= curWid && scroll < curWid) {
-                            //                                     // if (obj.val === "A" || obj.val === "B") {
-                            //                                     console.log("IF")
-                            //                                     scrollRef.current.scrollLeft = itemOffSetWid - 4;
-                            //                                     setTimeout(() => {
-                            //                                         // if (scrollRef.current)
-                            //                                         // scrollRef.current.scrollTo({ left: itemOffSetWid - targetOffSetWid, behavior: "smooth" });
-                            //                                     }, 100)
-                            //                                     // } else {
-                            //                                     //     console.log("ELSE1")
-                            //                                     //     if (scrollRef.current)
-                            //                                     //         scrollRef.current.scrollTo({ left: itemOffSetWid - targetOffSetWid, behavior: "smooth" });
-                            //                                     // }
-                            //                                 } else {
-                            //                                     console.log("ELSE2")
-                            //                                     // if (scrollRef.current)
-                            //                                     // scrollRef.current.scrollTo({ left: itemOffSetWid - targetOffSetWid, behavior: "smooth" });
-                            // 
-                            //                                 }
-                            //                             }
+                        } else {
+                            console.log("PC 버전까지")
                         }
                         setIsView(obj.val + idx)
                     }}
                     id={`id-${obj.val}`}
                     className={`round-box ${obj.val} ${isView === obj.val + idx && "project-card-action"}`}>
-                    {obj.val + idx}
+                    {obj.text}
                 </div>
             </div>
         })
