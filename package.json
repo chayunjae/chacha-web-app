@@ -23,6 +23,7 @@
     "react-app-polyfill": "^2.0.0",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
+    "smoothscroll-polyfill": "^0.4.4",
     "styled-components": "^5.2.1",
     "typescript": "~3.7.2"
   },
@@ -43,12 +44,12 @@
       "not dead",
       "not op_mini all",
       "ie 11"
-      ],
+    ],
     "development": [
-    "last 1 chrome version",
-    "last 1 firefox version",
-    "last 1 safari version",
-    "last 1 ie version"
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version",
+      "last 1 ie version"
     ]
   },
   "devDependencies": {

@@ -7,7 +7,7 @@ import PROJECT from './containers/Project'
 import CONTACT from './containers/Contact'
 
 function App() {
-  const [curPage, setCurPage] = useState<"INDEX" | "ABOUT" | "SKILLS" | "PROJECT" | "CONTACT">('PROJECT');
+  const [curPage, setCurPage] = useState<"INDEX" | "ABOUT" | "SKILLS" | "PROJECT" | "CONTACT">('INDEX');
   const [globalTheme, setTheme] = useState(false)
   useEffect(() => {
     if (curPage !== "INDEX") {
@@ -50,8 +50,8 @@ function App() {
           <CONTACT globalTheme={globalTheme} isAct={curPage} />
         </div>
         <div id={`detail-dom ${curPage === "INDEX" && "cur-page"}`} className={`delay-view ${curPage === "INDEX" && "show-box_view"}`}>
-          <div style={{ width: 350, padding: "90px 0" }}>
-            <img alt="" style={{ width: "100%" }} src={globalTheme ? BlackLogo : WhiteLogo} />
+          <div className="main-box">
+            <img alt="" src={globalTheme ? BlackLogo : WhiteLogo} />
           </div>
 
         </div>

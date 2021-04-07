@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useRef, useState } from 'react'
 import ProjectWrap from './ProjectStyle'
+import smoothscroll from 'smoothscroll-polyfill';
 
 type Props = {
     isAct: "INDEX" | "ABOUT" | "SKILLS" | "PROJECT" | "CONTACT";
@@ -15,13 +16,13 @@ export default function Project(props: Props) {
     const scrollRef = useRef<HTMLDivElement | null>(null);
     //spacing = (curWid / [스크롤 이동 값])
     const [eleList, setEleList] = useState([
-        { text: "비트나루", val: "A", math: 1, spacing: 1.52 },
-        { text: "WEKEEP", val: "B", math: 2.2, spacing: 0.325 },
-        { text: "SELLWAY-HOME", val: "C", math: 3.4, spacing: 7.5 },
-        { text: "SELLWAY-SUPPLIER", val: "D", math: 4.6, spacing: 6.3 },
-        { text: "SELLWAY-AGENT", val: "E", math: 5.8, spacing: 5.1 },
-        { text: "FBW-DEV-V", val: "F", math: 6, spacing: 3.9 },
-        { text: "FBW", val: "G", math: 6.2, spacing: 2.71 }
+        { text: "PROJECT-A", val: "A", math: 1, spacing: 1.52 },
+        { text: "PROJECT-B", val: "B", math: 2.2, spacing: 0.325 },
+        { text: "PROJECT-C", val: "C", math: 3.4, spacing: 7.5 },
+        { text: "PROJECT-D", val: "D", math: 4.6, spacing: 6.3 },
+        { text: "PROJECT-E", val: "E", math: 5.8, spacing: 5.1 },
+        { text: "PROJECT-F", val: "F", math: 6, spacing: 3.9 },
+        { text: "PROJECT-G", val: "G", math: 6.2, spacing: 2.71 }
     ])
     const [curWid, setCurWid] = useState(0);
     const [curHei, setCurHei] = useState(0);
@@ -40,6 +41,7 @@ export default function Project(props: Props) {
                 }
             } else {
                 const scroll = scrollRef.current.scrollTop;
+                console.log(scroll)
                 if (scroll < backupHei || scroll >= backupHei + curHei) {
                     scrollRef.current.scrollTop = backupHei + (scroll % curHei);
                 }
@@ -52,10 +54,8 @@ export default function Project(props: Props) {
                 <div
                     onClick={(e) => {
                         setIsClick(true)
-                        if (window.outerWidth > 768) {
-
-
-                            if (scrollRef.current && e.currentTarget.parentElement) {
+                        if (scrollRef.current && e.currentTarget.parentElement) {
+                            if (window.outerWidth > 768) {
                                 let scroll = scrollRef.current.scrollLeft;
                                 let itemOffSetWid = curWid * 2;
                                 let cardWid = e.currentTarget.offsetWidth;
@@ -115,10 +115,24 @@ export default function Project(props: Props) {
                                         scrollRef.current.scrollTo({ left: itemOffSetWid - targetOffSetWid, behavior: "smooth" });
                                     }
                                 }
+                            } else {
+                                console.log("PC 버전까지")
+                                let scroll = scrollRef.current.scrollTop;
+                                let itemOffSetHei = curHei * 2;
+                                let cardHei = e.currentTarget.offsetHeight;
+                                let cardParentHei = e.currentTarget.parentElement?.offsetHeight;
+                                let targetOffSetHei = cardHei * obj.spacing;
+                                let spotMath = curHei + cardHei * obj.math;
 
+                                let switch1 = Math.ceil(scroll) >= Math.ceil(itemOffSetHei - targetOffSetHei)
+                                let switch2 = Math.ceil(scroll) >= Math.ceil((itemOffSetHei - targetOffSetHei) - cardParentHei * 2)
+                                let switch3 = Math.ceil(scroll) >= Math.ceil((itemOffSetHei - targetOffSetHei) + cardParentHei * 2)
+                                // window.requestAnimationFrame
+                                if (scrollRef.current) {
+                                    console.log("????")
+                                    scrollRef.current.scrollTo({ top: 1820, behavior: "smooth" });
+                                }
                             }
-                        } else {
-                            console.log("PC 버전까지")
                         }
                         setIsView(obj.val + idx)
                     }}
@@ -139,6 +153,9 @@ export default function Project(props: Props) {
         return tempArr
     }
 
+    useEffect(() => {
+        smoothscroll.polyfill();
+    }, [])
 
     useEffect(() => {
         if (!isClick) {

@@ -537,6 +537,7 @@ button.cur {
     }
 
     100% {
+      -webkit-overflow-scrolling: touch;
       height: calc(100vh - 62px);
     }
   }

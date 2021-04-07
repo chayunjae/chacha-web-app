@@ -171,4 +171,24 @@ export default styled.section<{ theme: boolean }>`
   .main-wrap {
     padding-top: 50px;
   }
+
+  .main-box {
+    padding-top: 90px;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 400px;
+    }
+  }
+  @media (max-width: 768px) {
+    .main-box {
+      padding-top: 30vw;
+      height: 100vw;
+      img {
+        width: 70vw;
+      }
+    }
+  }
 `;

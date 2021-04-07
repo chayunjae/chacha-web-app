@@ -108,7 +108,9 @@ export default styled.section<{ theme: boolean }>`
     }
     .contents-wrap {
       flex-direction: column;
+      /* overflow-x: unset; */
       overflow-y: scroll;
+
       height: unset;
       width: 90vw;
     }
@@ -148,10 +150,10 @@ export default styled.section<{ theme: boolean }>`
       }
     }
     .project-card-action {
-      border-radius: 0;
-      width: 20vw;
-      height: 20vw;
-      font-size: 3vw;
+      border-radius: 100%;
+      width: 25vh;
+      height: 25vh;
+
       &:hover {
         transform: unset;
       }
