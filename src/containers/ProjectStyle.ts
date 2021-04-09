@@ -47,7 +47,8 @@ export default styled.section<{ theme: boolean }>`
   }
   .round-box {
     display: flex;
-    transition: all 0.1s ease;
+    transition: all 0.2s ease;
+
     justify-content: center;
     align-items: center;
     background-color: ${({ theme }) =>
@@ -72,6 +73,7 @@ export default styled.section<{ theme: boolean }>`
     border-radius: 100%;
     width: 20vw;
     height: 20vw;
+    transition-delay: 0.6s;
     &:hover {
       transform: unset;
     }
@@ -88,6 +90,7 @@ export default styled.section<{ theme: boolean }>`
     height: calc(100vh - 8vh);
     position: absolute;
     z-index: 30;
+    transition: all 0.3s;
     background-color: ${({ theme }) =>
       theme !== true ? `var(--dark-bg-color)` : `var(--white-bg-color)`};
     filter: blur(6px);
@@ -144,6 +147,7 @@ export default styled.section<{ theme: boolean }>`
       height: 25vh;
       margin: 3vw 0;
       font-size: 6vw;
+
       &:hover,
       &:active {
         transform: scale(1.2, 1.2);

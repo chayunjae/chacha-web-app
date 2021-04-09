@@ -15,14 +15,23 @@ export default function Project(props: Props) {
     const contentRef = useRef<HTMLDivElement | null>(null);
     const scrollRef = useRef<HTMLDivElement | null>(null);
     //spacing = (curWid / [스크롤 이동 값])
+    //spacingM 
+
+    //A 3237 1.035
+    //B 1761 9.375
+    //C 2014 7.945
+    //D 2249 6.62
+    //E 2504 5.176
+    //F 2740 3.845
+    //G 2990 2.43
     const [eleList, setEleList] = useState([
-        { text: "PROJECT-A", val: "A", math: 1, spacing: 1.52 },
-        { text: "PROJECT-B", val: "B", math: 2.2, spacing: 0.325 },
-        { text: "PROJECT-C", val: "C", math: 3.4, spacing: 7.5 },
-        { text: "PROJECT-D", val: "D", math: 4.6, spacing: 6.3 },
-        { text: "PROJECT-E", val: "E", math: 5.8, spacing: 5.1 },
-        { text: "PROJECT-F", val: "F", math: 6, spacing: 3.9 },
-        { text: "PROJECT-G", val: "G", math: 6.2, spacing: 2.71 }
+        { text: "PROJECT-A", val: "A", math: 1, spacing: 1.52, spacingM: 15.4 },
+        { text: "PROJECT-B", val: "B", math: 2.2, spacing: 0.325, spacingM: 8.5 },
+        { text: "PROJECT-C", val: "C", math: 3.4, spacing: 7.5, spacingM: 9.5 },
+        { text: "PROJECT-D", val: "D", math: 4.6, spacing: 6.3, spacingM: 10.6 },
+        { text: "PROJECT-E", val: "E", math: 5.8, spacing: 5.1, spacingM: 12 },
+        { text: "PROJECT-F", val: "F", math: 6, spacing: 3.9, spacingM: 13.1 },
+        { text: "PROJECT-G", val: "G", math: 6.2, spacing: 2.71, spacingM: 14.2 }
     ])
     const [curWid, setCurWid] = useState(0);
     const [curHei, setCurHei] = useState(0);
@@ -41,7 +50,6 @@ export default function Project(props: Props) {
                 }
             } else {
                 const scroll = scrollRef.current.scrollTop;
-                console.log(scroll)
                 if (scroll < backupHei || scroll >= backupHei + curHei) {
                     scrollRef.current.scrollTop = backupHei + (scroll % curHei);
                 }
@@ -49,7 +57,7 @@ export default function Project(props: Props) {
         }
     };
     const viewList = () => {
-        return eleList.map((obj: { text: string, val: string, math: number, spacing: number }, idx: number) => {
+        return eleList.map((obj: { text: string, val: string, math: number, spacing: number, spacingM: number }, idx: number) => {
             return <div className="start-el" key={idx}>
                 <div
                     onClick={(e) => {
@@ -69,13 +77,10 @@ export default function Project(props: Props) {
 
                                 if (obj.val === "A" || obj.val === "B") {
                                     if (switch1 || switch2) {
-                                        console.log("2")
                                         if (scrollRef.current) {
                                             scrollRef.current.scrollTo({ left: itemOffSetWid - targetOffSetWid, behavior: "smooth" });
                                         }
                                     } else {
-                                        console.log("4")
-
                                         if (scrollRef.current) {
                                             scrollRef.current.scrollTo({ left: curWid, behavior: "smooth" });
                                         }
@@ -116,22 +121,38 @@ export default function Project(props: Props) {
                                     }
                                 }
                             } else {
-                                console.log("PC 버전까지")
                                 let scroll = scrollRef.current.scrollTop;
                                 let itemOffSetHei = curHei * 2;
                                 let cardHei = e.currentTarget.offsetHeight;
-                                let cardParentHei = e.currentTarget.parentElement?.offsetHeight;
-                                let targetOffSetHei = cardHei * obj.spacing;
-                                let spotMath = curHei + cardHei * obj.math;
 
-                                let switch1 = Math.ceil(scroll) >= Math.ceil(itemOffSetHei - targetOffSetHei)
-                                let switch2 = Math.ceil(scroll) >= Math.ceil((itemOffSetHei - targetOffSetHei) - cardParentHei * 2)
-                                let switch3 = Math.ceil(scroll) >= Math.ceil((itemOffSetHei - targetOffSetHei) + cardParentHei * 2)
-                                // window.requestAnimationFrame
-                                if (scrollRef.current) {
-                                    console.log("????")
-                                    scrollRef.current.scrollTo({ top: 1820, behavior: "smooth" });
+                                let spotMath = curHei + cardHei * obj.math;
+                                if (obj.val === "B") {
+                                    if (spotMath < scroll) {
+                                        scrollRef.current.scrollTo({ top: itemOffSetHei, behavior: "smooth" });
+                                        setTimeout(() => {
+                                            if (scrollRef.current) { scrollRef.current.scrollTop = curHei + 1 }
+                                        }, CONFIG_SETTIME_SEC)
+                                        setTimeout(() => {
+                                            scrollRef.current && scrollRef.current.scrollTo({ top: cardHei * obj.spacingM, behavior: "smooth" });
+                                        }, Math.floor(spotMath / cardHei) * CONFIG_SETINTER_SEC)
+                                    } else {
+                                        scrollRef.current.scrollTo({ top: cardHei * obj.spacingM, behavior: "smooth" });
+                                    }
+                                } else if (obj.val === "A") {
+                                    if (spotMath > scroll) {
+                                        scrollRef.current.scrollTop = itemOffSetHei - 2;
+                                        setTimeout(() => {
+                                            scrollRef.current && scrollRef.current.scrollTo({ top: cardHei * obj.spacingM, behavior: "smooth" });
+                                        }, Math.floor(spotMath / cardHei) * CONFIG_SETINTER_SEC)
+                                    } else {
+                                        scrollRef.current.scrollTo({ top: cardHei * obj.spacingM, behavior: "smooth" });
+                                    }
+                                } else {
+                                    scrollRef.current.scrollTo({ top: cardHei * obj.spacingM, behavior: "smooth" });
                                 }
+
+
+
                             }
                         }
                         setIsView(obj.val + idx)
@@ -167,9 +188,12 @@ export default function Project(props: Props) {
                     }
                 } else {
                     setCurHei(contentRef.current.offsetHeight);
-                    if (scrollRef.current) {
-                        scrollRef.current.scrollTop = backupHei;
-                    }
+                    console.log(backupHei)
+                    setTimeout(() => {
+                        if (scrollRef.current) {
+                            scrollRef.current.scrollTo(0, backupHei + 30);
+                        }
+                    }, 1500)
                 }
             }
         }
@@ -190,13 +214,13 @@ export default function Project(props: Props) {
             <div ref={scrollRef}
                 onScroll={handleScroll}
                 className={`contents-wrap ${props.isAct === "PROJECT" ? "view-project-list-wrap" : "hide-wrap"} `}>
-                {viewTemp(4, "front")}
+                {viewTemp(2, "front")}
                 <div
                     ref={contentRef}
                     className={`contents-list view-project-list`}>
                     {viewList()}
                 </div>
-                {viewTemp(4, "back")}
+                {viewTemp(2, "back")}
             </div>
             <div className="blur-wrap de-m"></div>
         </ProjectWrap>
