@@ -48,7 +48,6 @@ export default styled.section<{ theme: boolean }>`
   .round-box {
     display: flex;
     transition: all 0.2s ease;
-
     justify-content: center;
     align-items: center;
     background-color: ${({ theme }) =>
@@ -73,7 +72,7 @@ export default styled.section<{ theme: boolean }>`
     border-radius: 100%;
     width: 20vw;
     height: 20vw;
-    transition-delay: 0.6s;
+    /* transition-delay: 1s; */
     &:hover {
       transform: unset;
     }
@@ -108,6 +107,10 @@ export default styled.section<{ theme: boolean }>`
     .title-wrap {
       padding-top: 0;
       height: 100vh;
+    }
+    .title-box {
+      position: relative;
+      top: -20vw;
     }
     .contents-wrap {
       flex-direction: column;

@@ -3,7 +3,7 @@ import React from 'react';
 type Props = {
     show: "NONE" | boolean;
     setMenuToggle: (bool: "NONE" | boolean) => void
-    setCurPage: (page: "INDEX" | "ABOUT" | "SKILLS" | "PROJECT" | "CONTACT") => void;
+    setCurPage: (page: "INDEX" | "ABOUT" | "PROJECT" | "CONTACT" | "ETC") => void;
 }
 
 function MenuComponent(props: Props) {

@@ -4,12 +4,12 @@ import ProjectWrap from './ProjectStyle'
 import smoothscroll from 'smoothscroll-polyfill';
 
 type Props = {
-    isAct: "INDEX" | "ABOUT" | "SKILLS" | "PROJECT" | "CONTACT";
+    isAct: "INDEX" | "ABOUT" | "PROJECT" | "CONTACT" | "ETC"
     globalTheme: boolean;
 }
 
-const CONFIG_SETINTER_SEC = 50;
-const CONFIG_SETTIME_SEC = 300;
+const CONFIG_SETINTER_SEC = 80;
+const CONFIG_SETTIME_SEC = 500;
 
 export default function Project(props: Props) {
     const contentRef = useRef<HTMLDivElement | null>(null);
@@ -89,7 +89,7 @@ export default function Project(props: Props) {
                                             if (scrollRef.current) {
                                                 scrollRef.current.scrollLeft = itemOffSetWid - 2;
                                             }
-                                        }, CONFIG_SETTIME_SEC + 50)
+                                        }, CONFIG_SETTIME_SEC)
                                         setTimeout(() => {
                                             if (scrollRef.current)
                                                 scrollRef.current.scrollTo({ left: itemOffSetWid - targetOffSetWid, behavior: "smooth" });
@@ -204,7 +204,7 @@ export default function Project(props: Props) {
             theme={props.globalTheme}
         >
             <div className={`time-font title-wrap ${props.isAct === "PROJECT" && "show-box_view"}`}>
-                <div>
+                <div className="title-box">
                     PROJECT.
                 <div className={`title-line ${props.isAct === "PROJECT" && "under-line-project"}`} />
                 </div>
@@ -213,7 +213,7 @@ export default function Project(props: Props) {
             <div className="blur-wrap de-b browser"></div>
             <div ref={scrollRef}
                 onScroll={handleScroll}
-                className={`contents-wrap ${props.isAct === "PROJECT" ? "view-project-list-wrap" : "hide-wrap"} `}>
+                className={`contents-wrap ${props.isAct === "PROJECT" ? "view-project-list-wrap" : "hide-wrap"}`}>
                 {viewTemp(2, "front")}
                 <div
                     ref={contentRef}

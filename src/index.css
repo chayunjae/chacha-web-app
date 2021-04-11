@@ -16,6 +16,9 @@ code {
 .time-font {
   font-family: "Kumar One", cursive;
 }
+.kor-font {
+  font-family: "Do Hyeon", sans-serif;
+}
 
 h1 {
   margin: unset;
@@ -205,6 +208,7 @@ button.cur {
   animation-timing-function: ease;
   animation-fill-mode: forwards;
 }
+
 /* .project-card-action {
   
   animation-name: projectcard;
@@ -549,6 +553,15 @@ button.cur {
 
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes bounsani {
+  0% {
+    top: -1vw;
+  }
+  100% {
+    top: 0;
   }
 }
 /* ---------------------- */

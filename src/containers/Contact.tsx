@@ -1,7 +1,7 @@
 import React from 'react'
 import ContactWrap from './ContactStyle'
 type Props = {
-    isAct: "INDEX" | "ABOUT" | "SKILLS" | "PROJECT" | "CONTACT";
+    isAct: "INDEX" | "ABOUT" | "PROJECT" | "CONTACT" | "ETC"
     globalTheme: boolean;
 }
 export default function Contact(props: Props) {

@@ -6,8 +6,8 @@ import dayjs from 'dayjs'
 
 type Props = {
     children: JSX.Element;
-    curPage: "INDEX" | "ABOUT" | "SKILLS" | "PROJECT" | "CONTACT";
-    setCurPage: (page: "INDEX" | "ABOUT" | "SKILLS" | "PROJECT" | "CONTACT") => void;
+    curPage: "INDEX" | "ABOUT" | "PROJECT" | "CONTACT" | "ETC";
+    setCurPage: (page: "INDEX" | "ABOUT" | "PROJECT" | "CONTACT" | "ETC") => void;
     globalTheme: boolean;
     setTheme: (bool: boolean) => void;
 }

@@ -7,7 +7,7 @@ import PROJECT from './containers/Project'
 import CONTACT from './containers/Contact'
 
 function App() {
-  const [curPage, setCurPage] = useState<"INDEX" | "ABOUT" | "SKILLS" | "PROJECT" | "CONTACT">('PROJECT');
+  const [curPage, setCurPage] = useState<"INDEX" | "ABOUT" | "PROJECT" | "CONTACT" | "ETC">('INDEX');
   const [globalTheme, setTheme] = useState(false)
   useEffect(() => {
     if (curPage !== "INDEX") {
@@ -17,14 +17,13 @@ function App() {
           dom.scrollTo({ top: window.innerHeight, behavior: "smooth" });
           dom.style.overflow = "hidden"
         }
-
-
       }, 2500)
     }
     return () => {
       document
         .getElementsByClassName("delay-view show-box_view")[0]
         .scrollTo(0, 0)
+      document.getElementById("about-scroll")?.scrollTo(0, 0)
     }
   }, [curPage])
   return (

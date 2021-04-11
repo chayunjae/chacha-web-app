@@ -7,8 +7,8 @@ type Props = {
     setTheme: (bool: boolean) => void;
     menuToggle: "NONE" | boolean;
     setMenuToggle: (bool: "NONE" | boolean) => void;
-    curPage: "INDEX" | "SKILLS" | "ABOUT" | "PROJECT" | "CONTACT"
-    setCurPage: (data: "INDEX" | "SKILLS" | "ABOUT" | "PROJECT" | "CONTACT") => void;
+    curPage: "INDEX" | "ABOUT" | "PROJECT" | "CONTACT" | "ETC"
+    setCurPage: (data: "INDEX" | "ABOUT" | "PROJECT" | "CONTACT" | "ETC") => void;
     setClockWrap: (bool: boolean) => void;
     clockWrap: "NONE" | boolean;
     hour: string;
