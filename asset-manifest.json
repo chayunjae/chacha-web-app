@@ -1,24 +1,25 @@
 {
   "files": {
-    "main.css": "/chacha-web-app/static/css/main.3a3f5120.chunk.css",
-    "main.js": "/chacha-web-app/static/js/main.9cade887.chunk.js",
-    "main.js.map": "/chacha-web-app/static/js/main.9cade887.chunk.js.map",
+    "main.css": "/chacha-web-app/static/css/main.6951fa50.chunk.css",
+    "main.js": "/chacha-web-app/static/js/main.0a69e6b5.chunk.js",
+    "main.js.map": "/chacha-web-app/static/js/main.0a69e6b5.chunk.js.map",
     "runtime-main.js": "/chacha-web-app/static/js/runtime-main.169bc69b.js",
     "runtime-main.js.map": "/chacha-web-app/static/js/runtime-main.169bc69b.js.map",
-    "static/js/2.21fb59ce.chunk.js": "/chacha-web-app/static/js/2.21fb59ce.chunk.js",
-    "static/js/2.21fb59ce.chunk.js.map": "/chacha-web-app/static/js/2.21fb59ce.chunk.js.map",
+    "static/js/2.3e7d8bbc.chunk.js": "/chacha-web-app/static/js/2.3e7d8bbc.chunk.js",
+    "static/js/2.3e7d8bbc.chunk.js.map": "/chacha-web-app/static/js/2.3e7d8bbc.chunk.js.map",
     "index.html": "/chacha-web-app/index.html",
-    "precache-manifest.358dca998a38f2cad76a89f3b3d7b676.js": "/chacha-web-app/precache-manifest.358dca998a38f2cad76a89f3b3d7b676.js",
+    "precache-manifest.182b216dff217f8eff56f2f4b4a7082e.js": "/chacha-web-app/precache-manifest.182b216dff217f8eff56f2f4b4a7082e.js",
     "service-worker.js": "/chacha-web-app/service-worker.js",
-    "static/css/main.3a3f5120.chunk.css.map": "/chacha-web-app/static/css/main.3a3f5120.chunk.css.map",
-    "static/js/2.21fb59ce.chunk.js.LICENSE.txt": "/chacha-web-app/static/js/2.21fb59ce.chunk.js.LICENSE.txt",
+    "static/css/main.6951fa50.chunk.css.map": "/chacha-web-app/static/css/main.6951fa50.chunk.css.map",
+    "static/js/2.3e7d8bbc.chunk.js.LICENSE.txt": "/chacha-web-app/static/js/2.3e7d8bbc.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/chacha-web-app/static/media/KumarOne-Regular.a615dc8a.ttf",
     "static/media/logo-black.png": "/chacha-web-app/static/media/logo-black.ce86f21e.png",
     "static/media/logo-white.png": "/chacha-web-app/static/media/logo-white.526c731b.png"
   },
   "entrypoints": [
     "static/js/runtime-main.169bc69b.js",
-    "static/js/2.21fb59ce.chunk.js",
-    "static/css/main.3a3f5120.chunk.css",
-    "static/js/main.9cade887.chunk.js"
+    "static/js/2.3e7d8bbc.chunk.js",
+    "static/css/main.6951fa50.chunk.css",
+    "static/js/main.0a69e6b5.chunk.js"
   ]
 }
