@@ -149,4 +149,74 @@ export const ParallaxThird = styled.section<{ isShow: boolean }>`
       right: 5vw;
     }
   }
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const ParallaxFourth = styled.section<{ isShow: boolean }>`
+  display: none;
+  @media (max-width: 768px) {
+    ${({ isShow }) => (isShow ? `display: flex;` : `display: none;`)}
+    transition: all 0.4s ease-in-out;
+    position: fixed;
+    top: 0;
+    z-index: -1;
+    width: calc(100vw - 10vw);
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    .brdw {
+      /* border: 1px solid #fff; */
+    }
+    .disf {
+      display: flex;
+    }
+    .flex1 {
+      flex: 1;
+    }
+    .flex1-3 {
+      flex: 1.3;
+    }
+    .flex1-5 {
+      flex: 1.5;
+    }
+    .flex2 {
+      flex: 2;
+    }
+    .flex3 {
+      flex: 3;
+    }
+    .flex4 {
+      flex: 4;
+    }
+    .mb-1 {
+      margin-bottom: 1vw;
+    }
+    .text-card {
+      position: fixed;
+      transition: all 0.4s ease-in-out;
+      &.desc-first {
+        font-size: 15vw;
+        bottom: 0;
+        right: 5vw;
+      }
+      &.desc-myself {
+        text-align: start;
+        font-size: 2.4vw;
+        bottom: 23vw;
+        left: 5vw;
+      }
+      &.desc-lets {
+        font-size: 4vw;
+        bottom: 16vw;
+        left: 5vw;
+      }
+      &.desc-for {
+        font-size: 3.1vw;
+        bottom: 45vw;
+        right: 5vw;
+      }
+    }
+  }
 `;

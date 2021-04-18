@@ -21,4 +21,18 @@ export default styled.section<{ theme: boolean }>`
     position: relative;
     top: -5vw;
   }
+  .test-box {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .progress-ring__circle {
+    transition: 0.6s stroke-dashoffset;
+    transition-duration: 0.9s;
+    transform: rotate(-90deg);
+    transform-origin: 50% 25%;
+    stroke-dasharray: 600, 600;
+    /* stroke-dashoffset: 110; */
+  }
 `;

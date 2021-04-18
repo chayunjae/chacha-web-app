@@ -8,6 +8,15 @@ body {
   background-color: #000;
 }
 
+@font-face {
+  font-family: "Do Hyeon", sans-serif;
+  src: url(./static/DoHyeon-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Kumar One", cursive;
+  src: url(./static/KumarOne-Regular.ttf) format("truetype");
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
