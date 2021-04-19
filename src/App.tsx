@@ -7,7 +7,7 @@ import PROJECT from './containers/Project'
 import CONTACT from './containers/Contact'
 
 function App() {
-  const [curPage, setCurPage] = useState<"INDEX" | "ABOUT" | "PROJECT" | "CONTACT" | "ETC">('INDEX');
+  const [curPage, setCurPage] = useState<"INDEX" | "ABOUT" | "PROJECT" | "CONTACT" | "ETC">('ABOUT');
   const [globalTheme, setTheme] = useState(false)
   useEffect(() => {
     if (curPage !== "INDEX") {

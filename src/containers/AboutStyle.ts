@@ -26,6 +26,20 @@ export default styled.section<{ theme: boolean }>`
     height: 0;
     overflow-y: scroll;
   }
+  .test-box {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .progress-ring__circle {
+    transition: 0.6s stroke-dashoffset;
+    transition-duration: 0.9s;
+    transform: rotate(-90deg);
+    transform-origin: 50% 25%;
+    stroke-dasharray: 600, 600;
+    /* stroke-dashoffset: 110; */
+  }
   @media (max-width: 768px) {
     .title-box {
       position: relative;
@@ -37,15 +51,17 @@ export default styled.section<{ theme: boolean }>`
 export const ScrollNotice = styled.section<{
   isShow: boolean;
   isPage: boolean;
+  isClick?: boolean;
   theme: boolean;
+  topValue: number;
 }>`
   ${({ isShow, isPage }) =>
     isPage ? (isShow ? `opacity:1;` : `opacity:0;`) : `opacity:0;`}
-  transition: all 0.2s linear;
+  transition: all 0.4s ease-in;
   font-size: 2vw;
   position: fixed;
-  bottom: 5vw;
-  z-index: -1;
+  bottom: ${({ topValue }) => (topValue === 0 ? "4vh" : "100vh")};
+  z-index: ${({ isClick, isShow }) => (isClick ? (isShow ? 2 : -1) : -1)};
   display: flex;
   justify-content: center;
   width: calc(100vw - 10vw);
@@ -67,31 +83,45 @@ export const ScrollNotice = styled.section<{
     animation-iteration-count: infinite;
     animation-direction: alternate;
   }
+  @media (max-width: 768px) {
+    .click-text {
+      font-size: 5vw;
+    }
+  }
 `;
 
-export const ParallaxFirst = styled.section<{ isShow: boolean }>`
+export const ParallaxFirst = styled.section<{
+  isShow: boolean;
+  topValue: number;
+}>`
   ${({ isShow }) => (isShow ? `display: flex;` : `display: none;`)}
-  transition: all 0.4s linear;
+  transition: all 0.4s ease-in;
   font-size: 30vw;
   position: fixed;
-  top: 0;
+  top: ${({ topValue }) => (topValue === 0 ? "0" : "-" + topValue + "vh")};
   z-index: -1;
   height: 100vh;
   align-items: center;
 `;
 
-export const ParallaxSecond = styled.section<{ isShow: boolean }>`
+export const ParallaxSecond = styled.section<{
+  isShow: boolean;
+  topValue: number;
+}>`
   ${({ isShow }) => (isShow ? `display: flex;` : `display: none;`)}
   transition: all 0.3s ease-in-out;
   position: fixed;
   z-index: -1;
 `;
 
-export const ParallaxThird = styled.section<{ isShow: boolean }>`
+export const ParallaxThird = styled.section<{
+  isShow: boolean;
+  topValue: number;
+}>`
   ${({ isShow }) => (isShow ? `display: flex;` : `display: none;`)}
   transition: all 0.4s ease-in-out;
   position: fixed;
-  top: 0;
+  top: ${({ topValue }) => (topValue === 0 ? "0" : "-" + topValue + "vh")};
   z-index: -1;
   width: calc(100vw - 10vw);
   height: 100vh;
@@ -154,13 +184,16 @@ export const ParallaxThird = styled.section<{ isShow: boolean }>`
   }
 `;
 
-export const ParallaxFourth = styled.section<{ isShow: boolean }>`
+export const ParallaxFourth = styled.section<{
+  isShow: boolean;
+  topValue: number;
+}>`
   display: none;
   @media (max-width: 768px) {
     ${({ isShow }) => (isShow ? `display: flex;` : `display: none;`)}
     transition: all 0.4s ease-in-out;
     position: fixed;
-    top: 0;
+    top: ${({ topValue }) => (topValue === 0 ? "-5vh" : "-" + topValue + "vh")};
     z-index: -1;
     width: calc(100vw - 10vw);
     height: 100vh;

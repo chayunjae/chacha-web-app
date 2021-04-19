@@ -21,6 +21,7 @@
     "lodash": "^4.17.21",
     "react": "^16.13.1",
     "react-app-polyfill": "^2.0.0",
+    "react-device-detect": "^1.17.0",
     "react-dom": "^16.13.1",
     "react-parallax": "^3.2.1",
     "react-scripts": "3.4.3",

@@ -210,6 +210,13 @@ button.cur {
   animation-timing-function: ease;
   animation-fill-mode: forwards;
 }
+.view-project-list-wrap2 {
+  animation-name: viewprojectlistwrap2;
+  animation-delay: 1.5s;
+  animation-duration: 0.4s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
 .view-project-list {
   animation-name: viewprojectlist;
   animation-delay: 2s;
@@ -552,6 +559,27 @@ button.cur {
     100% {
       -webkit-overflow-scrolling: touch;
       height: calc(100vh - 62px);
+    }
+  }
+}
+@keyframes viewprojectlistwrap2 {
+  0% {
+    height: 0;
+  }
+
+  100% {
+    height: 100vh;
+  }
+}
+@media (max-width: 768px) {
+  @keyframes viewprojectlistwrap2 {
+    0% {
+      height: 0;
+    }
+
+    100% {
+      -webkit-overflow-scrolling: touch;
+      height: 100vh;
     }
   }
 }

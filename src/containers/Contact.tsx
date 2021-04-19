@@ -21,45 +21,8 @@ export default function Contact(props: Props) {
                     <div className={`title-line ${props.isAct === "CONTACT" && "under-line-contact"}`} />
                 </div>
             </div>
-            <div className="test-box" onClick={() => {
-                setPagesetData(pagesetData + 100)
-            }}>
-                <svg height="400" width="400">
-                    <circle
-                        className="progress-ring__circle"
-                        cx="100"
-                        cy="100"
-                        r="90"
-                        stroke="#fff"
-                        strokeWidth="8"
-                        strokeDashoffset={pagesetData}
-                        fill="transparent"
-                    />
-                </svg>
-                <svg height="400" width="400">
-                    <circle
-                        className="progress-ring__circle"
-                        cx="100"
-                        cy="100"
-                        r="90"
-                        stroke="#fff"
-                        strokeWidth="8"
-                        strokeDashoffset={pagesetData}
-                        fill="transparent"
-                    />
-                </svg>
-                <svg height="400" width="400">
-                    <circle
-                        className="progress-ring__circle"
-                        cx="100"
-                        cy="100"
-                        r="90"
-                        stroke="#fff"
-                        strokeWidth="8"
-                        strokeDashoffset={pagesetData}
-                        fill="transparent"
-                    />
-                </svg>
+            <div className="test-box">
+
             </div>
         </ContactWrap>
     )

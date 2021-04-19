@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import AboutWrap, { ParallaxFirst, ParallaxThird, ParallaxFourth, ScrollNotice } from './AboutStyle'
+import { isMobile } from "react-device-detect"
 
 type Props = {
     isAct: "INDEX" | "ABOUT" | "PROJECT" | "CONTACT" | "ETC";
@@ -11,6 +12,9 @@ export default function About(props: Props) {
     const [arrowAni, setArrowAni] = useState(false)
     const [nextScreen, setNextScreen] = useState(false)
     const [xPosition, setPosition] = useState(0);
+    const [isTopValue, setIsTopValue] = useState(0)
+    const [isClickMe, setIsClickMe] = useState(0)
+    const [pagesetData, setPagesetData] = useState(595)
     const contentRef = useRef<HTMLDivElement | null>(null);
     function parallaxFunc() {
         if (contentRef.current) {
@@ -22,8 +26,8 @@ export default function About(props: Props) {
             if (scroll > 100) {
                 setArrowAni(false)
                 if (scroll > lastScroll) {
-                    console.log("??")
                     setNextScreen(true)
+                    setIsTopValue(15)
                 } else {
                     setNextScreen(false)
                 }
@@ -45,6 +49,11 @@ export default function About(props: Props) {
         }
     }, [props.isAct])
 
+    useEffect(() => {
+        setTimeout(() => {
+            setPagesetData(100)
+        }, 4000)
+    }, [])
     return (
         <AboutWrap
             theme={props.globalTheme}
@@ -55,18 +64,18 @@ export default function About(props: Props) {
                 <div className={`title-line ${props.isAct === "ABOUT" && "under-line-about"}`} />
                 </div>
             </div>
-            <div id="about-scroll" ref={contentRef} onScroll={parallaxFunc} className={`time-font introduce-wrap ${props.isAct === "ABOUT" ? "view-project-list-wrap" : "hide-wrap"}`}>
+            <div id="about-scroll" ref={contentRef} onScroll={parallaxFunc} className={`time-font introduce-wrap ${props.isAct === "ABOUT" ? "view-project-list-wrap2" : "hide-wrap"}`}>
                 <div style={{ height: "1000vh", position: "relative" }}>
-                    <ScrollNotice isShow={arrowAni} isPage={props.isAct === "ABOUT"} theme={props.globalTheme}>
+                    <ScrollNotice topValue={isTopValue} isShow={arrowAni} isPage={props.isAct === "ABOUT"} theme={props.globalTheme}>
                         <div>
-                            <div>Scroll</div>
+                            <div className="click-text">Scroll</div>
                             <div style={{ display: "flex", justifyContent: "center" }}>
                                 <div className="arrow" />
                             </div>
                         </div>
 
                     </ScrollNotice>
-                    <ParallaxFirst isShow={textAni}>
+                    <ParallaxFirst topValue={isTopValue} isShow={textAni}>
                         <div
                             style={{
                                 marginRight: "6vw",
@@ -95,7 +104,7 @@ export default function About(props: Props) {
                                         : 1 - ((xPosition - 1000) / 400)})`
                             }}>AM</div>
                     </ParallaxFirst>
-                    <ParallaxThird isShow={textAni} className="device-b">
+                    <ParallaxThird topValue={isTopValue} isShow={textAni} className="device-b">
                         <div className={"brdw"} style={{ width: "100vw", paddingTop: "6.5vw" }}>
                             <div className={"brdw disf mb-1"} style={{ height: '5vw' }}>
                                 <div className={"brdw flex1-3"}
@@ -243,7 +252,7 @@ export default function About(props: Props) {
                             </div>
                         </div>
                     </ParallaxThird>
-                    <ParallaxFourth isShow={textAni} className="device-m">
+                    <ParallaxFourth topValue={isTopValue} isShow={textAni} className="device-m">
                         <div className={"brdw"} style={{ width: "100vw", paddingTop: "6.5vw" }}>
                             <div className={"brdw disf"}>
                                 <div className={"brdw flex1"}
@@ -407,11 +416,80 @@ export default function About(props: Props) {
                                     }}
                                 >개발자</div>
                             </div>
-
-                            {/* <div className={"brdw disf"}></div> */}
                         </div>
                     </ParallaxFourth>
+                    <ScrollNotice isClick topValue={isClickMe} isShow={nextScreen} isPage={props.isAct === "ABOUT"} theme={props.globalTheme}>
+                        <div >
+                            <div
+                                className="cur click-text"
+                                onClick={() => {
+                                    setIsTopValue(100)
+                                    setIsClickMe(100)
+                                    const dom = document.getElementById("detail-dom cur-page")
+                                    if (dom) {
+                                        dom.scrollTo({ top: window.innerHeight * 2, behavior: "smooth" });
+                                        dom.style.overflow = "hidden"
+                                    }
+                                }}
+                            >{isMobile ? "Touch" : "Click"}</div>
+                            <div style={{ display: "flex", justifyContent: "center" }}>
+                                <div className="arrow" />
+                            </div>
+                        </div>
+                    </ScrollNotice>
                 </div>
+            </div>
+            <div className="test-box" onClick={() => {
+                setPagesetData(pagesetData + 100)
+            }}>
+                <svg height="400" width="400">
+                    <circle
+                        className="progress-ring__circle"
+                        cx="100"
+                        cy="100"
+                        r="90"
+                        stroke="#fff"
+                        strokeWidth="8"
+                        strokeDashoffset={pagesetData}
+                        fill="transparent"
+                    />
+                </svg>
+                <svg height="400" width="400">
+                    <circle
+                        className="progress-ring__circle"
+                        cx="100"
+                        cy="100"
+                        r="90"
+                        stroke="#fff"
+                        strokeWidth="8"
+                        strokeDashoffset={pagesetData}
+                        fill="transparent"
+                    />
+                </svg>
+                <svg height="400" width="400">
+                    <circle
+                        className="progress-ring__circle"
+                        cx="100"
+                        cy="100"
+                        r="90"
+                        stroke="#fff"
+                        strokeWidth="8"
+                        strokeDashoffset={pagesetData}
+                        fill="transparent"
+                    />
+                </svg>
+                <svg height="400" width="400">
+                    <circle
+                        className="progress-ring__circle"
+                        cx="100"
+                        cy="100"
+                        r="90"
+                        stroke="#fff"
+                        strokeWidth="8"
+                        strokeDashoffset={pagesetData}
+                        fill="transparent"
+                    />
+                </svg>
             </div>
         </AboutWrap >
     )
