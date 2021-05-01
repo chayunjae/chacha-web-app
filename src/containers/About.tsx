@@ -1,11 +1,54 @@
 import React, { useEffect, useRef, useState } from 'react'
-import AboutWrap, { ParallaxFirst, ParallaxThird, ParallaxFourth, ScrollNotice, ParallaxStar } from './AboutStyle'
+import AboutWrap, { ParallaxFirst, ParallaxThird, ParallaxFourth, ScrollNotice, ParallaxStar, SkillStackSvg, StackCircle, Pfill } from './AboutStyle'
 import { isMobile } from "react-device-detect"
 
 type Props = {
     isAct: "INDEX" | "ABOUT" | "PROJECT" | "CONTACT" | "ETC";
     globalTheme: boolean;
 }
+
+let skillData = [
+    {
+        label: "JAVA",
+        percentage: 60
+    },
+    {
+        label: "SPRING",
+        percentage: 50
+    },
+    {
+        label: "JAVASCRIPT",
+        percentage: 80
+    },
+    {
+        label: "TYPESCRIPT",
+        percentage: 70
+    },
+    {
+        label: "REACT",
+        percentage: 85
+    },
+    {
+        label: "NODE",
+        percentage: 60
+    },
+    {
+        label: "HTML",
+        percentage: 90
+    },
+    {
+        label: "CSS",
+        percentage: 90
+    },
+    {
+        label: "SCSS",
+        percentage: 85
+    },
+    {
+        label: "AWS",
+        percentage: 35
+    }
+]
 
 export default function About(props: Props) {
     const [textAni, setTextAni] = useState(false)
@@ -14,7 +57,8 @@ export default function About(props: Props) {
     const [xPosition, setPosition] = useState(0);
     const [isTopValue, setIsTopValue] = useState(0)
     const [isClickMe, setIsClickMe] = useState(0)
-    const [pagesetData, setPagesetData] = useState(595)
+    const [pagesetData, setPagesetData] = useState(600)
+    const [panel, setPanel] = useState("");
     const contentRef = useRef<HTMLDivElement | null>(null);
     function parallaxFunc() {
         if (contentRef.current) {
@@ -52,7 +96,7 @@ export default function About(props: Props) {
 
     useEffect(() => {
         setTimeout(() => {
-            setPagesetData(100)
+            setPagesetData(540)
         }, 4000)
     }, [])
     return (
@@ -65,6 +109,7 @@ export default function About(props: Props) {
                 <div className={`title-line ${props.isAct === "ABOUT" && "under-line-about"}`} />
                 </div>
             </div>
+
             <div id="about-scroll" ref={contentRef} onScroll={parallaxFunc} className={`time-font introduce-wrap ${props.isAct === "ABOUT" ? "view-project-list-wrap2" : "hide-wrap"}`}>
                 <div style={{ height: "1000vh", position: "relative" }}>
                     <ScrollNotice topValue={isTopValue} isShow={arrowAni} isPage={props.isAct === "ABOUT"} theme={props.globalTheme}>
@@ -455,89 +500,89 @@ export default function About(props: Props) {
                             // top: "99vh",
                             left: "0vw"
                         }}>
-                        <div className="star"
+                        <div className="star star-bg"
                         //  style={{ backgroundColor: "red" }} 
                         />
                     </ParallaxStar>
-                    <ParallaxStar className={`${(xPosition - 300) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                    <ParallaxStar theme={props.globalTheme} className={`${(xPosition - 300) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
                         style={{
                             top: (100 - (xPosition - 300) / 7) + "vh",
                             // top: "99vh",
                             left: "10vw"
                         }}>
-                        <div className="star" />
+                        <div className="star star-bg" />
                     </ParallaxStar>
-                    <ParallaxStar className={`${(xPosition - 1800) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                    <ParallaxStar theme={props.globalTheme} className={`${(xPosition - 1800) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
                         style={{
                             top: (100 - (xPosition - 1800) / 2) + "vh",
                             // top: "99vh",
                             left: "70vw"
                         }}>
-                        <div className="star" />
+                        <div className="star star-bg" />
                     </ParallaxStar>
-                    <ParallaxStar className={`${(xPosition - 1100) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                    <ParallaxStar theme={props.globalTheme} className={`${(xPosition - 1100) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
                         style={{
                             top: (100 - (xPosition - 1100) / 5) + "vh",
                             // top: "99vh",
                             left: "20vw"
                         }}>
-                        <div className="star" />
+                        <div className="star star-bg" />
                     </ParallaxStar>
-                    <ParallaxStar className={`${(xPosition - 500) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                    <ParallaxStar theme={props.globalTheme} className={`${(xPosition - 500) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
                         style={{
                             top: (100 - (xPosition - 500) / 15) + "vh",
                             // top: "99vh",
                             left: "30vw"
                         }}>
-                        <div className="star" />
+                        <div className="star star-bg" />
                     </ParallaxStar>
-                    <ParallaxStar className={`${(xPosition - 1600) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                    <ParallaxStar theme={props.globalTheme} className={`${(xPosition - 1600) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
                         style={{
                             top: (100 - (xPosition - 1600) / 13) + "vh",
                             // top: "99vh",
                             left: "60vw"
                         }}>
-                        <div className="star" />
+                        <div className="star star-bg" />
                     </ParallaxStar>
-                    <ParallaxStar className={`${(xPosition - 900) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                    <ParallaxStar theme={props.globalTheme} className={`${(xPosition - 900) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
                         style={{
                             top: (100 - (xPosition - 1900) / 15) + "vh",
                             // top: "99vh",
                             left: "50vw"
                         }}>
-                        <div className="star" />
+                        <div className="star star-bg" />
                     </ParallaxStar>
-                    <ParallaxStar className={`${(xPosition - 2000) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                    <ParallaxStar theme={props.globalTheme} className={`${(xPosition - 2000) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
                         style={{
                             top: (100 - (xPosition - 2000) / 8) + "vh",
                             // top: "99vh",
                             left: "100vw"
                         }}>
-                        <div className="star" />
+                        <div className="star star-bg" />
                     </ParallaxStar>
-                    <ParallaxStar className={`${(xPosition - 2500) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                    <ParallaxStar theme={props.globalTheme} className={`${(xPosition - 2500) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
                         style={{
                             top: (100 - (xPosition - 2500) / 20) + "vh",
                             // top: "99vh",
                             left: "80vw"
                         }}>
-                        <div className="star" />
+                        <div className="star star-bg" />
                     </ParallaxStar>
-                    <ParallaxStar className={`${(xPosition - 3000) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                    <ParallaxStar theme={props.globalTheme} className={`${(xPosition - 3000) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
                         style={{
                             top: (100 - (xPosition - 3000) / 4) + "vh",
                             // top: "99vh",
                             left: "90vw"
                         }}>
-                        <div className="star" />
+                        <div className="star star-bg" />
                     </ParallaxStar>
-                    <ParallaxStar className={`${(xPosition - 4500) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                    <ParallaxStar theme={props.globalTheme} className={`${(xPosition - 4500) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
                         style={{
                             top: (100 - (xPosition - 4500) / 3) + "vh",
                             // top: "99vh",
                             left: "40vw"
                         }}>
-                        <div className="star" />
+                        <div className="star star-bg" />
                     </ParallaxStar>
                     <ParallaxStar
                         className={`${(xPosition - 1200) / 100 >= 1 ? "star-ani" : "star-ani-d"}`}
@@ -547,89 +592,89 @@ export default function About(props: Props) {
                             // top: "99vh",
                             left: "22vw"
                         }}>
-                        <div className="star"
+                        <div className="star star-bg"
                         //  style={{ backgroundColor: "red" }} 
                         />
                     </ParallaxStar>
-                    <ParallaxStar className={`${(xPosition - 300) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                    <ParallaxStar theme={props.globalTheme} className={`${(xPosition - 300) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
                         style={{
                             top: (100 - (xPosition - 600) / 25) + "vh",
                             // top: "99vh",
                             left: "5vw"
                         }}>
-                        <div className="star" />
+                        <div className="star star-bg" />
                     </ParallaxStar>
-                    <ParallaxStar className={`${(xPosition - 1800) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                    <ParallaxStar theme={props.globalTheme} className={`${(xPosition - 1800) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
                         style={{
                             top: (100 - (xPosition - 2900) / 2) + "vh",
                             // top: "99vh",
                             left: "65vw"
                         }}>
-                        <div className="star" />
+                        <div className="star star-bg" />
                     </ParallaxStar>
-                    <ParallaxStar className={`${(xPosition - 1100) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                    <ParallaxStar theme={props.globalTheme} className={`${(xPosition - 1100) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
                         style={{
                             top: (100 - (xPosition - 2300) / 5) + "vh",
                             // top: "99vh",
                             left: "15vw"
                         }}>
-                        <div className="star" />
+                        <div className="star star-bg" />
                     </ParallaxStar>
-                    <ParallaxStar className={`${(xPosition - 500) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                    <ParallaxStar theme={props.globalTheme} className={`${(xPosition - 500) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
                         style={{
                             top: (100 - (xPosition - 1200) / 15) + "vh",
                             // top: "99vh",
                             left: "25vw"
                         }}>
-                        <div className="star" />
+                        <div className="star star-bg" />
                     </ParallaxStar>
-                    <ParallaxStar className={`${(xPosition - 1600) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                    <ParallaxStar theme={props.globalTheme} className={`${(xPosition - 1600) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
                         style={{
                             top: (100 - (xPosition - 600) / 13) + "vh",
                             // top: "99vh",
                             left: "55vw"
                         }}>
-                        <div className="star" />
+                        <div className="star star-bg" />
                     </ParallaxStar>
-                    <ParallaxStar className={`${(xPosition - 900) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                    <ParallaxStar theme={props.globalTheme} className={`${(xPosition - 900) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
                         style={{
                             top: (100 - (xPosition - 2750) / 15) + "vh",
                             // top: "99vh",
                             left: "45vw"
                         }}>
-                        <div className="star" />
+                        <div className="star star-bg" />
                     </ParallaxStar>
-                    <ParallaxStar className={`${(xPosition - 2000) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                    <ParallaxStar theme={props.globalTheme} className={`${(xPosition - 2000) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
                         style={{
                             top: (100 - (xPosition - 200) / 8) + "vh",
                             // top: "99vh",
                             left: "95vw"
                         }}>
-                        <div className="star" />
+                        <div className="star star-bg" />
                     </ParallaxStar>
-                    <ParallaxStar className={`${(xPosition - 2500) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                    <ParallaxStar theme={props.globalTheme} className={`${(xPosition - 2500) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
                         style={{
                             top: (100 - (xPosition - 3200) / 20) + "vh",
                             // top: "99vh",
                             left: "75vw"
                         }}>
-                        <div className="star" />
+                        <div className="star star-bg" />
                     </ParallaxStar>
-                    <ParallaxStar className={`${(xPosition - 3000) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                    <ParallaxStar theme={props.globalTheme} className={`${(xPosition - 3000) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
                         style={{
                             top: (100 - (xPosition - 1000) / 4) + "vh",
                             // top: "99vh",
                             left: "85vw"
                         }}>
-                        <div className="star" />
+                        <div className="star star-bg" />
                     </ParallaxStar>
-                    <ParallaxStar className={`${(xPosition - 4500) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                    <ParallaxStar theme={props.globalTheme} className={`${(xPosition - 4500) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
                         style={{
                             top: (100 - (xPosition - 400) / 3) + "vh",
                             // top: "99vh",
                             left: "35vw"
                         }}>
-                        <div className="star" />
+                        <div className="star star-bg" />
                     </ParallaxStar>
                     <ScrollNotice isClick topValue={isClickMe} isShow={nextScreen} isPage={props.isAct === "ABOUT"} theme={props.globalTheme}>
                         <div >
@@ -652,57 +697,87 @@ export default function About(props: Props) {
                     </ScrollNotice>
                 </div>
             </div>
-            <div className="test-box" onClick={() => {
-                setPagesetData(pagesetData + 100)
-            }}>
-                <svg height="400" width="400">
-                    <circle
+
+
+            {/* <div className="test-box" onClick={() => {
+                if (pagesetData === 240) {
+                    setPagesetData(600)
+                } else {
+                    setPagesetData(pagesetData - 60)
+                }
+            }}> */}
+            <div className="skill-box">
+                <div className={`panel ${panel === "CAREER" ? "show-career" : "show-skill"}`}>
+                    <div className="panel-skill" onClick={() => {
+                        setPanel("CAREER")
+                    }}>
+                        <div>
+                            <div className="time-font skill-title">
+                                SKILLS
+                        </div>
+                            <div className="center-box">
+                                <div>
+                                    {
+                                        skillData.map((data: { label: string, percentage: number }, idx: number) => {
+                                            return (
+                                                <div className="skill-wrap" key={idx}>
+                                                    <div className="label">{data.label}</div>
+                                                    <div className="percentage">
+                                                        <Pfill className="per-ani" per={data.percentage}>
+                                                            <span className="per-val">{data.percentage + " %"}</span>
+                                                        </Pfill>
+                                                    </div>
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="panel-career" onClick={() => {
+                        setPanel("SKILL")
+                    }}>
+                        <span className="time-font career-title">CAREER</span>
+                    </div>
+                </div>
+
+                {/* <SkillStackSvg>
+                    <StackCircle
                         className="progress-ring__circle"
-                        cx="100"
-                        cy="100"
-                        r="90"
-                        stroke="#fff"
-                        strokeWidth="8"
-                        strokeDashoffset={pagesetData}
-                        fill="transparent"
+                        pagesetData={pagesetData}
                     />
-                </svg>
-                <svg height="400" width="400">
-                    <circle
+                    </SkillStackSvg>
+                <SkillStackSvg>
+                    <StackCircle
                         className="progress-ring__circle"
-                        cx="100"
-                        cy="100"
-                        r="90"
-                        stroke="#fff"
-                        strokeWidth="8"
-                        strokeDashoffset={pagesetData}
-                        fill="transparent"
+                        pagesetData={pagesetData}
                     />
-                </svg>
-                <svg height="400" width="400">
-                    <circle
+                </SkillStackSvg>
+                <SkillStackSvg>
+                    <StackCircle
                         className="progress-ring__circle"
-                        cx="100"
-                        cy="100"
-                        r="90"
-                        stroke="#fff"
-                        strokeWidth="8"
-                        strokeDashoffset={pagesetData}
-                        fill="transparent"
+                        pagesetData={pagesetData}
                     />
-                </svg>
-                <svg height="400" width="400">
-                    <circle
+                </SkillStackSvg>
+                <SkillStackSvg>
+                    <StackCircle
                         className="progress-ring__circle"
-                        cx="100"
-                        cy="100"
-                        r="90"
-                        stroke="#fff"
-                        strokeWidth="8"
-                        strokeDashoffset={pagesetData}
-                        fill="transparent"
+                        pagesetData={pagesetData}
                     />
-                </svg>
+                </SkillStackSvg>
+                <SkillStackSvg>
+                    <StackCircle
+                        className="progress-ring__circle"
+                        pagesetData={pagesetData}
+                    />
+                </SkillStackSvg>
+                <SkillStackSvg>
+                    <StackCircle
+                        className="progress-ring__circle"
+                        pagesetData={pagesetData}
+                    />
+                </SkillStackSvg> */}
             </div>
         </AboutWrap >
     )

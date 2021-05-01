@@ -72,6 +72,8 @@ button.cur {
   --gray-b-bg-color: rgba(10, 10, 10, 0.9);
   --dark--hd-bg-color: rgba(0, 0, 0, 0.6);
   --white--hd-bg-color: rgba(255, 255, 255, 0.6);
+  --dark--per-color: rgba(0, 0, 0, 0.2);
+  --white--per-color: rgba(255, 255, 255, 0.2);
 }
 /* ---------------------- */
 
@@ -227,7 +229,7 @@ button.cur {
 .star {
   width: 5px;
   height: 5px;
-  background-color: #fff;
+  border-radius: 100%;
   filter: blur(1px);
 }
 /* .star-ani {
@@ -242,29 +244,20 @@ button.cur {
   animation-timing-function: ease;
   animation-fill-mode: forwards;
 } */
-@keyframes starrise {
-  0% {
-    top: 100vh;
-  }
-  20% {
-    filter: blur(3px);
-  }
-  100% {
-    filter: blur(0px);
-    top: 0;
-  }
+.per-ani {
+  animation-name: perani;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
 }
-
-@keyframes stardrop {
+@keyframes perani {
   0% {
-    top: 0vh;
-  }
-  20% {
-    filter: blur(3px);
+    background-color: rgba(255, 0, 255, 0.4);
   }
   100% {
-    filter: blur(0px);
-    top: 100vh;
+    background-color: rgba(255, 0, 255, 0.9);
   }
 }
 

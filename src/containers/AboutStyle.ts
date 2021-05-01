@@ -26,24 +26,123 @@ export default styled.section<{ theme: boolean }>`
     height: 0;
     overflow-y: scroll;
   }
-  .test-box {
+  .skill-box {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    perspective: 200vw;
+  }
+  .center-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .panel {
+    position: relative;
+    width: 90vw;
+    height: 80vh;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &.show-career {
+      transform: rotateY(180deg);
+    }
+    &.show-skill {
+      transform: rotateY(0deg);
+    }
+  }
+  .panel-skill,
+  .panel-career {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* .panel-skill {
+  } */
+  .panel-career {
+    background-color: rgba(255, 255, 255, 0.05);
+    transform: rotateY(180deg);
+  }
+  .skill-title {
+    font-size: 4vw;
+    margin-top: 0.3vw;
+    line-height: 1.3;
+  }
+  .career-title {
+    font-size: 8vw;
+  }
+  .skill-wrap {
+    width: 70vw;
+    height: 5vh;
+    margin: 1vw 0;
+    display: flex;
+    .label {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      font-weight: 500;
+      font-size: 0.8rem;
+    }
+    .percentage {
+      flex: 5;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      background-color: ${({ theme }) =>
+        theme === true ? `var(--dark--per-color)` : `var(--white--per-color)`};
+    }
   }
   .progress-ring__circle {
     transition: 0.6s stroke-dashoffset;
     transition-duration: 0.9s;
     transform: rotate(-90deg);
     transform-origin: 50% 25%;
-    stroke-dasharray: 600, 600;
+
     /* stroke-dashoffset: 110; */
   }
   @media (max-width: 768px) {
     .title-box {
       position: relative;
       top: -20vw;
+    }
+    .skill-title {
+      font-size: 8vw;
+      margin-bottom: 3vw;
+    }
+    .skill-wrap {
+      width: 90vw;
+      margin: 2vw 0;
+      height: 4.5vh;
+      .label {
+        min-width: 30vw;
+      }
+    }
+  }
+`;
+
+export const Pfill = styled.div<{ per: number }>`
+  width: ${({ per }) => (per ? per : "0")}%;
+  height: 100%;
+  border-radius: 0 4px 4px 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  .per-val {
+    margin-right: 1vw;
+  }
+  @media (max-width: 768px) {
+    .per-val {
+      margin-right: 3vw;
     }
   }
 `;
@@ -256,8 +355,32 @@ export const ParallaxFourth = styled.section<{
 
 export const ParallaxStar = styled.div<{
   isShow: boolean;
+  theme: boolean;
 }>`
   ${({ isShow }) => (isShow ? `display: flex;` : `display: none;`)}
   transition: all 0.1s linear;
   position: fixed;
+  .star-bg {
+    background-color: ${({ theme }) =>
+      theme === true ? `var(--dark-bg-color)` : `var(--white-bg-color)`};
+  }
+`;
+
+export const SkillStackSvg = styled.svg`
+  flex: 1;
+  /* height: 25vw; */
+`;
+
+export const StackCircle = styled.circle<{
+  pagesetData: number;
+}>`
+  stroke: #fff;
+  stroke-width: 10;
+  stroke-dasharray: 600;
+  stroke-dashoffset: ${({ pagesetData }) => pagesetData};
+  stroke-linecap: round;
+  fill: transparent;
+  cy: 25%;
+  cx: 25%;
+  r: 7vw;
 `;

@@ -7,8 +7,14 @@ import PROJECT from './containers/Project'
 import CONTACT from './containers/Contact'
 
 function App() {
-  const [curPage, setCurPage] = useState<"INDEX" | "ABOUT" | "PROJECT" | "CONTACT" | "ETC">('ABOUT');
+  const [curPage, setCurPage] = useState<"INDEX" | "ABOUT" | "PROJECT" | "CONTACT" | "ETC">('INDEX');
   const [globalTheme, setTheme] = useState(false)
+  useEffect(() => {
+    if (sessionStorage.HISTORY_PAGE) {
+      const historyPage = sessionStorage.HISTORY_PAGE
+      setCurPage(historyPage)
+    }
+  }, [])
   useEffect(() => {
     if (curPage !== "INDEX") {
       setTimeout(() => {
