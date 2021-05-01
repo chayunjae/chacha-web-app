@@ -253,3 +253,11 @@ export const ParallaxFourth = styled.section<{
     }
   }
 `;
+
+export const ParallaxStar = styled.div<{
+  isShow: boolean;
+}>`
+  ${({ isShow }) => (isShow ? `display: flex;` : `display: none;`)}
+  transition: all 0.1s linear;
+  position: fixed;
+`;

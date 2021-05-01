@@ -224,6 +224,49 @@ button.cur {
   animation-timing-function: ease;
   animation-fill-mode: forwards;
 }
+.star {
+  width: 5px;
+  height: 5px;
+  background-color: #fff;
+  filter: blur(1px);
+}
+/* .star-ani {
+  animation-name: starrise;
+  animation-duration: 0.4s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+.star-ani-d {
+  animation-name: stardrop;
+  animation-duration: 0.4s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+} */
+@keyframes starrise {
+  0% {
+    top: 100vh;
+  }
+  20% {
+    filter: blur(3px);
+  }
+  100% {
+    filter: blur(0px);
+    top: 0;
+  }
+}
+
+@keyframes stardrop {
+  0% {
+    top: 0vh;
+  }
+  20% {
+    filter: blur(3px);
+  }
+  100% {
+    filter: blur(0px);
+    top: 100vh;
+  }
+}
 
 /* .project-card-action {
   

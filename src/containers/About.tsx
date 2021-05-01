@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import AboutWrap, { ParallaxFirst, ParallaxThird, ParallaxFourth, ScrollNotice } from './AboutStyle'
+import AboutWrap, { ParallaxFirst, ParallaxThird, ParallaxFourth, ScrollNotice, ParallaxStar } from './AboutStyle'
 import { isMobile } from "react-device-detect"
 
 type Props = {
@@ -30,6 +30,7 @@ export default function About(props: Props) {
                     setIsTopValue(15)
                 } else {
                     setNextScreen(false)
+                    setIsTopValue(0)
                 }
             } else {
                 setArrowAni(true)
@@ -124,6 +125,7 @@ export default function About(props: Props) {
                                     style={{
                                         fontSize: "3.1vw", textAlign: "end",
                                         opacity: `${(xPosition - 1200) / 400 <= 5.2 ? 0 : 1}`,
+                                        filter: `${(xPosition - 1200) / 400 <= 5.2 ? "blur(30px)" : "blur(0px)"}`,
                                         transition: "all 0.3s ease",
                                         color: "rgba(202, 69, 255,0.9)"
                                     }}
@@ -134,6 +136,7 @@ export default function About(props: Props) {
                                     style={{
                                         fontSize: "5vw", textAlign: "start",
                                         opacity: `${(xPosition - 1200) / 400 <= 2.8 ? 0 : 1}`,
+                                        filter: `${(xPosition - 1200) / 400 <= 2.8 ? "blur(30px)" : "blur(0px)"}`,
                                         transition: "all 0.3s ease",
                                         color: props.globalTheme ? "rgba(0,0,0,0.3)" : "rgba(255,255,255,0.4)"
                                     }}
@@ -142,6 +145,7 @@ export default function About(props: Props) {
                                     style={{
                                         fontSize: "5vw",
                                         opacity: `${(xPosition - 1200) / 400 <= 3.5 ? 0 : 1}`,
+                                        filter: `${(xPosition - 1200) / 400 <= 3.5 ? "blur(30px)" : "blur(0px)"}`,
                                         transition: "all 0.3s ease"
                                     }}
                                 >Interactive</div>
@@ -149,6 +153,7 @@ export default function About(props: Props) {
                                     style={{
                                         fontSize: "8vw", lineHeight: 1, textAlign: "end",
                                         opacity: `${(xPosition - 1200) / 400 <= 5.5 ? 0 : 1}`,
+                                        filter: `${(xPosition - 1200) / 400 <= 5.5 ? "blur(30px)" : "blur(0px)"}`,
                                         transition: "all 0.3s ease",
                                         color: props.globalTheme ? "rgba(0,0,0,0.3)" : "rgba(255,255,255,0.4)"
                                     }}
@@ -159,6 +164,7 @@ export default function About(props: Props) {
                                     style={{
                                         fontSize: "2.4vw", textAlign: "start",
                                         opacity: `${(xPosition - 1200) / 400 <= 3.2 ? 0 : 1}`,
+                                        filter: `${(xPosition - 1200) / 400 <= 3.2 ? "blur(30px)" : "blur(0px)"}`,
                                         transition: "all 0.3s ease"
                                     }}
                                 >
@@ -171,6 +177,7 @@ export default function About(props: Props) {
                                     style={{
                                         fontSize: "10vw", lineHeight: 1.3,
                                         opacity: `${(xPosition - 1200) / 400 <= 6 ? 0 : 1}`,
+                                        filter: `${(xPosition - 1200) / 400 <= 6 ? "blur(30px)" : "blur(0px)"}`,
                                         transition: "all 0.3s ease"
                                     }}
                                 >PASSION</div>
@@ -180,6 +187,7 @@ export default function About(props: Props) {
                                     style={{
                                         fontSize: "4vw", textAlign: "start",
                                         opacity: `${(xPosition - 1200) / 400 <= 6.3 ? 0 : 1}`,
+                                        filter: `${(xPosition - 1200) / 400 <= 6.3 ? "blur(30px)" : "blur(0px)"}`,
                                         transition: "all 0.45s ease",
                                         color: "rgba(202, 69, 255,0.9)"
                                     }}
@@ -190,6 +198,7 @@ export default function About(props: Props) {
                                     style={{
                                         fontSize: "7.5vw", textAlign: "end", lineHeight: 0.5,
                                         opacity: `${(xPosition - 1200) / 400 <= 5 ? 0 : 1}`,
+                                        filter: `${(xPosition - 1200) / 400 <= 5 ? "blur(30px)" : "blur(0px)"}`,
                                         transition: "all 0.3s ease"
                                     }}
                                 >백엔드</div>
@@ -204,6 +213,7 @@ export default function About(props: Props) {
                                                 fontSize: "3.3vw",
                                                 textAlign: "start",
                                                 opacity: `${(xPosition - 1200) / 400 <= 4 ? 0 : 1}`,
+                                                filter: `${(xPosition - 1200) / 400 <= 4 ? "blur(30px)" : "blur(0px)"}`,
                                                 transition: "all 0.3s ease"
                                             }}
                                         >퍼블리싱</div>
@@ -211,6 +221,7 @@ export default function About(props: Props) {
                                             style={{
                                                 fontSize: "4.1vw",
                                                 opacity: `${(xPosition - 1200) / 400 <= 5.7 ? 0 : 1}`,
+                                                filter: `${(xPosition - 1200) / 400 <= 5.7 ? "blur(30px)" : "blur(0px)"}`,
                                                 transition: "all 0.3s ease",
                                                 color: props.globalTheme ? "rgba(0,0,0,0.3)" : "rgba(255,255,255,0.4)"
                                             }}
@@ -219,6 +230,7 @@ export default function About(props: Props) {
                                             style={{
                                                 fontSize: "3.3vw",
                                                 opacity: `${(xPosition - 1200) / 400 <= 3.8 ? 0 : 1}`,
+                                                filter: `${(xPosition - 1200) / 400 <= 3.8 ? "blur(30px)" : "blur(0px)"}`,
                                                 transition: "all 0.3s ease"
                                             }}
                                         >웹 디자이너</div>
@@ -228,6 +240,7 @@ export default function About(props: Props) {
                                             style={{
                                                 fontSize: "9vw", lineHeight: 1.25,
                                                 opacity: `${(xPosition - 1200) / 400 <= 4.3 ? 0 : 1}`,
+                                                filter: `${(xPosition - 1200) / 400 <= 4.3 ? "blur(30px)" : "blur(0px)"}`,
                                                 transition: "all 0.3s ease"
                                             }}
                                         >UI/UX</div>
@@ -235,6 +248,7 @@ export default function About(props: Props) {
                                             style={{
                                                 fontSize: "5.5vw", lineHeight: 2.15,
                                                 opacity: `${(xPosition - 1200) / 400 <= 4.5 ? 0 : 1}`,
+                                                filter: `${(xPosition - 1200) / 400 <= 4.5 ? "blur(30px)" : "blur(0px)"}`,
                                                 transition: "all 0.3s ease"
                                             }}
                                         >프론트엔드</div>
@@ -246,6 +260,7 @@ export default function About(props: Props) {
                                         lineHeight: 1,
                                         textAlign: "end",
                                         opacity: `${(xPosition - 1200) / 400 <= 2.5 ? 0 : 1}`,
+                                        filter: `${(xPosition - 1200) / 400 <= 2.5 ? "blur(30px)" : "blur(0px)"}`,
                                         transition: "all 0.3s ease"
                                     }}
                                 >개발자</div>
@@ -274,6 +289,7 @@ export default function About(props: Props) {
                                     style={{
                                         fontSize: "4.5vw", textAlign: "start",
                                         opacity: `${(xPosition - 1200) / 400 <= 5.2 ? 0 : 1}`,
+                                        filter: `${(xPosition - 1200) / 400 <= 5.2 ? "blur(30px)" : "blur(0px)"}`,
                                         transition: "all 0.3s ease",
                                         color: "rgba(202, 69, 255,0.9)"
                                     }}
@@ -282,6 +298,7 @@ export default function About(props: Props) {
                                     style={{
                                         fontSize: "7vw", lineHeight: 1.1, textAlign: "center",
                                         opacity: `${(xPosition - 1200) / 400 <= 5.5 ? 0 : 1}`,
+                                        filter: `${(xPosition - 1200) / 400 <= 5.5 ? "blur(30px)" : "blur(0px)"}`,
                                         transition: "all 0.3s ease",
                                         color: props.globalTheme ? "rgba(0,0,0,0.3)" : "rgba(255,255,255,0.4)"
                                     }}
@@ -293,6 +310,7 @@ export default function About(props: Props) {
                                         style={{
                                             fontSize: "5vw", textAlign: "start",
                                             opacity: `${(xPosition - 1200) / 400 <= 2.8 ? 0 : 1}`,
+                                            filter: `${(xPosition - 1200) / 400 <= 2.8 ? "blur(30px)" : "blur(0px)"}`,
                                             transition: "all 0.3s ease",
                                             lineHeight: 1.3,
                                             color: props.globalTheme ? "rgba(0,0,0,0.3)" : "rgba(255,255,255,0.4)"
@@ -302,6 +320,7 @@ export default function About(props: Props) {
                                         style={{
                                             fontSize: "5.5vw", lineHeight: 1.1,
                                             opacity: `${(xPosition - 1200) / 400 <= 6 ? 0 : 1}`,
+                                            filter: `${(xPosition - 1200) / 400 <= 6 ? "blur(30px)" : "blur(0px)"}`,
                                             transition: "all 0.3s ease"
                                         }}
                                     >PASSION</div>
@@ -311,6 +330,7 @@ export default function About(props: Props) {
                                         style={{
                                             fontSize: "9vw",
                                             opacity: `${(xPosition - 1200) / 400 <= 3.5 ? 0 : 1}`,
+                                            filter: `${(xPosition - 1200) / 400 <= 3.5 ? "blur(30px)" : "blur(0px)"}`,
                                             transition: "all 0.3s ease",
                                             lineHeight: 1.6,
                                             marginLeft: "2vw"
@@ -324,6 +344,7 @@ export default function About(props: Props) {
                                     style={{
                                         fontSize: "6.3vw", textAlign: "start",
                                         opacity: `${(xPosition - 1200) / 400 <= 3.2 ? 0 : 1}`,
+                                        filter: `${(xPosition - 1200) / 400 <= 3.2 ? "blur(30px)" : "blur(0px)"}`,
                                         transition: "all 0.3s ease"
                                     }}
                                 >
@@ -336,6 +357,7 @@ export default function About(props: Props) {
                                     style={{
                                         fontSize: "5vw",
                                         opacity: `${(xPosition - 1200) / 400 <= 3.8 ? 0 : 1}`,
+                                        filter: `${(xPosition - 1200) / 400 <= 3.8 ? "blur(30px)" : "blur(0px)"}`,
                                         transition: "all 0.3s ease",
                                         textAlign: "end",
                                         marginTop: "-8vw",
@@ -350,6 +372,7 @@ export default function About(props: Props) {
                                         marginTop: "1vw",
                                         fontSize: "5.1vw", textAlign: "start",
                                         opacity: `${(xPosition - 1200) / 400 <= 6.3 ? 0 : 1}`,
+                                        filter: `${(xPosition - 1200) / 400 <= 5 ? "blur(30px)" : "blur(0px)"}`,
                                         transition: "all 0.45s ease",
                                         color: "rgba(202, 69, 255,0.9)"
                                     }}
@@ -363,6 +386,7 @@ export default function About(props: Props) {
                                     style={{
                                         fontSize: "10vw", lineHeight: 1.25,
                                         opacity: `${(xPosition - 1200) / 400 <= 4.3 ? 0 : 1}`,
+                                        filter: `${(xPosition - 1200) / 400 <= 4.3 ? "blur(30px)" : "blur(0px)"}`,
                                         transition: "all 0.3s ease"
                                     }}
                                 >UI/UX</div>
@@ -371,6 +395,7 @@ export default function About(props: Props) {
                                         fontSize: "5vw",
                                         lineHeight: 1.3,
                                         opacity: `${(xPosition - 1200) / 400 <= 5.7 ? 0 : 1}`,
+                                        filter: `${(xPosition - 1200) / 400 <= 5.7 ? "blur(30px)" : "blur(0px)"}`,
                                         transition: "all 0.3s ease",
                                         color: props.globalTheme ? "rgba(0,0,0,0.3)" : "rgba(255,255,255,0.4)"
                                     }}
@@ -379,6 +404,7 @@ export default function About(props: Props) {
                                     style={{
                                         fontSize: "7vw", lineHeight: 1,
                                         opacity: `${(xPosition - 1200) / 400 <= 4.5 ? 0 : 1}`,
+                                        filter: `${(xPosition - 1200) / 400 <= 4.5 ? "blur(30px)" : "blur(0px)"}`,
                                         transition: "all 0.3s ease"
                                     }}
                                 >프론트엔드</div>
@@ -393,6 +419,7 @@ export default function About(props: Props) {
                                         textAlign: "start",
                                         lineHeight: 1,
                                         opacity: `${(xPosition - 1200) / 400 <= 4 ? 0 : 1}`,
+                                        filter: `${(xPosition - 1200) / 400 <= 4 ? "blur(30px)" : "blur(0px)"}`,
                                         transition: "all 0.3s ease",
                                         color: props.globalTheme ? "rgba(0,0,0,0.3)" : "rgba(255,255,255,0.4)"
                                     }}
@@ -402,6 +429,7 @@ export default function About(props: Props) {
                                         fontSize: "8vw", display: "flex",
                                         alignItems: "flex-end", textAlign: "end", lineHeight: 1,
                                         opacity: `${(xPosition - 1200) / 400 <= 5 ? 0 : 1}`,
+                                        filter: `${(xPosition - 1200) / 400 <= 5 ? "blur(30px)" : "blur(0px)"}`,
                                         transition: "all 0.3s ease",
                                         justifyContent: "center"
                                     }}
@@ -412,12 +440,197 @@ export default function About(props: Props) {
                                         lineHeight: 0.75,
                                         textAlign: "end",
                                         opacity: `${(xPosition - 1200) / 400 <= 2.5 ? 0 : 1}`,
+                                        filter: `${(xPosition - 1200) / 400 <= 2.5 ? "blur(30px)" : "blur(0px)"}`,
                                         transition: "all 0.3s ease"
                                     }}
                                 >개발자</div>
                             </div>
                         </div>
                     </ParallaxFourth>
+                    <ParallaxStar
+                        className={`${(xPosition - 1200) / 100 >= 1 ? "star-ani" : "star-ani-d"}`}
+                        isShow={textAni}
+                        style={{
+                            top: (100 - (xPosition - 1200) / 5) + "vh",
+                            // top: "99vh",
+                            left: "0vw"
+                        }}>
+                        <div className="star"
+                        //  style={{ backgroundColor: "red" }} 
+                        />
+                    </ParallaxStar>
+                    <ParallaxStar className={`${(xPosition - 300) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                        style={{
+                            top: (100 - (xPosition - 300) / 7) + "vh",
+                            // top: "99vh",
+                            left: "10vw"
+                        }}>
+                        <div className="star" />
+                    </ParallaxStar>
+                    <ParallaxStar className={`${(xPosition - 1800) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                        style={{
+                            top: (100 - (xPosition - 1800) / 2) + "vh",
+                            // top: "99vh",
+                            left: "70vw"
+                        }}>
+                        <div className="star" />
+                    </ParallaxStar>
+                    <ParallaxStar className={`${(xPosition - 1100) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                        style={{
+                            top: (100 - (xPosition - 1100) / 5) + "vh",
+                            // top: "99vh",
+                            left: "20vw"
+                        }}>
+                        <div className="star" />
+                    </ParallaxStar>
+                    <ParallaxStar className={`${(xPosition - 500) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                        style={{
+                            top: (100 - (xPosition - 500) / 15) + "vh",
+                            // top: "99vh",
+                            left: "30vw"
+                        }}>
+                        <div className="star" />
+                    </ParallaxStar>
+                    <ParallaxStar className={`${(xPosition - 1600) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                        style={{
+                            top: (100 - (xPosition - 1600) / 13) + "vh",
+                            // top: "99vh",
+                            left: "60vw"
+                        }}>
+                        <div className="star" />
+                    </ParallaxStar>
+                    <ParallaxStar className={`${(xPosition - 900) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                        style={{
+                            top: (100 - (xPosition - 1900) / 15) + "vh",
+                            // top: "99vh",
+                            left: "50vw"
+                        }}>
+                        <div className="star" />
+                    </ParallaxStar>
+                    <ParallaxStar className={`${(xPosition - 2000) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                        style={{
+                            top: (100 - (xPosition - 2000) / 8) + "vh",
+                            // top: "99vh",
+                            left: "100vw"
+                        }}>
+                        <div className="star" />
+                    </ParallaxStar>
+                    <ParallaxStar className={`${(xPosition - 2500) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                        style={{
+                            top: (100 - (xPosition - 2500) / 20) + "vh",
+                            // top: "99vh",
+                            left: "80vw"
+                        }}>
+                        <div className="star" />
+                    </ParallaxStar>
+                    <ParallaxStar className={`${(xPosition - 3000) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                        style={{
+                            top: (100 - (xPosition - 3000) / 4) + "vh",
+                            // top: "99vh",
+                            left: "90vw"
+                        }}>
+                        <div className="star" />
+                    </ParallaxStar>
+                    <ParallaxStar className={`${(xPosition - 4500) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                        style={{
+                            top: (100 - (xPosition - 4500) / 3) + "vh",
+                            // top: "99vh",
+                            left: "40vw"
+                        }}>
+                        <div className="star" />
+                    </ParallaxStar>
+                    <ParallaxStar
+                        className={`${(xPosition - 1200) / 100 >= 1 ? "star-ani" : "star-ani-d"}`}
+                        isShow={textAni}
+                        style={{
+                            top: (100 - (xPosition - 2700) / 5) + "vh",
+                            // top: "99vh",
+                            left: "22vw"
+                        }}>
+                        <div className="star"
+                        //  style={{ backgroundColor: "red" }} 
+                        />
+                    </ParallaxStar>
+                    <ParallaxStar className={`${(xPosition - 300) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                        style={{
+                            top: (100 - (xPosition - 600) / 25) + "vh",
+                            // top: "99vh",
+                            left: "5vw"
+                        }}>
+                        <div className="star" />
+                    </ParallaxStar>
+                    <ParallaxStar className={`${(xPosition - 1800) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                        style={{
+                            top: (100 - (xPosition - 2900) / 2) + "vh",
+                            // top: "99vh",
+                            left: "65vw"
+                        }}>
+                        <div className="star" />
+                    </ParallaxStar>
+                    <ParallaxStar className={`${(xPosition - 1100) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                        style={{
+                            top: (100 - (xPosition - 2300) / 5) + "vh",
+                            // top: "99vh",
+                            left: "15vw"
+                        }}>
+                        <div className="star" />
+                    </ParallaxStar>
+                    <ParallaxStar className={`${(xPosition - 500) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                        style={{
+                            top: (100 - (xPosition - 1200) / 15) + "vh",
+                            // top: "99vh",
+                            left: "25vw"
+                        }}>
+                        <div className="star" />
+                    </ParallaxStar>
+                    <ParallaxStar className={`${(xPosition - 1600) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                        style={{
+                            top: (100 - (xPosition - 600) / 13) + "vh",
+                            // top: "99vh",
+                            left: "55vw"
+                        }}>
+                        <div className="star" />
+                    </ParallaxStar>
+                    <ParallaxStar className={`${(xPosition - 900) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                        style={{
+                            top: (100 - (xPosition - 2750) / 15) + "vh",
+                            // top: "99vh",
+                            left: "45vw"
+                        }}>
+                        <div className="star" />
+                    </ParallaxStar>
+                    <ParallaxStar className={`${(xPosition - 2000) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                        style={{
+                            top: (100 - (xPosition - 200) / 8) + "vh",
+                            // top: "99vh",
+                            left: "95vw"
+                        }}>
+                        <div className="star" />
+                    </ParallaxStar>
+                    <ParallaxStar className={`${(xPosition - 2500) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                        style={{
+                            top: (100 - (xPosition - 3200) / 20) + "vh",
+                            // top: "99vh",
+                            left: "75vw"
+                        }}>
+                        <div className="star" />
+                    </ParallaxStar>
+                    <ParallaxStar className={`${(xPosition - 3000) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                        style={{
+                            top: (100 - (xPosition - 1000) / 4) + "vh",
+                            // top: "99vh",
+                            left: "85vw"
+                        }}>
+                        <div className="star" />
+                    </ParallaxStar>
+                    <ParallaxStar className={`${(xPosition - 4500) / 100 >= 1 ? "star-ani" : "star-ani-d"}`} isShow={textAni}
+                        style={{
+                            top: (100 - (xPosition - 400) / 3) + "vh",
+                            // top: "99vh",
+                            left: "35vw"
+                        }}>
+                        <div className="star" />
+                    </ParallaxStar>
                     <ScrollNotice isClick topValue={isClickMe} isShow={nextScreen} isPage={props.isAct === "ABOUT"} theme={props.globalTheme}>
                         <div >
                             <div

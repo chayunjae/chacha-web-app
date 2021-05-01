@@ -5,12 +5,10 @@ type Props = {
     globalTheme: boolean;
 }
 export default function Contact(props: Props) {
-    const [pagesetData, setPagesetData] = useState(595)
-    useEffect(() => {
-        setTimeout(() => {
-            setPagesetData(100)
-        }, 4000)
-    }, [])
+
+    //     useEffect(() => {
+    // 
+    //     }, [])
     return (
         <ContactWrap
             theme={props.globalTheme}
