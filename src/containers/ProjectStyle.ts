@@ -267,10 +267,22 @@ export default styled.section`
   .act-project-slide-item-wrap {
     width: 900px;
     height: 650px;
+    padding: 10px;
   }
   .act-project-slide-item {
     overflow: hidden;
     width: 100%;
     height: 100%;
+  }
+  .proj-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  .proj-date {
+    font-weight: bold;
+    color: #999999;
+  }
+  .proj-detail {
+    font-size: 1.1rem;
   }
 `;
