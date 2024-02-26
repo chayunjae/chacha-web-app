@@ -1,25 +1,28 @@
 import React, { useEffect, useState } from 'react'
 import ContactWrap from './ContactStyle'
-type Props = {
-    isAct: "INDEX" | "ABOUT" | "PROJECT" | "CONTACT" | "ETC"
-    globalTheme: boolean;
-}
-export default function Contact(props: Props) {
 
-    //     useEffect(() => {
-    // 
-    //     }, [])
+export default function Contact() {
+    const [onTitle1, setOnTitle1] = useState("off");
+    const [onTitle2, setOnTitle2] = useState("off");
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll); //clean up
+        };
+    }, []);
+
+    const handleScroll = () => {
+        //console.log(window.scrollY)
+        window.scrollY >= 4000 && setOnTitle1("on")
+    };
     return (
-        <ContactWrap
-            theme={props.globalTheme}
-        >
-            <div className="title-wrap time-font">
-                <div>
-                    CONTACT.
-                    <div className={`title-line ${props.isAct === "CONTACT" && "under-line-contact"}`} />
+        <ContactWrap>
+            <div className='wrap pdt-30'>
+                <div id="nav-project" className="anchor_trim"></div>
+                <div className={`cav-font_b section-title color-p pdb-30 ${onTitle1}`}>
+                    Contact
                 </div>
-            </div>
-            <div className="test-box">
 
             </div>
         </ContactWrap>

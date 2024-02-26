@@ -7,49 +7,44 @@ type Props = {
     setTheme: (bool: boolean) => void;
     menuToggle: "NONE" | boolean;
     setMenuToggle: (bool: "NONE" | boolean) => void;
-    curPage: "INDEX" | "ABOUT" | "PROJECT" | "CONTACT" | "ETC"
-    setCurPage: (data: "INDEX" | "ABOUT" | "PROJECT" | "CONTACT" | "ETC") => void;
-    setClockWrap: (bool: boolean) => void;
-    clockWrap: "NONE" | boolean;
-    hour: string;
-    minute: string;
 }
 
 function Header(props: Props) {
+    const [onTitle1, setOnTitle1] = useState("purple");
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll); //clean up
+        };
+    }, []);
+
+    const handleScroll = () => {
+        window.scrollY >= 2600 && setOnTitle1("white")
+        window.scrollY < 2600 && setOnTitle1("purple")
+    };
 
     return (
-        <div className={`header-wrap pdr-55-l-15 ${props.menuToggle === "NONE" ? "backcolor-add" : props.menuToggle ? "backcolor-del" : "backcolor-add"}`}>
-            {props.curPage !== "INDEX" && <div onClick={() => {
-                // window.location.href = "/"
-                props.setCurPage("INDEX")
-            }}
-                className={`header-logo ${props.menuToggle === "NONE" ? "show-default" : props.menuToggle ? "hide-box" : "show-box"}`}
-            />}
+        <div className='header-wrap pdrl-15'>
+            <div id="top" />
+            <div className={`header-logo ${onTitle1 === 'purple' ? 'header-logo_b' : 'header-logo_w'} show-box`} />
 
-            <div className="header-nav-wrap">
-                <div className={`clock time-font cur ${props.clockWrap === true && "hide-data"} ${props.menuToggle === "NONE" ? "show-default" : props.menuToggle ? "hide-box" : "show-box"}`}
-                    onClick={() => props.setClockWrap(true)}
-                >
-                    {props.hour} <span className="tiktok">:</span> {props.minute}
+            <div className={`header-nav-wrap ${onTitle1}`}>
 
+                <div className='header-anchor cav-font_b mr-1'>
+                    <a href="#nav-about">ABOUT</a>
+                </div>
+                <div className='header-anchor cav-font_b mr-1'>
+                    <a href="#nav-project">PROJECT</a>
+                </div>
+                <div className='header-anchor cav-font_b mr-1'>
+                    <a href="#nav-contact">CONTACT</a>
                 </div>
 
-                <div className={`header-icon ${props.menuToggle === "NONE" ? "show-default" : props.menuToggle ? "hide-box" : "show-box"}`}>
+                <div className={`header-icon show-default`}>
                     <span className="cur" onClick={() => window.location.href = "https://github.com/chayunjae"}><FontAwesomeIcon icon={faGithub} /></span>
                 </div>
-                <div className={props.menuToggle === "NONE" ? "show-default" : props.menuToggle ? "hide-box" : "show-box"}>
-                    <div className="toggle-wrap cur" onClick={() => {
-                        props.setTheme(!props.globalTheme)
-                        if (props.globalTheme) {
-                            document.body.style.backgroundColor = "#000"
-                        } else {
-                            document.body.style.backgroundColor = "#fff"
-                        }
-                    }} >
-                        <div className="toggle-dot" />
-                    </div>
 
-                </div>
 
             </div>
         </div>
