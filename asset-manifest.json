@@ -1,28 +1,23 @@
 {
   "files": {
-    "main.css": "/chacha-web-app/static/css/main.8eea615a.css",
-    "main.js": "/chacha-web-app/static/js/main.731fc6a0.js",
-    "static/media/PoorStory-Regular.ttf": "/chacha-web-app/static/media/PoorStory-Regular.bec8ef9a74351552c94e.ttf",
+    "main.css": "/chacha-web-app/static/css/main.e83d6545.css",
+    "main.js": "/chacha-web-app/static/js/main.bcee43ad.js",
     "static/media/DoHyeon-Regular.ttf": "/chacha-web-app/static/media/DoHyeon-Regular.532c2cc8672e3dd1034c.ttf",
-    "static/media/Caveat-SemiBold.ttf": "/chacha-web-app/static/media/Caveat-SemiBold.d22864b4c88c0e98cda2.ttf",
-    "static/media/Caveat-Medium.ttf": "/chacha-web-app/static/media/Caveat-Medium.a661a40777402bb8c6ff.ttf",
-    "static/media/Caveat-Bold.ttf": "/chacha-web-app/static/media/Caveat-Bold.b4c2105c3a62bce010d1.ttf",
-    "static/media/Caveat-Regular.ttf": "/chacha-web-app/static/media/Caveat-Regular.419940188ab4de524042.ttf",
     "static/media/KumarOne-Regular.ttf": "/chacha-web-app/static/media/KumarOne-Regular.c275d163f32cc5815b54.ttf",
     "static/media/mysql.png": "/chacha-web-app/static/media/mysql.1bd161a431c6eb4b6e0a.png",
     "static/media/mariadb.png": "/chacha-web-app/static/media/mariadb.cb0c2ce55c4f85efa4c9.png",
     "static/media/logo-white.png": "/chacha-web-app/static/media/logo-white.f00d3949cae067de9fc0.png",
     "static/media/react.png": "/chacha-web-app/static/media/react.1ce7b597e7ddb0fccde3.png",
-    "static/media/logo-black.png": "/chacha-web-app/static/media/logo-black.f056a79aa0e99b268dc9.png",
+    "static/media/logo-black2.png": "/chacha-web-app/static/media/logo-black2.f056a79aa0e99b268dc9.png",
     "static/media/java_original.png": "/chacha-web-app/static/media/java_original.66d5a4fef00821dfe115.png",
     "static/media/node.png": "/chacha-web-app/static/media/node.111f27826443c0139aaf.png",
     "static/media/spring.png": "/chacha-web-app/static/media/spring.200da33faca4c4097980.png",
     "index.html": "/chacha-web-app/index.html",
-    "main.8eea615a.css.map": "/chacha-web-app/static/css/main.8eea615a.css.map",
-    "main.731fc6a0.js.map": "/chacha-web-app/static/js/main.731fc6a0.js.map"
+    "main.e83d6545.css.map": "/chacha-web-app/static/css/main.e83d6545.css.map",
+    "main.bcee43ad.js.map": "/chacha-web-app/static/js/main.bcee43ad.js.map"
   },
   "entrypoints": [
-    "static/css/main.8eea615a.css",
-    "static/js/main.731fc6a0.js"
+    "static/css/main.e83d6545.css",
+    "static/js/main.bcee43ad.js"
   ]
 }
