@@ -7,7 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-@font-face {
+/* @font-face {
   font-family: "Caveat Bold";
   src: url(./static/Caveat-Bold.ttf) format("truetype");
 }
@@ -22,26 +22,25 @@ body {
 @font-face {
   font-family: "Caveat SemiBold";
   src: url(./static/Caveat-SemiBold.ttf) format("truetype");
-}
+} */
 .cav-font_b {
-  font-family: "Caveat Bold", cursive;
-}
-.cav-font_m {
-  font-family: "Caveat Medium", cursive;
-}
-.cav-font_r {
-  font-family: "Caveat Regular", cursive;
-}
-.cav-font_sb {
-  font-family: "Caveat SemiBold", cursive;
+  /* font-family: "Caveat Bold", cursive; */
+
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
 }
 
-@font-face {
+/* @font-face {
   font-family: "Poor Story";
   src: url(./static/PoorStory-Regular.ttf) format("truetype");
-}
+} */
 .poor-font {
+  /* font-family: "Poor Story", system-ui; */
   font-family: "Poor Story", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
 
 @font-face {

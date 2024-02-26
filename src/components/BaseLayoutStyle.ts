@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import WhiteLogo from "../images/logo-white.png"; //삭제 필요
-import BlackLogo from "../images/logo-black.png";
+import BlackLogo from "../images/logo-black2.png";
 
 export default styled.section`
   transition: all 0.3s ease;
