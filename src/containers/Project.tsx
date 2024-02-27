@@ -403,6 +403,9 @@ export default function Project() {
     const closeActCard = () => {
         let opener = document.getElementsByClassName("round-act")[0].className
         setIsActive(false)
+        setLeftVal2(0)
+        setLeftCnt2(1)
+        setOnTitle4("off")
         setTimeout(() => {
             document.getElementsByClassName("round-act")[0].className = opener.replace("round-act", "");
         }, 500);
@@ -491,7 +494,7 @@ export default function Project() {
                                     <div className={`slide-btn-box position_a d-flex prev-btn-wrap ${onTitle4}`}>
                                         <div className="prev-btn card-shadow" onClick={() => slideEvent2("prev", projectList[showMoreIdx].slideArr.length)}><FontAwesomeIcon icon={faChevronLeft} /></div>
                                     </div>
-                                    <div className={`slide-btn-box position_a d-flex next-btn-wrap`}>
+                                    <div className={`slide-btn-box position_a d-flex next-btn-wrap ${projectList[showMoreIdx].slideArr.length < 2 && "off"}`}>
                                         <div className="next-btn card-shadow" onClick={() => slideEvent2("next", projectList[showMoreIdx].slideArr.length)}><FontAwesomeIcon icon={faChevronRight} /></div>
                                     </div>
                                 </div>
@@ -499,8 +502,8 @@ export default function Project() {
                                     <div className='act-project-slide-box position_a d-flex align-items-center' style={{ left: leftVal2 + 15 }}>
                                         {projectList[showMoreIdx].slideArr.map((path: string, idx: number) => {
                                             return <div key={idx} className='act-project-slide-item-wrap d-flex align-items-center justify-content-center'>
-                                                <div className='act-project-slide-item'>
-                                                    <img className='mt-2' src={path} alt="project_images" style={{ width: "100%" }} />
+                                                <div className='act-project-slide-item d-flex justify-content-center align-items-center'>
+                                                    <img className='mt-2' src={path} alt="project_images" style={projectList[showMoreIdx].type === 1 ? { width: "60%" } : { width: "100%" }} />
                                                 </div>
                                             </div>;
                                         })}

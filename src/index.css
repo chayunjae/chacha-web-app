@@ -161,6 +161,14 @@ button.cur {
   padding-bottom: 3rem;
 }
 
+.pdb-40 {
+  padding-bottom: 4rem;
+}
+
+.pdb-50 {
+  padding-bottom: 5rem;
+}
+
 .d-flex {
   display: flex;
 }

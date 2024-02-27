@@ -1,11 +1,36 @@
 import styled from "styled-components";
 
 export default styled.section`
-  padding: 0 10rem 10rem 10rem;
+  padding: 0 10rem;
   .wrap {
     max-width: 1400px;
     margin: 0 auto;
     text-align: center;
+  }
+  .form-wrap {
+    height: 850px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  .form-wrap .form-box,
+  .form-wrap .form-box-back {
+    width: 650px;
+    height: 610px;
+    margin: 0 auto;
+    padding: 4rem 1rem;
+    border-radius: 2rem;
+  }
+  .form-wrap .form-box {
+    background-color: #ffffff;
+  }
+  .form-wrap .form-box-back {
+    background-color: #deb4ff;
+    transform: rotate(350deg);
+  }
+  .form-wrap .default-input,
+  .form-wrap .default-textarea {
+    font-family: "Arial";
   }
   .form-wrap .default-input,
   .form-wrap .default-textarea,

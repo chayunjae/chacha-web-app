@@ -5,6 +5,7 @@ import ABOUT from "./containers/About";
 import ABOUT2 from "./containers/About2";
 import PROJECT from './containers/Project'
 import CONTACT from './containers/Contact'
+import { ToastContainer } from "react-toastify"
 
 function App() {
   //const [curPage, setCurPage] = useState<"INDEX" | "ABOUT" | "PROJECT" | "CONTACT" | "ETC">('INDEX');
@@ -38,6 +39,12 @@ function App() {
         <PROJECT />
         <div className="grad-trim reverse pdt-30" />
         <CONTACT />
+        <ToastContainer
+          position="top-center"
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </div>
     </BaseLayout >
   );
