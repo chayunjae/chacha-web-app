@@ -7,61 +7,33 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* @font-face {
-  font-family: "Caveat Bold";
-  src: url(./static/Caveat-Bold.ttf) format("truetype");
-}
 @font-face {
-  font-family: "Caveat Medium";
-  src: url(./static/Caveat-Medium.ttf) format("truetype");
+  font-family: "Caveat Bold";
+  src: url(./static/Caveat-Bold.woff2) format("woff2");
 }
 @font-face {
   font-family: "Caveat Regular";
-  src: url(./static/Caveat-Regular.ttf) format("truetype");
+  src: url(./static/Caveat-Regular.woff2) format("woff2");
 }
-@font-face {
-  font-family: "Caveat SemiBold";
-  src: url(./static/Caveat-SemiBold.ttf) format("truetype");
-} */
 .cav-font_b {
-  /* font-family: "Caveat Bold", cursive; */
-
-  font-family: "Caveat", cursive;
+  font-family: "Caveat Bold", cursive;
+  /* font-family: "Caveat", cursive; */
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
 }
-
-/* @font-face {
+@font-face {
   font-family: "Poor Story";
-  src: url(./static/PoorStory-Regular.ttf) format("truetype");
-} */
+  src: url(./static/PoorStory-Regular.woff2) format("woff2");
+}
 .poor-font {
-  /* font-family: "Poor Story", system-ui; */
   font-family: "Poor Story", system-ui;
   font-weight: 400;
   font-style: normal;
 }
-
-@font-face {
-  font-family: "Do Hyeon", sans-serif;
-  src: url(./static/DoHyeon-Regular.ttf) format("truetype");
-}
-@font-face {
-  font-family: "Kumar One", cursive;
-  src: url(./static/KumarOne-Regular.ttf) format("truetype");
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
-
-.time-font {
-  font-family: "Kumar One", cursive;
-}
-.kor-font {
-  font-family: "Do Hyeon", sans-serif;
 }
 
 h1 {

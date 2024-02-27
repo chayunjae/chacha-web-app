@@ -7,7 +7,7 @@ import { faArrowLeft, faArrowRight, faTimes } from "@fortawesome/free-solid-svg-
 export default function Project() {
     const [onTitle1, setOnTitle1] = useState("off");
     const [onTitle2, setOnTitle2] = useState("off");
-    const [onTitle3, setOnTitle3] = useState("on");
+    const [onTitle3, setOnTitle3] = useState("off");
     const [isActive, setIsActive] = useState<"off" | Boolean>("off");
 
     const [leftVal, setLeftVal] = useState(460);
@@ -40,7 +40,7 @@ export default function Project() {
                     <br /> - Front-end 및 Back-end 개발 및 유지보수 담당
                     <br /> - 네이버 클라우드 서버 호스팅관리
                     <br /> - Front 사용 기술 : Spring / Jsp / javascript / jqurey
-                    <br /> - Back 사용 기술 : Java / Dwr / mysql
+                    <br /> - Back 사용 기술 : Java / Dwr / ibatis /mysql
                     <br /> - URL : https://abcbootcamp.kr/
                 </div>
             </div>
@@ -70,7 +70,7 @@ export default function Project() {
                     <br /> - Front-end 및 Back-end 개발 및 유지보수 담당
                     <br /> - 네이버 클라우드 서버 호스팅관리
                     <br /> - Front 사용 기술 : Spring / Jsp / javascript / jqurey
-                    <br /> - Back 사용 기술 : Java / Dwr / mysql
+                    <br /> - Back 사용 기술 : Java / Dwr / ibatis / mysql
                     <br /> - URL : https://himakerland.com/
                 </div>
             </div>
@@ -146,7 +146,7 @@ export default function Project() {
                     <br /> - Front-end 및 Back-end 리뉴얼 및 유지보수 담당
                     <br /> - 네이버 클라우드 서버 호스팅관리
                     <br /> - Front 사용 기술 : Spring / Jsp / javascript / jqurey
-                    <br /> - Back 사용 기술 : Java / Dwr / egovframework / mysql
+                    <br /> - Back 사용 기술 : Java / Dwr / ibatis / egovframework / mysql
                     <br /> - URL : https://www.sjhle.or.kr/
                 </div>
             </div>
