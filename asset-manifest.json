@@ -1,9 +1,10 @@
 {
   "files": {
-    "main.css": "/chacha-web-app/static/css/main.3132a2de.css",
-    "main.js": "/chacha-web-app/static/js/main.77cba344.js",
-    "static/media/DoHyeon-Regular.ttf": "/chacha-web-app/static/media/DoHyeon-Regular.532c2cc8672e3dd1034c.ttf",
-    "static/media/KumarOne-Regular.ttf": "/chacha-web-app/static/media/KumarOne-Regular.c275d163f32cc5815b54.ttf",
+    "main.css": "/chacha-web-app/static/css/main.3739afb6.css",
+    "main.js": "/chacha-web-app/static/js/main.d3da8f58.js",
+    "static/media/PoorStory-Regular.woff2": "/chacha-web-app/static/media/PoorStory-Regular.cb753a9a7f0fb719b50f.woff2",
+    "static/media/Caveat-Bold.woff2": "/chacha-web-app/static/media/Caveat-Bold.02aa0ec49bd4497c651f.woff2",
+    "static/media/Caveat-Regular.woff2": "/chacha-web-app/static/media/Caveat-Regular.2e06ea58e28604c824a1.woff2",
     "static/media/mysql.png": "/chacha-web-app/static/media/mysql.1bd161a431c6eb4b6e0a.png",
     "static/media/mariadb.png": "/chacha-web-app/static/media/mariadb.cb0c2ce55c4f85efa4c9.png",
     "static/media/logo-white.png": "/chacha-web-app/static/media/logo-white.f00d3949cae067de9fc0.png",
@@ -13,11 +14,11 @@
     "static/media/node.png": "/chacha-web-app/static/media/node.111f27826443c0139aaf.png",
     "static/media/spring.png": "/chacha-web-app/static/media/spring.200da33faca4c4097980.png",
     "index.html": "/chacha-web-app/index.html",
-    "main.3132a2de.css.map": "/chacha-web-app/static/css/main.3132a2de.css.map",
-    "main.77cba344.js.map": "/chacha-web-app/static/js/main.77cba344.js.map"
+    "main.3739afb6.css.map": "/chacha-web-app/static/css/main.3739afb6.css.map",
+    "main.d3da8f58.js.map": "/chacha-web-app/static/js/main.d3da8f58.js.map"
   },
   "entrypoints": [
-    "static/css/main.3132a2de.css",
-    "static/js/main.77cba344.js"
+    "static/css/main.3739afb6.css",
+    "static/js/main.d3da8f58.js"
   ]
 }
