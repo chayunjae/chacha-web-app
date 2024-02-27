@@ -2,18 +2,20 @@
 import React, { useEffect, useRef, useState } from 'react'
 import ProjectWrap from './ProjectStyle'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft, faArrowRight, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faArrowRight, faTimes, faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 export default function Project() {
     const [onTitle1, setOnTitle1] = useState("off");
     const [onTitle2, setOnTitle2] = useState("off");
     const [onTitle3, setOnTitle3] = useState("off");
+    const [onTitle4, setOnTitle4] = useState("off");
     const [isActive, setIsActive] = useState<"off" | Boolean>("off");
 
     const [leftVal, setLeftVal] = useState(460);
     const [leftCnt, setLeftCnt] = useState(1);
 
     const [leftVal2, setLeftVal2] = useState(0);
+    const [leftCnt2, setLeftCnt2] = useState(1);
 
     const [showMoreIdx, setShowMoreIdx] = useState(0);
 
@@ -23,6 +25,7 @@ export default function Project() {
             thumb: "/chacha-web-app/images/project/s_ah/s_ah1.png",
             type: 16,
             slideArr: [
+                "/chacha-web-app/images/project/s_ah/s_ah1.png",
                 "/chacha-web-app/images/project/s_ah/s_ah2.png",
                 "/chacha-web-app/images/project/s_ah/s_ah3.png",
                 "/chacha-web-app/images/project/s_ah/s_ah4.png",
@@ -80,6 +83,7 @@ export default function Project() {
             thumb: "/chacha-web-app/images/project/s_dh/s_dh1.png",
             type: 16,
             slideArr: [
+                "/chacha-web-app/images/project/s_dh/s_dh1.png",
                 "/chacha-web-app/images/project/s_dh/s_dh1-1.png",
                 "/chacha-web-app/images/project/s_dh/s_dh2.png",
                 "/chacha-web-app/images/project/s_dh/s_dh3.png",
@@ -367,6 +371,35 @@ export default function Project() {
 
     }
 
+    const slideEvent2 = (type: String, total: number) => {
+        let cnt = leftCnt2
+        if (type === "prev") {
+            if (leftCnt2 > 1) {
+                cnt = leftCnt2 - 1
+                if (cnt === 1) {
+                    setOnTitle4("off")
+                }
+                setLeftVal2(leftVal2 + 920);
+            } else {
+                cnt = 1
+                setOnTitle4("off")
+            }
+        } else {
+            if (leftCnt2 !== total) {
+                cnt = leftCnt2 + 1
+                if (cnt === 2) {
+                    setOnTitle4("on")
+                }
+                setLeftVal2(leftVal2 - 920);
+            } else {
+                setLeftVal2(0);
+                cnt = 1
+                setOnTitle4("off")
+            }
+        }
+        setLeftCnt2(cnt)
+    }
+
     const closeActCard = () => {
         let opener = document.getElementsByClassName("round-act")[0].className
         setIsActive(false)
@@ -388,10 +421,10 @@ export default function Project() {
                     </div>
                     <div className={`slide-btn-wrap position_r ${onTitle2}`}>
                         <div className={`slide-btn-box position_a d-flex prev-btn-wrap ${onTitle3}`}>
-                            <div className="prev-btn card-shadow" onClick={() => slideEvent("prev")}><FontAwesomeIcon icon={faArrowLeft} /></div>
+                            <div className="prev-btn card-shadow" onClick={() => slideEvent("prev")}><FontAwesomeIcon icon={faChevronLeft} /></div>
                         </div>
                         <div className={`slide-btn-box position_a d-flex next-btn-wrap`}>
-                            <div className="next-btn card-shadow" onClick={() => slideEvent("next")}><FontAwesomeIcon icon={faArrowRight} /></div>
+                            <div className="next-btn card-shadow" onClick={() => slideEvent("next")}><FontAwesomeIcon icon={faChevronRight} /></div>
                         </div>
                     </div>
                     <div className={`slide-wrap ${onTitle2}`}>
@@ -417,7 +450,7 @@ export default function Project() {
                                                 }
                                             }}>
                                                 <div className='d-flex justify-content-center align-items-center more-btn-wrap'>
-                                                    <div className='poor-font more-btn fs-1_5 fw-bold'>
+                                                    <div className='poor-font more-btn fs-1_25 fw-bold'>
                                                         MORE
                                                     </div>
                                                 </div>
@@ -454,8 +487,16 @@ export default function Project() {
                     <div className='act-card-content d-flex align-items-center'>
                         <div className='d-flex flex1 pd-20'>
                             <div className='flex4'>
+                                <div className={`slide-btn-wrap position_r`}>
+                                    <div className={`slide-btn-box position_a d-flex prev-btn-wrap ${onTitle4}`}>
+                                        <div className="prev-btn card-shadow" onClick={() => slideEvent2("prev", projectList[showMoreIdx].slideArr.length)}><FontAwesomeIcon icon={faChevronLeft} /></div>
+                                    </div>
+                                    <div className={`slide-btn-box position_a d-flex next-btn-wrap`}>
+                                        <div className="next-btn card-shadow" onClick={() => slideEvent2("next", projectList[showMoreIdx].slideArr.length)}><FontAwesomeIcon icon={faChevronRight} /></div>
+                                    </div>
+                                </div>
                                 <div className='act-project-slide-wrap d-flex align-items-center'>
-                                    <div className='act-project-slide-box position_a d-flex align-items-center' style={{ left: leftVal2 + 25 }}>
+                                    <div className='act-project-slide-box position_a d-flex align-items-center' style={{ left: leftVal2 + 15 }}>
                                         {projectList[showMoreIdx].slideArr.map((path: string, idx: number) => {
                                             return <div key={idx} className='act-project-slide-item-wrap d-flex align-items-center justify-content-center'>
                                                 <div className='act-project-slide-item'>

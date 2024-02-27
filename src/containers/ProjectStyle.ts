@@ -47,6 +47,18 @@ export default styled.section`
   .next-btn-wrap {
     right: -40px;
   }
+
+  .act-card-content .slide-btn-wrap {
+    top: 280px;
+  }
+
+  .act-card-content .prev-btn-wrap {
+    left: -10px;
+  }
+  .act-card-content .next-btn-wrap {
+    right: -10px;
+  }
+
   .slide-item-wrap {
     width: 460px;
     height: 460px;
@@ -176,7 +188,7 @@ export default styled.section`
     100% {
       padding: 2rem;
       width: 85%;
-      height: 90%;
+      height: 75%;
       border-radius: 20px;
     }
   }
@@ -212,8 +224,9 @@ export default styled.section`
   .more-btn {
     color: #a570cf;
     background-color: #ffffff;
-    padding: 0.5rem 1rem;
+    padding: 0.7rem 1rem;
     border-radius: 0.25rem;
+    width: 70px;
   }
 
   .act-card-content,
@@ -222,6 +235,7 @@ export default styled.section`
   }
   .act-card-content {
     height: 100%;
+    overflow: hidden;
   }
 
   .close-btn {
@@ -259,6 +273,7 @@ export default styled.section`
     height: 600px;
     overflow: hidden;
     position: relative;
+    z-index: 2;
   }
 
   .act-project-slide-box {

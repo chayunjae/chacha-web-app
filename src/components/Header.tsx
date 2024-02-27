@@ -22,6 +22,7 @@ function Header(props: Props) {
     const handleScroll = () => {
         window.scrollY >= 2600 && setOnTitle1("white")
         window.scrollY < 2600 && setOnTitle1("purple")
+        window.scrollY > 4700 && setOnTitle1("purple")
     };
 
     return (
