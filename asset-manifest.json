@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/chacha-web-app/static/css/main.4eae1804.css",
-    "main.js": "/chacha-web-app/static/js/main.79b32804.js",
+    "main.js": "/chacha-web-app/static/js/main.ad8aca25.js",
     "static/media/PoorStory-Regular.woff2": "/chacha-web-app/static/media/PoorStory-Regular.cb753a9a7f0fb719b50f.woff2",
     "static/media/Caveat-Bold.woff2": "/chacha-web-app/static/media/Caveat-Bold.02aa0ec49bd4497c651f.woff2",
     "static/media/Caveat-Regular.woff2": "/chacha-web-app/static/media/Caveat-Regular.2e06ea58e28604c824a1.woff2",
@@ -19,10 +19,10 @@
     "static/media/slick.woff": "/chacha-web-app/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/chacha-web-app/index.html",
     "main.4eae1804.css.map": "/chacha-web-app/static/css/main.4eae1804.css.map",
-    "main.79b32804.js.map": "/chacha-web-app/static/js/main.79b32804.js.map"
+    "main.ad8aca25.js.map": "/chacha-web-app/static/js/main.ad8aca25.js.map"
   },
   "entrypoints": [
     "static/css/main.4eae1804.css",
-    "static/js/main.79b32804.js"
+    "static/js/main.ad8aca25.js"
   ]
 }
