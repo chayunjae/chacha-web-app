@@ -1,11 +1,6 @@
 import styled from "styled-components";
 
 export default styled.section`
-  .wrap {
-    max-width: 1400px;
-    margin: 0 auto;
-    text-align: center;
-  }
   .title-sub-wrap {
     height: 100vh;
     display: flex;
@@ -47,6 +42,13 @@ export default styled.section`
     color: #e9e9e9;
     z-index: -1;
   }
+
+  .kor-desc {
+    font-size: 1.25rem;
+  }
+  .eng-desc {
+    font-size: 2rem;
+  }
   /* h1 {
     font-size: 5rem;
     position: relative;
@@ -82,4 +84,33 @@ export default styled.section`
       0 var(--b2)
     );
   } */
+
+  @media (max-width: 1300px) {
+    .title-sub {
+      font-size: 6.5rem;
+    }
+    .top-desc-wrap {
+      height: 100px;
+    }
+    .top-desc-wrap:hover .hide_opa {
+      margin-top: 0.9rem;
+    }
+    .kor-desc {
+      font-size: 1rem;
+    }
+    .eng-desc {
+      font-size: 1.5rem;
+    }
+  }
+  @media (max-width: 800px) {
+    .title-sub {
+      font-size: 4rem;
+    }
+    .kor-desc {
+      font-size: 0.8rem;
+    }
+    .eng-desc {
+      font-size: 1rem;
+    }
+  }
 `;

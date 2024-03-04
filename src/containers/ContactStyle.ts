@@ -2,11 +2,7 @@ import styled from "styled-components";
 
 export default styled.section`
   padding: 0 10rem;
-  .wrap {
-    max-width: 1400px;
-    margin: 0 auto;
-    text-align: center;
-  }
+
   .form-wrap {
     height: 850px;
     position: relative;
@@ -75,5 +71,21 @@ export default styled.section`
   .form-wrap .default-btn:hover {
     background-color: #a570cf;
     color: #ffffff;
+  }
+  @media (max-width: 800px) {
+    padding: 0 4rem;
+    .form-wrap .form-box,
+    .form-wrap .form-box-back {
+      width: 100%;
+      height: 610px;
+      margin: 0 auto;
+      padding: 4rem 1rem;
+      border-radius: 2rem;
+    }
+    .form-wrap .default-input,
+    .form-wrap .default-textarea,
+    .form-wrap .default-btn {
+      width: 100%;
+    }
   }
 `;

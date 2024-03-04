@@ -2,20 +2,17 @@ import styled from "styled-components";
 
 export default styled.section`
   background-color: #deb4ff;
-  padding: 10rem 10rem 0 10rem;
-  .wrap {
-    max-width: 1400px;
-    margin: 0 auto;
-    text-align: center;
-  }
+  padding: 10rem 2rem 0 2rem;
+
   .title-sub-wrap {
-    //height: 100vh;
     display: flex;
-    /* align-items: center; */
     justify-content: center;
   }
   .base-height {
     height: 700px;
+  }
+  .base-line-wrap {
+    justify-content: center;
   }
   .base-line {
     width: 2px;
@@ -77,5 +74,37 @@ export default styled.section`
   .desc-wrap.right {
     right: 190px;
     text-align: right;
+  }
+
+  @media (max-width: 800px) {
+    .base-line-wrap {
+      justify-content: left;
+    }
+    .base-line {
+      position: relative;
+      left: 10px;
+    }
+    .line-flat {
+      width: 90px;
+    }
+    .line-flat.right {
+      right: 0px;
+      left: 20px;
+    }
+    .line-date.right {
+      right: 0px;
+      left: 100px;
+    }
+    .line-date.left {
+      left: 100px;
+    }
+    .desc-wrap.left {
+      left: 120px;
+    }
+    .desc-wrap.right {
+      right: 0px;
+      left: 120px;
+      text-align: left;
+    }
   }
 `;

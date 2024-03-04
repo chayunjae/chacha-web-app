@@ -3,13 +3,36 @@ import React, { useEffect, useRef, useState } from 'react'
 import ProjectWrap from './ProjectStyle'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft, faArrowRight, faTimes, faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function Project() {
+    let sliderRef = useRef<Slider | null>(null);
     const [onTitle1, setOnTitle1] = useState("off");
     const [onTitle2, setOnTitle2] = useState("off");
     const [onTitle3, setOnTitle3] = useState("off");
     const [onTitle4, setOnTitle4] = useState("off");
     const [isActive, setIsActive] = useState<"off" | Boolean>("off");
+    const [settings2, setSettings2] = useState({
+        focusOnSelect: true,
+        className: "center",
+        centerMode: true,
+        infinite: false,
+        centerPadding: "0px",
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        speed: 500,
+        responsive: [
+            {
+                breakpoint: 1300,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            }
+        ]
+    })
 
     const [leftVal, setLeftVal] = useState(460);
     const [leftCnt, setLeftCnt] = useState(1);
@@ -169,7 +192,7 @@ export default function Project() {
             ],
             desc: <div className="poor-font proj-desc">
                 <div className='proj-title'>위킵 - FBW 서비스</div>
-                <div className='proj-date mb-2'>2020.12 ~ 2021.04</div>
+                <div className='proj-date mb-2'>2020.12 ~ 2021.01</div>
                 <div className='proj-detail'>
                     - 풀필먼트 자동화 시스템 서비스
                     <br /> - Front-end 및 Back-end 개발 참여
@@ -199,7 +222,7 @@ export default function Project() {
             ],
             desc: <div className="poor-font proj-desc">
                 <div className='proj-title'>위킵 - 홈페이지</div>
-                <div className='proj-date mb-2'>2020.08 ~ 2021.04</div>
+                <div className='proj-date mb-2'>2019.12 ~ 2020.03</div>
                 <div className='proj-detail'>
                     - 풀필먼트 자동화 시스템 서비스 소개 페이지
                     <br /> - Front-end 및 Back-end 개발 참여
@@ -230,7 +253,7 @@ export default function Project() {
             ],
             desc: <div className="poor-font proj-desc">
                 <div className='proj-title'>위킵 - 셀웨이 홈페이지</div>
-                <div className='proj-date mb-2'>2020.10 ~ 2021.04</div>
+                <div className='proj-date mb-2'>2020.06 ~ 2021.04</div>
                 <div className='proj-detail'>
                     - 드랍쉬핑 판매전문 플랫폼
                     - 상품 관리 및 아웃소싱 서비스 소개 페이지
@@ -257,7 +280,7 @@ export default function Project() {
             ],
             desc: <div className="poor-font proj-desc">
                 <div className='proj-title'>위킵 - 아웃소싱 플랫폼</div>
-                <div className='proj-date mb-2'>2019.12 ~ 2021.04</div>
+                <div className='proj-date mb-2'>2020.04 ~ 2020.12</div>
                 <div className='proj-detail'>
                     - 쇼핑몰 판매관리, 주문수집, 행정업무 관리
                     <br /> - 공급자 상품관리 및 셀러 아웃소싱 플랫폼
@@ -322,98 +345,75 @@ export default function Project() {
     }, []);
 
     const handleScroll = () => {
-        //console.log(window.scrollY)
         window.scrollY >= 3500 && setOnTitle1("on")
         window.scrollY >= 3650 && setOnTitle2("on")
     };
 
     const activeBox = (idx: number) => {
-        setShowMoreIdx(idx)
-        const target = document.getElementById("box" + (idx + 1)) as HTMLDivElement
+        const target = document.querySelector(".slick-current div .slide-item-wrap div div#box" + (idx + 1)) as HTMLDivElement
+        if (target) {
 
-        if (target.className.indexOf("round-act") === -1) {
-            target.className = target.className + " round-act"
-            setIsActive(true)
-        }
-    }
-    const slideEvent = (type: String) => {
-        let total = 11
+            setShowMoreIdx(idx)
+            if (target.className.indexOf("round-act") === -1) {
+                target.className = target.className + " round-act"
+                setIsActive(true)
 
-        if (type === "prev") {
-            let prevCnt = leftCnt
-            if (leftCnt > 1) {
-                prevCnt = leftCnt - 1
-                if (prevCnt === 1) {
-                    setOnTitle3("off")
-                }
-                setLeftVal(leftVal + 460)
-            } else {
-                prevCnt = 1
-                setOnTitle3("off")
-            }
-            setLeftCnt(prevCnt)
 
-        } else {
-            let nextCnt = leftCnt
-            if (leftCnt !== total) {
-                nextCnt = leftCnt + 1
-                if (nextCnt === 2) {
-                    setOnTitle3("on")
-                }
-                setLeftVal(leftVal - 460)
-            } else {
-                setLeftVal(460)
-                nextCnt = 1
-                setOnTitle3("off")
-            }
-            setLeftCnt(nextCnt)
-        }
-
-    }
-
-    const slideEvent2 = (type: String, total: number) => {
-        let cnt = leftCnt2
-        if (type === "prev") {
-            if (leftCnt2 > 1) {
-                cnt = leftCnt2 - 1
-                if (cnt === 1) {
-                    setOnTitle4("off")
-                }
-                setLeftVal2(leftVal2 + 920);
-            } else {
-                cnt = 1
-                setOnTitle4("off")
-            }
-        } else {
-            if (leftCnt2 !== total) {
-                cnt = leftCnt2 + 1
-                if (cnt === 2) {
-                    setOnTitle4("on")
-                }
-                setLeftVal2(leftVal2 - 920);
-            } else {
-                setLeftVal2(0);
-                cnt = 1
-                setOnTitle4("off")
+                setSettings2({
+                    ...settings2,
+                    infinite: projectList[idx].slideArr.length > 1 ? true : false
+                })
             }
         }
-        setLeftCnt2(cnt)
     }
+
 
     const closeActCard = () => {
         let opener = document.getElementsByClassName("round-act")[0].className
         setIsActive(false)
         setLeftVal2(0)
         setLeftCnt2(1)
-        setOnTitle4("off")
+        sliderRef.current.slickGoTo(0)
         setTimeout(() => {
             document.getElementsByClassName("round-act")[0].className = opener.replace("round-act", "");
         }, 500);
     }
 
+    const settings = {
+        focusOnSelect: true,
+        className: "center",
+        centerMode: true,
+        infinite: true,
+        centerPadding: "0px",
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        speed: 500,
+        responsive: [
+            {
+                breakpoint: 1300,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    infinite: true,
+                }
+            },
+            {
+                breakpoint: 800,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                }
+            },
+        ]
+    };
+
+
 
     return (
-        <ProjectWrap>
+        <ProjectWrap
+            leftVal={leftVal}
+        >
             <div className='section-wrap'>
 
 
@@ -422,62 +422,48 @@ export default function Project() {
                     <div className={`cav-font_b section-title color-w pdb-30 ${onTitle1}`}>
                         Project
                     </div>
-                    <div className={`slide-btn-wrap position_r ${onTitle2}`}>
-                        <div className={`slide-btn-box position_a d-flex prev-btn-wrap ${onTitle3}`}>
-                            <div className="prev-btn card-shadow" onClick={() => slideEvent("prev")}><FontAwesomeIcon icon={faChevronLeft} /></div>
-                        </div>
-                        <div className={`slide-btn-box position_a d-flex next-btn-wrap`}>
-                            <div className="next-btn card-shadow" onClick={() => slideEvent("next")}><FontAwesomeIcon icon={faChevronRight} /></div>
-                        </div>
-                    </div>
-                    <div className={`slide-wrap ${onTitle2}`}>
-                        <div className='slide-box d-flex align-items-center position_a' style={{ top: 30, left: leftVal - 40 }}>
+                    <div className={`slider-container ${onTitle2}`}>
+                        <Slider {...settings}>
                             {
                                 projectList.map((obj: { title: string, thumb: string, type: number }, idx: number) => {
-                                    let cnt = idx + 1
-                                    return <div key={idx} className='slide-item-wrap d-flex justify-content-center align-items-center'>
-                                        <div
-                                            key={idx} id={"box" + (idx + 1)}
-                                            className={`slide-item card m-3 card-shadow ${leftCnt === cnt ? 'cur' : leftCnt - 1 === cnt ? "prev" : leftCnt + 1 === cnt ? "next" : ""}`}
-                                        >
-                                            <div className='overlay-wrap' onClick={(e) => {
-                                                let type = leftCnt === cnt ? 'cur' : leftCnt - 1 === cnt ? "prev" : leftCnt + 1 === cnt ? "next" : ""
-                                                if (type === "cur") {
+                                    return <div key={idx} className='slide-item-wrap'>
+                                        <div className='d-flex justify-content-center align-items-center' style={{ height: "100%" }}>
+                                            <div
+                                                key={idx} id={"box" + (idx + 1)}
+                                                className={`card card-shadow box-item`}
+                                                style={{ width: "auto" }}
+
+                                            >
+                                                <div className='overlay-wrap' onClick={() => {
                                                     activeBox(idx)
-                                                } else if (type === "prev") {
-                                                    slideEvent(type)
-
-                                                } else if (type === "next") {
-                                                    slideEvent(type)
-
-                                                }
-                                            }}>
-                                                <div className='d-flex justify-content-center align-items-center more-btn-wrap'>
-                                                    <div className='poor-font more-btn fs-1_25 fw-bold'>
-                                                        MORE
+                                                }}>
+                                                    <div className='d-flex justify-content-center align-items-center more-btn-wrap'>
+                                                        <div className='poor-font more-btn fs-1_25 fw-bold'>
+                                                            MORE
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div className='item-contents'>
-                                                <div style={{ height: 225 }} className='mb-2'>
-                                                    <img className='mt-2' src={obj.thumb} alt="project_images" style={obj.type === 1 ? { width: "60%" } : { width: "100%" }} />
+                                                <div className='item-contents'>
+                                                    <div className='d-flex justify-content-center align-items-center mb-2 mt-2' style={{ minHeight: 225 }}>
+                                                        <img className='' src={obj.thumb} alt="project_images" style={obj.type === 1 ? { width: "60%" } : { width: "100%" }} />
 
-                                                </div>
-                                                <div className='poor-font fw-bold fs-1 d-flex justify-content-center'>
-                                                    <div className='position_r'>
-                                                        <div className='square_dot'></div>
-                                                        <span className='contents-title'>{obj.title}</span>
                                                     </div>
+                                                    <div className='poor-font fw-bold fs-1 d-flex justify-content-center mb-2'>
+                                                        <div className='position_r'>
+                                                            <div className='square_dot'></div>
+                                                            <span className='contents-title'>{obj.title}</span>
+                                                        </div>
 
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 })
                             }
-
-                        </div>
+                        </Slider>
                     </div>
+
                 </div>
             </div>
             <div className={`act-card-wrap position_f d-flex justify-content-center align-items-center ${onTitle2} ${isActive === "off" ? "" : isActive ? "big-panel" : "none-panel"}`} onClick={(e) => {
@@ -490,25 +476,22 @@ export default function Project() {
                     <div className='act-card-content d-flex align-items-center'>
                         <div className='d-flex flex1 pd-20'>
                             <div className='flex4'>
-                                <div className={`slide-btn-wrap position_r`}>
-                                    <div className={`slide-btn-box position_a d-flex prev-btn-wrap ${onTitle4}`}>
-                                        <div className="prev-btn card-shadow" onClick={() => slideEvent2("prev", projectList[showMoreIdx].slideArr.length)}><FontAwesomeIcon icon={faChevronLeft} /></div>
-                                    </div>
-                                    <div className={`slide-btn-box position_a d-flex next-btn-wrap ${projectList[showMoreIdx].slideArr.length < 2 && "off"}`}>
-                                        <div className="next-btn card-shadow" onClick={() => slideEvent2("next", projectList[showMoreIdx].slideArr.length)}><FontAwesomeIcon icon={faChevronRight} /></div>
-                                    </div>
-                                </div>
-                                <div className='act-project-slide-wrap d-flex align-items-center'>
-                                    <div className='act-project-slide-box position_a d-flex align-items-center' style={{ left: leftVal2 + 15 }}>
+                                <div className="slider-container">
+                                    <Slider ref={slider => {
+                                        sliderRef.current = slider;
+                                    }} {...settings2}>
                                         {projectList[showMoreIdx].slideArr.map((path: string, idx: number) => {
                                             return <div key={idx} className='act-project-slide-item-wrap d-flex align-items-center justify-content-center'>
                                                 <div className='act-project-slide-item d-flex justify-content-center align-items-center'>
-                                                    <img className='mt-2' src={path} alt="project_images" style={projectList[showMoreIdx].type === 1 ? { width: "60%" } : { width: "100%" }} />
+                                                    <img src={path} alt="project_images" style={projectList[showMoreIdx].type === 1 ? { width: "60%", margin: "auto" } : { width: "100%" }} />
                                                 </div>
                                             </div>;
                                         })}
-                                    </div>
+                                    </Slider>
                                 </div>
+
+
+
                             </div>
                             <div className='flex2 d-flex justify-content-center align-items-center pdl-15'>
                                 {projectList[showMoreIdx].desc}

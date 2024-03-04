@@ -5,6 +5,13 @@ import BlackLogo from "../images/logo-black2.png";
 export default styled.section`
   transition: all 0.3s ease;
   height: 100vh;
+
+  .wrap {
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
   .grad-trim {
     height: 200px;
     background: rgb(222, 180, 255);
@@ -37,6 +44,11 @@ export default styled.section`
     transition: all 0.3s ease;
     z-index: 10;
   }
+
+  /* .header-wrap.box {
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.15) 0rem 0.5rem 1rem !important;
+  } */
 
   .header-wrap,
   .header-nav-wrap,
@@ -147,5 +159,22 @@ export default styled.section`
   }
   .box-3 {
     flex: 30%;
+  }
+
+  @media (max-width: 1300px) {
+    .section-title {
+      font-size: 3rem;
+    }
+  }
+  @media (max-width: 800px) {
+    .header-wrap {
+      background-color: rgba(255, 255, 255, 0.7);
+    }
+    .box-content.fs-1_5 {
+      font-size: 1rem;
+    }
+    .card.md {
+      height: 265px;
+    }
   }
 `;

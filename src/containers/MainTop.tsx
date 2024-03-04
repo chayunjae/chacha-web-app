@@ -13,7 +13,7 @@ export default function MainTop() {
     return (
         <MainWrap>
             <div className='wrap title-sub-wrap'>
-                <div>
+                <div style={{ marginTop: "-10rem" }}>
                     <div className="title-sub cav-font_b">
                         CHA YUN JAE
                     </div>
@@ -23,12 +23,12 @@ export default function MainTop() {
                     <div className='custom-hr' />
                     <div className='top-desc-wrap d-flex justify-content-center'>
                         <div className='d-flex justify-content-center'>
-                            <div className='poor-font  position_a fs-1_25 hide_opa'>안녕하세요 풀 스택 웹 개발자 차윤재입니다.<br />
+                            <div className='poor-font  position_a kor-desc hide_opa'>안녕하세요 풀 스택 웹 개발자 차윤재입니다.<br />
                                 저는 직관적인고 역동적인 사용자 경험을 위해 노력하며,<br />
                                 안정적이고 효율적인 시스템 및 서비스 구성을 위해 항상 노력하는 개발자입니다.</div>
                         </div>
                         <div className='d-flex justify-content-center'>
-                            <div className='cav-font_b position_a fs-2 back_sub'>Hello I'm Cha Yun-jae, full-stack web developer.<br />
+                            <div className='cav-font_b position_a eng-desc back_sub'>Hello I'm Cha Yun-jae, full-stack web developer.<br />
                                 I'm striving for an intuitive and dynamic user experience and<br />
                                 developers who always strive to create stable and efficient systems and services.</div>
                         </div>

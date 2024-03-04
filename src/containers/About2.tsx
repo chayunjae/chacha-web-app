@@ -114,7 +114,7 @@ export default function About2() {
                 <div className={`cav-font_b section-title color-w pdb-30 ${onTitle1}`}>
                     Career
                 </div>
-                <div className={`d-flex justify-content-center pdb-30 position_r base-height ${onTitle2}`}>
+                <div className={`d-flex pdb-30 base-line-wrap position_r base-height ${onTitle2}`}>
                     <div className='base-line position_a base-height'>
                     </div>
                     {careerNode()}

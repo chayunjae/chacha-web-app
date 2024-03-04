@@ -11,6 +11,7 @@ type Props = {
 
 function Header(props: Props) {
     const [onTitle1, setOnTitle1] = useState("purple");
+    const [onTitle2, setOnTitle2] = useState("none");
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
@@ -20,18 +21,19 @@ function Header(props: Props) {
     }, []);
 
     const handleScroll = () => {
+        // window.scrollY >= 300 && setOnTitle2("box")
+        // window.scrollY < 300 && setOnTitle2("none")
         window.scrollY >= 2600 && setOnTitle1("white")
         window.scrollY < 2600 && setOnTitle1("purple")
         window.scrollY > 4700 && setOnTitle1("purple")
     };
 
     return (
-        <div className='header-wrap pdrl-15'>
+        <div className={`header-wrap pdrl-15 ${onTitle2}`}>
             <div id="top" />
             <div className={`header-logo ${onTitle1 === 'purple' ? 'header-logo_b' : 'header-logo_w'} show-box`} />
 
             <div className={`header-nav-wrap ${onTitle1}`}>
-
                 <div className='header-anchor cav-font_b mr-1'>
                     <a href="#nav-about">ABOUT</a>
                 </div>
@@ -45,8 +47,6 @@ function Header(props: Props) {
                 <div className={`header-icon show-default`}>
                     <span className="cur" onClick={() => window.location.href = "https://github.com/chayunjae"}><FontAwesomeIcon icon={faGithub} /></span>
                 </div>
-
-
             </div>
         </div>
     );

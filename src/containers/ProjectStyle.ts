@@ -1,17 +1,16 @@
 import styled from "styled-components";
 
-export default styled.section`
+export default styled.section<{ leftVal: number }>`
   .section-wrap {
     background-color: #deb4ff;
     padding: 10rem;
     height: 800px;
   }
 
-  .wrap {
-    max-width: 1300px;
-    margin: 0 auto;
-    text-align: center;
+  .slick-track {
+    transition: none;
   }
+
   .slide-wrap {
     height: 600px;
     overflow: hidden;
@@ -24,6 +23,8 @@ export default styled.section`
   }
   .slide-box {
     z-index: 2;
+    top: 30px;
+    left: ${({ leftVal }) => (leftVal === 460 ? 460 - 40 : leftVal - 40)}px;
   }
   .slide-btn-wrap .slide-btn-box .prev-btn,
   .slide-btn-wrap .slide-btn-box .next-btn {
@@ -59,9 +60,33 @@ export default styled.section`
     right: -10px;
   }
 
+  .act-card-content .slider-container {
+    width: 920px;
+  }
+  .act-card-content .slick-prev:before,
+  .act-card-content .slick-next:before {
+    color: #000000;
+  }
   .slide-item-wrap {
-    width: 460px;
-    height: 460px;
+    width: 500px;
+    height: 500px;
+  }
+  .box-item {
+    transition: all 0.25s ease;
+    box-sizing: border-box;
+    margin: 1rem 2rem;
+    cursor: pointer;
+    overflow: hidden;
+    transform: scale(0.8);
+  }
+  .box-item:hover {
+    transform: scale(0.9);
+  }
+  .slick-center .box-item {
+    transform: scale(1);
+  }
+  .slick-center .box-item:hover {
+    transform: scale(1.1);
   }
   .slide-item {
     transform: scale(0.8);
@@ -82,7 +107,7 @@ export default styled.section`
 
   .round-act {
     transition-delay: 4s;
-    transition: all 0.15s ease;
+    transition: all 0.25s ease;
     width: 0px !important;
     height: 0px !important;
     border-radius: 100%;
@@ -113,9 +138,10 @@ export default styled.section`
     z-index: 4;
     opacity: 0;
     background-color: rgba(0, 0, 0, 0.7);
+    transition: all 0.25s ease;
   }
 
-  .slide-item.cur:hover .overlay-wrap {
+  .slick-center .box-item:hover .overlay-wrap {
     opacity: 1;
   }
 
@@ -192,6 +218,7 @@ export default styled.section`
       border-radius: 20px;
     }
   }
+
   @keyframes hidecard {
     30% {
       filter: blur(1rem);
@@ -200,7 +227,7 @@ export default styled.section`
       padding: 0;
       width: 0%;
       height: 0%;
-      border-radius: 100%;
+      border-radius: 40%;
     }
   }
 
@@ -235,7 +262,6 @@ export default styled.section`
   }
   .act-card-content {
     height: 100%;
-    overflow: hidden;
   }
 
   .close-btn {
@@ -282,7 +308,6 @@ export default styled.section`
   .act-project-slide-item-wrap {
     width: 900px;
     height: 650px;
-    padding: 10px;
   }
   .act-project-slide-item {
     overflow: hidden;
@@ -299,5 +324,78 @@ export default styled.section`
   }
   .proj-detail {
     font-size: 1.1rem;
+  }
+
+  @media (max-width: 1300px) {
+    .section-wrap {
+      padding: 5rem;
+    }
+    .slide-item-wrap {
+      height: 450px;
+    }
+    .box-item {
+      margin: 0rem;
+    }
+    .item-contents .mt-2 {
+      margin-top: 0rem;
+    }
+    .item-contents .mb-2 {
+      margin-bottom: 0rem;
+    }
+
+    .act-card-content .slider-container {
+      width: 100%;
+    }
+    .act-card-content > .d-flex {
+      display: block;
+      width: 100%;
+      position: relative;
+      margin: auto;
+      box-sizing: border-box;
+    }
+    .act-project-slide-item-wrap {
+      height: 520px;
+    }
+    .proj-date.mb-2 {
+      margin-bottom: 1rem;
+    }
+    @keyframes showcard {
+      30% {
+        filter: blur(1rem);
+      }
+      100% {
+        padding: 2rem;
+        width: 85%;
+        height: 80%;
+        border-radius: 20px;
+      }
+    }
+    .flex2.d-flex.justify-content-center {
+      justify-content: left;
+    }
+  }
+  @media (max-width: 800px) {
+    .box-item {
+      margin: 2rem;
+    }
+    .act-project-slide-item-wrap {
+      height: 100%;
+    }
+    .close-btn {
+      right: 15px;
+      top: 10px;
+      color: black;
+    }
+    @keyframes showcard {
+      30% {
+        filter: blur(1rem);
+      }
+      100% {
+        padding: 1rem;
+        width: 85%;
+        height: 80%;
+        border-radius: 20px;
+      }
+    }
   }
 `;

@@ -7,6 +7,7 @@ import emailjs from '@emailjs/browser';
 export default function Contact() {
     const form = useRef<HTMLFormElement>(null);
     const [onTitle1, setOnTitle1] = useState("off");
+    const [onTitle2, setOnTitle2] = useState("off");
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
@@ -17,7 +18,8 @@ export default function Contact() {
 
     const handleScroll = () => {
         //console.log(window.scrollY)
-        window.scrollY >= 4000 && setOnTitle1("on")
+        window.scrollY >= 4500 && setOnTitle1("on")
+        window.scrollY >= 4600 && setOnTitle2("on")
     };
 
     const msg_success = () => toast.success("메세지 전송성공")
@@ -49,7 +51,7 @@ export default function Contact() {
                 <div className={`cav-font_b section-title color-p pdb-50 ${onTitle1}`}>
                     Contact
                 </div>
-                <div className='form-wrap'>
+                <div className={`form-wrap ${onTitle2}`}>
                     <div className='form-box-back card-shadow position_a'>
                     </div>
                     <div className='form-box card-shadow position_a'>
