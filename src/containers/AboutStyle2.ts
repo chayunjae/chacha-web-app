@@ -85,7 +85,7 @@ export default styled.section`
       left: 10px;
     }
     .line-flat {
-      width: 90px;
+      width: 60px;
     }
     .line-flat.right {
       right: 0px;
@@ -93,17 +93,17 @@ export default styled.section`
     }
     .line-date.right {
       right: 0px;
-      left: 100px;
+      left: 70px;
     }
     .line-date.left {
-      left: 100px;
+      left: 70px;
     }
     .desc-wrap.left {
-      left: 120px;
+      left: 70px;
     }
     .desc-wrap.right {
       right: 0px;
-      left: 120px;
+      left: 70px;
       text-align: left;
     }
   }

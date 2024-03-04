@@ -16,7 +16,7 @@ export default styled.section`
     height: 1.5px;
     width: 100%;
     background-color: #deb4ff;
-    margin: 1rem;
+    margin: 1rem 0;
   }
   .top-desc-wrap {
     margin-top: 1rem;
@@ -108,9 +108,13 @@ export default styled.section`
     }
     .kor-desc {
       font-size: 0.8rem;
+      padding: 0 1rem;
+      word-break: keep-all;
     }
     .eng-desc {
       font-size: 1rem;
+      padding: 0 1rem;
+      word-break: keep-all;
     }
   }
 `;

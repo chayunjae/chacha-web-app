@@ -155,7 +155,8 @@ export default styled.section`
   }
 
   .box-2 {
-    flex: 20%;
+    flex: 15%;
+    margin: 15px;
   }
   .box-3 {
     flex: 30%;
@@ -175,6 +176,9 @@ export default styled.section`
     }
     .card.md {
       height: 265px;
+    }
+    .box-3 {
+      flex: 35%;
     }
   }
 `;

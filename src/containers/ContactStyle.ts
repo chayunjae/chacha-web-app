@@ -87,5 +87,8 @@ export default styled.section`
     .form-wrap .default-btn {
       width: 100%;
     }
+    .form-wrap .form-box-back {
+      transform: rotate(355deg);
+    }
   }
 `;

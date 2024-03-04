@@ -32,30 +32,30 @@ export default function About() {
                     About
                 </div>
                 <div className={`title-sub-wrap pdb-30 ${onTitle2}`}>
-                    <div className="card m-1 card-shadow md d-flex flex-wrap">
-                        <div className='box-3 mb-3'>
+                    <div className="card m-1 card-shadow d-flex flex-wrap">
+                        <div className='box-3'>
                             <div className='poor-font box-title mb-2'>이름</div>
-                            <div className='poor-font box-content fs-1_5 mt-3'>차윤재</div>
+                            <div className='poor-font box-content fs-1_5 mt-2 mb-3'>차윤재</div>
                         </div>
-                        <div className='box-3 mb-3'>
+                        <div className='box-3'>
                             <div className='poor-font box-title mb-2'>생년월일</div>
-                            <div className='poor-font box-content fs-1_5 mt-3'>1993.10.28</div>
+                            <div className='poor-font box-content fs-1_5 mt-2 mb-3'>1993.10.28</div>
                         </div>
-                        <div className='box-3 mb-3'>
+                        <div className='box-3'>
                             <div className='poor-font box-title mb-2'>주소</div>
-                            <div className='poor-font box-content fs-1_5 mt-3'>세종특별자치시 대평동</div>
+                            <div className='poor-font box-content fs-1_5 mt-2 mb-3'>세종특별자치시 대평동</div>
                         </div>
-                        <div className='box-3 mb-3'>
+                        <div className='box-3'>
                             <div className='poor-font box-title mb-2'>연락처</div>
-                            <div className='poor-font box-content fs-1_5 mt-3'>010-7370-2517</div>
+                            <div className='poor-font box-content fs-1_5 mt-2 mb-3'>010-7370-2517</div>
                         </div>
-                        <div className='box-3 mb-3'>
+                        <div className='box-3'>
                             <div className='poor-font box-title mb-2'>이메일</div>
-                            <div className='poor-font box-content fs-1_5 mt-3'>ckdbswo93@gmail.com</div>
+                            <div className='poor-font box-content fs-1_5 mt-2 mb-3'>ckdbswo93@gmail.com</div>
                         </div>
-                        <div className='box-3 mb-3'>
+                        <div className='box-3'>
                             <div className='poor-font box-title mb-2'>학력</div>
-                            <div className='poor-font box-content fs-1_5 mt-3'>학점은행제<br /><span className='fs-1'>(전문학사 - 컴퓨터네트워크 전공)</span></div>
+                            <div className='poor-font box-content fs-1_5 mt-2 mb-3'>학점은행제<br /><span className='fs-1'>(전문학사 - 컴퓨터네트워크 전공)</span></div>
                         </div>
 
                     </div>
@@ -64,7 +64,7 @@ export default function About() {
                     Skill & Strength
                 </div>
                 <div className={`title-sub-wrap pdb-30 ${onTitle4}`}>
-                    <div className="card m-1 card-shadow sm d-flex flex-wrap">
+                    <div className="card m-1 card-shadow d-flex flex-wrap">
                         <div className='box-2 box-img-wrap d-flex justify-content-center align-items-center'>
                             <img src={require("../images/logo/html5.png")} alt='' />
                         </div>
